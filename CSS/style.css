@@ -13,10 +13,12 @@
 {
     border: 2px solid #ccc;
     padding: 10px;
+    height: 330px;
     margin: 10px;
 }
 #pendProgre-contrainer{
     width: 350px;
+    height: 755px;
     flex-direction: column;
 }
 #pendientes-container,#progreso-container
@@ -24,7 +26,7 @@
     width: 310px;
 }
 
-#calendar-container,#terminados-container
+#calendar-container,#terminados-container,#asignacion
 {
     border: 2px solid #ccc;
     padding: 10px;
@@ -35,13 +37,16 @@
     align-items: center; /* Centramos los elementos horizontalmente */
     justify-content: flex-start; /* Alineamos los elementos en la parte superior del contenedor */
 }
-
+#asignacion
+{
+    height: 150px;
+}
 #calendar-container {
-    height: 350px;
+    height: 370px;
 }
 #terminados-container
 {
-    height: 200px;
+    height: 150px;
 }
 #initPend, #initProgre, #pendInp, #progreInp {
     margin: 23px 10px;
