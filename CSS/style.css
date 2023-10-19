@@ -1,0 +1,106 @@
+.containerFather
+{
+    display: flex; /* Utilizamos flexbox para organizar los elementos en fila */
+    flex-direction: column;
+}
+.containerBoss
+{
+    display: flex; /* Utilizamos flexbox para organizar los elementos en fila */
+    flex-direction: row;
+}
+
+#pendProgre-contrainer,#pendientes-container,#progreso-container
+{
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+#pendProgre-contrainer{
+    width: 350px;
+    flex-direction: column;
+}
+#pendientes-container,#progreso-container
+{
+    width: 310px;
+}
+
+#calendar-container,#terminados-container
+{
+    border: 2px solid #ccc;
+    padding: 10px;
+    width: 900px;
+    margin: 10px;
+    display: flex; /* Utilizamos flexbox para organizar los elementos */
+    flex-direction: column; /* Cambiamos la dirección de flexbox a columna para alinear los elementos verticalmente */
+    align-items: center; /* Centramos los elementos horizontalmente */
+    justify-content: flex-start; /* Alineamos los elementos en la parte superior del contenedor */
+}
+
+#calendar-container {
+    height: 350px;
+}
+#terminados-container
+{
+    height: 200px;
+}
+#initPend, #initProgre, #pendInp, #progreInp {
+    margin: 23px 10px;
+}
+
+#prev-month,#next-month
+{
+    color: #fff;
+}
+
+#prev-month {
+    background: #8E44AD; /* Púrpura */
+}
+
+#next-month {
+    background: #F1948A; /* Rosa Claro */
+}
+
+
+/* Botones "Anterior" y "Siguiente" en una sola fila */
+#prev-month, #next-month, #month-year {
+    display: inline-block; /* Hacemos que los elementos se muestren en línea */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 10px 99px; /* Agregamos margen horizontal entre los elementos */
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    width: 100%;
+}
+
+.day {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.add-task {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-weight: bold;
+}
+
+.task-box {
+    background-color: #F39C12; /* Naranja */
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+#tittlePend,#tittleProgre,tittleTerm
+{
+    text-align: center;
+}
