@@ -1,91 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendario</title>
-    <style>
-        #calendar-container {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 900px;
-            height: 400px;
-            margin: 50 auto;
-            
-        }
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
 
-        #calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-        }
-
-        .day {
-            border: 1px solid #ccc;
-            padding: 15px;
-            text-align: center;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .add-task {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            font-weight: bold;
-        }
-
-        .task-box {
-            background-color: #0074D9;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
-        #month-year {
-            text-align: center;
-        }
-
-        #prev-month {
-            background: #0074D9;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            position: absolute;
-            left: 700px;
-            right: 650px;
-            top: 8%; /* Alinea verticalmente al centro */
-            transform: translateY(-60%);
-            
-        }
-
-        #next-month{
-            background: #0074D9;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            position: absolute;
-            left: 50px;
-            right: 1300px;
-            top: 8%; /* Alinea verticalmente al centro */
-            transform: translateY(-60%);
-        }
-    </style>
-</head>
-
-<body>
-    <div id="calendar-container">
-        <div>
+  <body>
+    <div class="containerBoss">
+      <div class="containerFather">
+        <div id="calendar-container">
+          <div id="tittleAndBotons">
             <button id="prev-month">Anterior</button>
             <h2 id="month-year"></h2>
             <button id="next-month">Siguiente</button>
+          </div>
+          <div id="calendar"></div>
         </div>
-        <div id="calendar"></div>
+        <div id="terminados-container">
+          <h2 id="tittleTerm">Terminados</h2>
+        </div>
+      </div>
+      <div id="pendProgre-contrainer">
+        <div id="pendientes-container">
+          <h2 id="tittlePend">Pendientes</h2>
+          <input id="pendInp" type="text" />
+          <button id="initPend">Iniciar</button>
+        </div>
+        <div id="progreso-container">
+          <h2 id="tittleProgre">En Progreso</h2>
+          <input id="progreInp" type="text" />
+          <button id="initProgre">Terminar</button>
+        </div>
+      </div>
     </div>
     <script src="../JAVASCRIPT/FUNCION.JS"></script>
-</body>
-
+  </body>
 </html>
