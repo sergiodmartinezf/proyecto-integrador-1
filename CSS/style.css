@@ -1,9 +1,9 @@
-.containerFather
+.container2
 {
     display: flex; /* Utilizamos flexbox para organizar los elementos en fila */
     flex-direction: column;
 }
-.containerBoss
+.container1
 {
     display: flex; /* Utilizamos flexbox para organizar los elementos en fila */
     flex-direction: row;
@@ -70,7 +70,7 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    margin: 10px 99px; /* Agregamos margen horizontal entre los elementos */
+    margin: 10px 90px; /* Agregamos margen horizontal entre los elementos */
 }
 
 #calendar {
