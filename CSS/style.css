@@ -18,12 +18,13 @@
 }
 #pendProgre-contrainer{
     width: 350px;
-    height: 755px;
+    height: 757px;
     flex-direction: column;
 }
 #pendientes-container,#progreso-container
 {
     width: 310px;
+    overflow: auto;
 }
 
 #calendar-container,#terminados-container,#asignacion
@@ -37,16 +38,13 @@
     align-items: center; /* Centramos los elementos horizontalmente */
     justify-content: flex-start; /* Alineamos los elementos en la parte superior del contenedor */
 }
-#asignacion
-{
-    height: 150px;
-}
 #calendar-container {
     height: 370px;
 }
-#terminados-container
+#terminados-container,#asignacion
 {
     height: 150px;
+    overflow: auto;
 }
 #initPend, #initProgre, #pendInp, #progreInp {
     margin: 23px 10px;
