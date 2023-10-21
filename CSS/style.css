@@ -1,11 +1,11 @@
 .container2
 {
-    display: flex; /* Utilizamos flexbox para organizar los elementos en fila */
+    display: flex; 
     flex-direction: column;
 }
 .container1
 {
-    display: flex; /* Utilizamos flexbox para organizar los elementos en fila */
+    display: flex; 
     flex-direction: row;
 }
 
