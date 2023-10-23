@@ -1,0 +1,50 @@
+#top-menu {
+    background-color: #143692;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+  }
+
+  .user-icon {
+    font-size: 24px;
+  }
+
+  #top-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin-right: 0; /* Elimina el margen predeterminado de la lista */
+  }
+
+  #top-menu ul li {
+    margin-right: 10px;
+  }
+
+  #top-menu ul li:last-child {
+    margin-right: 0; /* Elimina el margen del último botón para evitar espacios innecesarios */
+  }
+
+  #top-menu ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: inline-block;
+  }
+
+  #top-menu ul li a:hover {
+    background-color: #777;
+  }
+
+  .contenedor-central {
+    background-color: #e6edf4;
+    max-width: 90%;
+    margin: 10px auto;
+    padding: 20px;
+    height: 100vh;
+  }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendario</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="containerBoss">
+      <div class="containerFather">
+        <div id="top-menu">
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Calendario</a></li>
+            <li><a href="#">Tareas</a></li>
+            <li><a href="#">Configuración</a></li>
+          </ul>
+          <div>
+            <i class="material-icons user-icon">person</i>
+          </div>
+        </div>
+        <div id="calendar-container">
+          <div id="tittleAndBotons">
+            <button id="prev-month">Anterior</button>
+            <h2 id="month-year"></h2>
+            <button id="next-month">Siguiente</button>
+          </div>
+          <div id="calendar"></div>
+        </div>
+        <div id="terminados-container">
+          <h2 id="tittleTerm">Terminados</h2>
+        </div>
+        <div id="asignacion">
+          <h2 id="tittleASIG">Asignar Tareas</h2>
+        </div>
+      </div>
+      <div id="pendProgre-contrainer">
+        <div id="pendientes-container">
+          <h2 id="tittlePend">Pendientes</h2>
+          <input id="pendInp" type="text" />
+          <button id="initPend">Iniciar</button>
+        </div>
+        <div id="progreso-container">
+          <h2 id="tittleProgre">En Progreso</h2>
+          <input id="progreInp" type="text" />
+          <button id="initProgre">Terminar</button>
+        </div>
+      </div>
+      <div class="perfil-container">
+        <button class="material-icons">person</button>
+      </div>
+    </div>
+    <script src="../JAVASCRIPT/FUNCION.JS"></script>
+  </body>
+</html>
