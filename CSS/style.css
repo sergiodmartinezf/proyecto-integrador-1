@@ -1,4 +1,37 @@
-/* Estilos para los elementos del menú */
+/* Estilos generales para el body y html */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #5790AB;
+}
+
+/* Contenedor principal */
+.total-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor 1 */
+.container1 {
+    display: flex;
+    height: 100%;
+    padding: 1%;
+}
+
+/* Contenedor 2 */
+.container2 {
+    width: 75%;
+    min-height: 1000px
+}
+
+/* Estilos para el menú */
 #top-menu {
     background-color: #064469;
     color: #fff;
@@ -9,28 +42,30 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 10vh;
+    height: 9vh;
     z-index: 1000;
 }
 
 .user-icon {
     font-size: 24px;
     padding: 10px;
+    margin-right: 20px;
 }
 
 #top-menu ul {
+    margin-left: 2px;
     list-style: none;
     padding: 0;
     display: flex;
 }
 
 #top-menu ul li {
-    margin-right: 10px; /* Espacio entre los botones del menú */
+    margin-right: 10px;
 }
 
 #top-menu ul li a {
     text-decoration: none;
-    padding: 10px 20px; /* Ajusta el espaciado del botón */
+    padding: 10px 20px;
     background-color: #555;
     color: #fff;
     border-radius: 5px;
@@ -41,56 +76,6 @@
 #top-menu ul li a:hover {
     background-color: #777;
 }
-/* Fin Estilos para los elementos del menú */
-
-#container1 {
-    display: flex;
-}
-
-/* Estilos para contenedores principales */
-#pendProgre-contrainer {
-    border: 2px solid #072D44;
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 10px;
-    align-items: center;
-}
-
-#calendar-container, #terminados-container, #asignacion {
-    border: 2px solid #072D44;
-    padding: 10px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-#calendar-container {
-    height: 370px;
-}
-
-#terminados-container, #asignacion {
-    height: 150px;
-    overflow: auto;
-}
-/* Fin estilos para contenedores principales */
-
-#progreso-container {
-    border-left: 2px solid #072D44;
-    margin-left: 10px;
-}
-
-#pendientes-container, #progreso-container {
-    height: 120px;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    width: 50%;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
 
 /* Estilos dentro del contenedor calendar */
 #prev-month, #next-month {
@@ -98,11 +83,11 @@
 }
 
 #prev-month {
-    background: #8E44AD; /* Púrpura */
+    background: #8E44AD;
 }
 
 #next-month {
-    background: #F1948A; /* Rosa Claro */
+    background: #F1948A;
 }
 
 /* Botones "Anterior" y "Siguiente" en una sola fila */
@@ -128,6 +113,8 @@
     text-align: center;
     position: relative;
     cursor: pointer;
+    height: 26px;
+    
 }
 
 .add-task {
@@ -138,24 +125,101 @@
 }
 
 .task-box {
-    background-color: #F39C12; /* Naranja */
+    background-color: #F39C12;
     color: #fff;
     padding: 5px;
     border-radius: 5px;
     margin-top: 5px;
 }
-/* Fin estilos contenedor calendar */
 
+/* Estilos en particular */
+#pendProgre-contrainer {
+    border: 2px solid #072D44;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 10px;
+    align-items: center;
+}
+
+#progreso-container {
+    border-left: 2px solid #072D44;
+    margin-left: 10px;
+}
+
+#pendientes-container, #progreso-container {
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    width: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Estilos para #terminados-container */
+#terminados-container 
+{
+    width: 25%;
+}
+
+/* fin Estilos en particular */
+
+#calendar-container
+{
+    height: 400px;
+}
+
+#asignacion
+{
+    height: 23%;
+}
+pendProgre-contrainer
+{
+    min-height: 300px;
+}
+
+#calendar-container, #terminados-container, #asignacion
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Estilos para diferentes contenedores */
+#calendar-container, #terminados-container, #asignacion, #pendProgre-contrainer {
+    border: 2px solid #072D44;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #9CCDDB;
+}
+
+
+/* Estilos para los títulos */
 #tittlePend, #tittleProgre, #tittleTerm {
     text-align: center;
 }
 
-body {
-    overflow-y: auto; /* Muestra la barra de desplazamiento vertical si es necesario */
-    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
-    background-color: #5790AB;
+#tittleAndBotons
+{
+ width: 90%;
+ height: min-content;
+ justify-content: center;
+ text-align: center;
 }
 
-#calendar-container, #pendientes-container, #progreso-container, #terminados-container, #asignacion,#pendProgre-contrainer {
-    background-color: #9CCDDB;
-}
+@media (max-width: 768px) {
+    #calendar-container {
+      width: 100%;
+    }
+    
+    #pendProgre-contrainer {
+      flex-direction: column;
+    }
+    
+    #pendientes-container, #progreso-container {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
