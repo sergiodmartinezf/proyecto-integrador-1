@@ -65,3 +65,42 @@ const calendarDiv = document.getElementById("calendar");
             }
             updateCalendar(currentYear, currentMonth);
         });
+
+        const userIcon = document.getElementById("user-icon");
+
+        // Agregar un evento para ocultar el menú cuando se hace clic en cualquier parte de la página
+        document.addEventListener("click", function (event) {
+            if (!event.target.matches("#user-icon")) {
+              const menus = document.querySelectorAll(".menu-lateral");
+              menus.forEach(function (menu) {
+                menu.style.display = "none";
+              });
+            }
+          });
+
+          const menuLateral = document.getElementById("menu-lateral");
+
+let menuVisible = false; // Variable para rastrear la visibilidad del menú
+
+userIcon.addEventListener("click", function (event) {
+  // Evita que el clic en el icono propague a otros elementos
+  event.stopPropagation();
+
+  if (menuVisible) {
+    // Si el menú ya está visible, ocúltalo al hacer clic nuevamente en el icono
+    menuLateral.style.display = "none";
+  } else {
+    // Si el menú no está visible, muéstralo
+    menuLateral.style.display = "block";
+  }
+
+  menuVisible = !menuVisible; // Cambia el estado de visibilidad
+});
+
+// Agrega un evento para ocultar el menú cuando se hace clic en cualquier parte de la página
+document.addEventListener("click", function () {
+  if (menuVisible) {
+    menuLateral.style.display = "none";
+    menuVisible = false;
+  }
+});
