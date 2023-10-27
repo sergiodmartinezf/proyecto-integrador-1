@@ -27,8 +27,8 @@ body, html {
 
 /* Contenedor 2 */
 .container2 {
-    width: 75%;
-    min-height: 1000px
+    min-width: 1000px;;
+    min-height: 700px;
 }
 
 /* Estilos para el menú */
@@ -104,16 +104,18 @@ body, html {
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
     width: 100%;
+    height: 100%;
 }
 
 .day {
     background-color: #D0D7E1;
     border: 1px solid #072D44;
-    padding: 15px;
+    padding: 1px;
     text-align: center;
+    justify-content: center;
     position: relative;
     cursor: pointer;
-    height: 26px;
+    margin: 0px;
     
 }
 
@@ -159,19 +161,20 @@ body, html {
 /* Estilos para #terminados-container */
 #terminados-container 
 {
-    width: 25%;
+    min-width: 450px;
+    min-height: 696px;
 }
 
 /* fin Estilos en particular */
 
 #calendar-container
 {
-    height: 400px;
+    height: 500px;
 }
 
 #asignacion
 {
-    height: 23%;
+    min-height: 140px;
 }
 pendProgre-contrainer
 {
@@ -209,17 +212,45 @@ pendProgre-contrainer
  text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 360px) {
     #calendar-container {
-      width: 100%;
+      width: 50%;
+      height: 500px;
+    }
+    #day
+    {
+        width: auto;
+        height: auto;
     }
     
     #pendProgre-contrainer {
-      flex-direction: column;
+      flex-direction: row;
     }
     
     #pendientes-container, #progreso-container {
-      width: 100%;
+      width: 25%;
       margin: 10px 0;
     }
+    #terminados-container
+    {
+        width: 50%;
+        height: 100%;
+    }
+    .container1
+    {
+        width: 100% ;
+        flex-direction: column;
+        margin: 10px 0;
+    }
+    .container2
+    {
+        width: 50%;
+    }
+    .body,html
+    {
+
+        overflow-y: auto;
+        overflow-x: auto;
+    }
   }
+
