@@ -140,3 +140,41 @@
   #top-menu ul li a:hover {
     background-color: #777; /* Cambia el color de fondo al pasar el cursor */
   }
+
+  .menu-lateral {
+    width: 200px; /* Ancho de la barra lateral */
+    background-color: #333;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: -200px; /* Inicialmente, la barra estará oculta */
+    height: 100%; /* La barra ocupará toda la altura del viewport */
+    transition: right 0.3s; /* Agregamos una transición para suavizar la animación */
+    padding-top: 60px; /* Agregamos espacio para el icono de usuario */
+  }
+  
+  .menu-lateral ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-lateral a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-lateral a:hover {
+    background-color: #555;
+  }
+  
+  .user-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer; /* Cambiamos el cursor al hacer clic */
+  }
+  
