@@ -1,245 +1,271 @@
 body, html {
-    width: 1462px;
-    height: 2039px;
-  }
+  width: 1500px;
+  height: 2039px;
+}
+html
+{
   
-  .container1 {
-    margin-top: 10px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .container2 {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-    margin-inline: 20px;
-  }
-  
-  /* Estilos para el menú */
-  #top-menu {
-    background-color: #C2C6CC;
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    z-index: 1000;
-  }
-  
-  .user-icon {
-    font-size: 24px;
-    padding: 10px;
-    margin-right: 20px;
-    background-color: #064469;
-    border-radius: 10px;
-  }
-  
-  #top-menu ul {
-    margin-left: 2px;
-    list-style: none;
-    padding: 0;
-    display: flex;
-  }
-  
-  #top-menu ul li {
-    margin-right: 10px;
-  }
-  
-  #top-menu ul li a {
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: #064469;
-    color: #fff;
-    border-radius: 20px;
-    transition: background-color 0.3s;
-    display: inline-block;
-  }
-  
-  #top-menu ul li a:hover {
-    background-color: #777;
-  }
-  
-  #tittleAndBotons {
-    border-bottom: 1px solid #000;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-color: #D9D9D9;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  #prev-month, #next-month, #month-year {
-    border-radius: 20px;
-  }
-  
-  #prev-month, #next-month {
-    background: #064469;
-    color: #fff;
-    font-size: 18px;
-  }
-  
-  #prev-month {
-    margin-left: 50px;
-  }
-  
-  #next-month {
-    margin-right: 50px;
-  }
-  
-  #month-year {
-    font-size: 25px;
-  }
-  
-  #calendar-container {
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border-radius: 20px;
-    border: 2px solid #000;
-    background: #9CCDDB;
+  overflow-x: hidden;
+}
+.container1 {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
 
-  }
-  
-  #calendario {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    width: 90%;
-  }
-  
-  #dias-semana {
-    border: 2px solid #000;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-color: #D9D9D9;
-    display: flex;
-    flex-direction: row;
-    width: 99.5%;
-    justify-content: space-between;
-    text-align: center;
-  }
-  
-  h3 {
-    font-size: 25px;
-    padding-right: 23px;
-    padding-left: 23px;
-  }
-  
-  #calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 3px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: 2px solid #000;
-    border-top: none;
-    background: #D9D9D9;
-    padding: 10px;
-  }
-  
-  .day {
-    position: relative;
-    display: flex;
-    border-radius: 10px;
-    background-color: #FFFEFE;
-    border: 1px solid #000000;
-    justify-content: center;
-    align-items: center;
-    height: 56px;
-    font-size: 20px;
-  }
-  
-  
-  .add-task {
-    position: absolute;
-    bottom: 10px;
-    font-weight: bold;
-    height: 10px;
-    width: 10px;
-  }
-  
-  .task-box {
-    background-color: #F39C12;
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    margin-top: 5px;
-  }
-  
-  #tittleASIG,#tittlePend,#tittleTerm,#tittleProgre
-  {
-    margin: 0px;
-    background-color: #D9D9D9;
-    border-bottom: 2px solid #000 ;
-  }
-  
-  #asignacion,#pendProgre-contrainer{
-    margin-top: 20px;
-    border: 2px solid #072D44;
-    background-color: #9CCDDB;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100px;
-    text-align: center;
-  }
+.container2 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  margin-inline: 20px;
+}
 
-  #pendProgre-contrainer {
-    flex-direction: row;
-    min-height: 100px;
-  }
+/* Estilos para el menú */
+#top-menu {
+  background-color: #C2C6CC;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+}
 
-  #pendientes-container,#progreso-container
-  {
-    width: 50%;
-  }
+.user-icon {
+  font-size: 24px;
+  padding: 10px;
+  margin-right: 20px;
+  background-color: #064469;
+  border-radius: 10px;
+}
 
-  #pendientes-container
-  {
-    border-right: 2px solid #000;
-  }
+#top-menu ul {
+  margin-left: 2px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
 
-  #inputAndButton 
-  {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar verticalmente */
-    justify-content: center; /* Centrar horizontalmente */
-    text-align: center;
-    height: 100%;
-    box-sizing: content-box;
+#top-menu ul li {
+  margin-right: 10px;
+}
 
-  }
+#top-menu ul li a {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #064469;
+  color: #fff;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
 
-  #terminados-container
-  {
-    margin-inline: 20px;
-    border: 2px solid #072D44;
-    border-radius: 20px;
-    background-color: #9CCDDB;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100px;
-    text-align: center;
-  }
+#top-menu ul li a:hover {
+  background-color: #777;
+}
 
-  #tittleTerm
- {
-    border-top-left-radius:20px;
-    border-top-right-radius: 20px ;
- } 
+#tittleAndBotons {
+  border-bottom: 1px solid #000;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #D9D9D9;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#prev-month, #next-month, #month-year {
+  border-radius: 20px;
+}
+
+#prev-month, #next-month {
+  background: #064469;
+  color: #fff;
+  font-size: 18px;
+}
+
+#prev-month {
+  margin-left: 50px;
+}
+
+#next-month {
+  margin-right: 50px;
+}
+
+#month-year {
+  font-size: 25px;
+}
+
+#calendar-container {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 20px;
+  border: 2px solid #000;
+  background: #9CCDDB;
+
+  height: 640px;
+
+}
+
+#calendario {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 90%;
+  height: 630px;
+}
+
+#dias-semana {
+  border: 2px solid #000;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #D9D9D9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+
+h3
+{
+  font-size: 25px;
+}
+#D
+{
+  padding-right: 30px;
+}
+
+#L{
   
-  
-  
+  padding-left: 30px;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 2px solid #000;
+  border-top: none;
+  background: #D9D9D9;
+  padding: 10px;
+  height: 420px;
+}
+
+.day {
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+  background-color: #FFFEFE;
+  border: 1px solid #000000;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  font-size: 20px;
+}
+
+
+.add-task {
+  position: absolute;
+  bottom: 10px;
+  font-weight: bold;
+  height: 10px;
+  width: 10px;
+}
+
+.task-box {
+  background-color: #F39C12;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+#tittleASIG,#tittlePend,#tittleTerm,#tittleProgre
+{
+  margin: 0px;
+  background-color: #D9D9D9;
+  border-bottom: 2px solid #000 ;
+}
+
+#asignacion,#pendProgre-contrainer{
+  margin-top: 20px;
+  border: 2px solid #072D44;
+  background-color: #9CCDDB;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+#pendProgre-contrainer {
+  flex-direction: row;
+  min-height: 100px;
+}
+
+#pendientes-container,#progreso-container
+{
+  width: 50%;
+}
+
+#pendientes-container
+{
+  border-right: 2px solid #000;
+}
+
+#inputAndButton 
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  text-align: center;
+  height: 100%;
+  box-sizing: content-box;
+
+}
+
+#terminados-container
+{
+  margin-inline: 20px;
+  border: 2px solid #072D44;
+  border-radius: 20px;
+  background-color: #9CCDDB;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100px;
+  text-align: center;
+}
+
+#tittleTerm,#tittleASIG
+{
+  border-top-left-radius:20px;
+  border-top-right-radius: 20px ;
+} 
+
+#tittleProgre
+{
+border-top-right-radius: 20px;
+}
+
+#tittlePend
+{
+border-top-left-radius: 20px;
+} 
+
