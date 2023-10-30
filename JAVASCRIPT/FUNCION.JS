@@ -35,20 +35,54 @@ function generateCalendar(year, month) {
     const addTaskButton = document.createElement("span");
     addTaskButton.className = "add-task";
     addTaskButton.textContent = "+";
-    
-    addTaskButton.addEventListener("click", () => {
-      const task = prompt("Ingrese una tarea:");
-      if (task) {
-        const taskDisplay = document.createElement("div");
-        taskDisplay.className = "task-box";
-        taskDisplay.textContent = task;
-        dayDiv.appendChild(taskDisplay);
-      }
-    });
+    const tasks = [];
 
-    dayDiv.appendChild(addTaskButton);
-    calendarDiv.appendChild(dayDiv);
-  }
+addTaskButton.addEventListener("click", () => {
+  Swal.fire({
+    title: 'Lista de Tareas',
+    html: '<div id="task-list"></div>' +
+          '<input id="task" class="swal2-input" placeholder="Ingrese una tarea">' +
+          '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">',
+    showCancelButton: true,
+    confirmButtonText: 'Asignar Nueva Tarea',
+    cancelButtonText: 'Cancelar',
+    onBeforeOpen: () => {
+      const taskList = Swal.getPopup().querySelector('#task-list');
+      const taskInput = Swal.getPopup().querySelector('#task');
+      const teamInput = Swal.getPopup().querySelector('#team');
+
+      // Actualizar la lista de tareas en tiempo real
+      function updateTaskList() {
+        taskList.innerHTML = '';
+        tasks.forEach((task) => {
+          const taskDiv = document.createElement("div");
+          taskDiv.className = "task-box";
+          taskDiv.textContent = task;
+          taskList.appendChild(taskDiv);
+        });
+      }
+
+      // Al hacer clic en "Asignar Nueva Tarea"
+      Swal.getConfirmButton().addEventListener('click', () => {
+        const task = taskInput.value;
+        const team = teamInput.value;
+
+        if (task) {
+          tasks.push(`Tarea: ${task}, Equipo: ${team}`);
+          updateTaskList();
+          taskInput.value = '';
+          teamInput.value = '';
+        }
+      });
+    },
+    allowOutsideClick: false, 
+    persistent: true
+  });
+});
+
+dayDiv.appendChild(addTaskButton);
+calendarDiv.appendChild(dayDiv);
+}
 
   // Estilo para cuadros vacíos sin bordes ni fondo
   const emptyDayElements = document.querySelectorAll(".empty-day");
