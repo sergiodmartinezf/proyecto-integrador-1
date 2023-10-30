@@ -1,0 +1,66 @@
+/* Estilos para el encabezado con clase "titulo" */
+.titulo {
+    text-align: center;
+    font-size: 30px;
+  }
+
+/* Estilos para el encabezado con clase "titulo2" */
+.titulo2 {
+    text-align: center;
+  }
+
+/* Estilos para el botón */
+button {
+    border-radius: 50px;
+    box-shadow: 0 1px 1px;
+    border: 1px solid #008ecf;
+    background: #008ecf;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Estilos para las columnas de texto */
+.columnas {
+    font-size: 30px;
+    width: 50%;/* Permite que las columnas estén una al lado de la otra */
+}
+
+/* Estilos para la imagen */
+#imagenCal {
+    width: 40%;
+    height: max-content;
+    float: left; /* Permite que la imagen esté junto a las columnas de texto */
+}
+
+/* Contenedor para las columnas de texto y la imagen */
+#columImg {
+    margin: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+/* Estilos para los párrafos en .columnas2 */
+.columnas2 p {
+    width: 70%; /* Puedes ajustar este valor según tus preferencias */
+    margin: 0 auto; /* Centra los párrafos horizontalmente en el contenedor */
+    margin-left: 30px; /* Agrega un margen a la izquierda para separar el texto de los iconos */
+}
+
+/* Estilos para los íconos de Material Icons */
+.material-icons {
+    font-size: 24px; /* Ajusta el tamaño de los íconos según tus preferencias */
+}
+
+#buttonPrueba
+{
+    margin: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self:center;
+}
+
