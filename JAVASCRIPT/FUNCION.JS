@@ -42,7 +42,8 @@ addTaskButton.addEventListener("click", () => {
     title: 'Lista de Tareas',
     html: '<div id="task-list"></div>' +
           '<input id="task" class="swal2-input" placeholder="Ingrese una tarea">' +
-          '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">',
+          '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">'+
+          '<input id="desc" class="swal2-input" placeholder="Descripción">',
     showCancelButton: true,
     confirmButtonText: 'Asignar Nueva Tarea',
     cancelButtonText: 'Cancelar',
@@ -50,7 +51,7 @@ addTaskButton.addEventListener("click", () => {
       const taskList = Swal.getPopup().querySelector('#task-list');
       const taskInput = Swal.getPopup().querySelector('#task');
       const teamInput = Swal.getPopup().querySelector('#team');
-
+      const description = Swal.getPopup().querySelector('#desc');
       // Actualizar la lista de tareas en tiempo real
       function updateTaskList() {
         taskList.innerHTML = '';
@@ -74,6 +75,7 @@ addTaskButton.addEventListener("click", () => {
           teamInput.value = '';
         }
       });
+      //al añadirse nueva tarea debe tener un boton que diga leer descripcion
     },
     allowOutsideClick: false, 
     persistent: true
