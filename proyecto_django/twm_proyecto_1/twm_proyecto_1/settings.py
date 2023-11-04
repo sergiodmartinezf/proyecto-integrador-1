@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'twm_proyecto_1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'twm_data_base',
-        "USER": "postgres",
+        'NAME': 'twm_data_base.db',
+        "USER": "twm_user",
         "PASSWORD": "h1o2l3a4",
         "HOST": "127.0.0.1",
         "PORT": "5432",
