@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendario</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- SweetAlert2 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body>
+    <div id="top-menu">
+      <ul>
+        <li><a href="../HTML/inicio1.html">Inicio</a></li>
+        <li><a href="../HTML/calendario.html">Calendario</a></li>
+        <li><a href="../HTML/tarea_completa.html">Tareas</a></li>
+        <li><a href="#">Configuración</a></li>
+      </ul>
+      <i class="material-icons user-icon" id="user-icon">person</i>
+    </div>
+    <div id="menu-lateral" class="menu-lateral">
+      <div id="usuario-info">
+        <h3>Nombre de Usuario</h3>
+        <p>Equipo:</p>
+      </div>
+      <ul>
+        <li><a href="#">Opción 1</a></li>
+        <li><a href="#">Opción 2</a></li>
+        <li><a href="#">Opción 3</a></li>
+      </ul>
+    </div>
+    <div class="container1">
+      <div class="container2">
+        <div id="calendar-container">
+          <div id="tittleAndBotons">
+            <button id="prev-month">Anterior</button>
+            <h2 id="month-year"></h2>
+            <button id="next-month">Siguiente</button>
+          </div>
+          <div id="calendario">
+            <div id="dias-semana">
+              <h3 id="L">L</h3>
+              <h3>M</h3>
+              <h3>M</h3>
+              <h3>J</h3>
+              <h3>V</h3>
+              <h3>S</h3>
+              <h3 id="D">D</h3>
+            </div>
+            <div id="calendar"></div>
+          </div>
+        </div>
+        <div id="asignacion">
+          <h2 id="tittleASIG">Asignar Tareas</h2>
+        </div>
+        <div id="pendProgre-contrainer">
+          <div id="pendientes-container">
+            <h2 id="tittlePend">Pendientes</h2>
+            <div id="inputAndButton">
+              <button id="initPend">Iniciar</button>
+            </div>
+          </div>
+          <div id="progreso-container">
+            <h2 id="tittleProgre">En Progreso</h2>
+            <div id="inputAndButton">
+              <button id="initProgre">Terminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="terminados-container">
+        <h2 id="tittleTerm">Terminados</h2>
+      </div>
+    </div>
+
+    <script src="../JAVASCRIPT/FUNCION.JS"></script>
+  </body>
+</html>

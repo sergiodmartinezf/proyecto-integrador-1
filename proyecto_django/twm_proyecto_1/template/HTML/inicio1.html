@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendario</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/inicio-logIn.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- SweetAlert2 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body>
+    <div id="top-menu">
+      <ul>
+        <li><a href="../HTML/inicio1.html">Inicio</a></li>
+        <li><a href="../HTML/calendario.html">Calendario</a></li>
+        <li><a href="../HTML/tarea_completa.html">Tareas</a></li>
+        <li><a href="#">Configuración</a></li>
+      </ul>
+      <i class="material-icons user-icon">person</i>
+    </div>
+    <div class="container1">
+      <div id="tittleAndText">
+        <h1>¡Bienvenido a la Gestión de Tareas en Equipo!</h1>
+        <p>
+          ¡Bienvenido a nuestro portal de gestión de tareas en equipo! Aquí, la
+          colaboración y la eficiencia se unen. Explora y gestiona equipos,
+          tareas y su progreso de manera conjunta y sencilla. Visualiza equipos,
+          tareas y su estado en tablas intuitivas. Comienza a trabajar en
+          conjunto y aumenta la productividad de tu equipo.
+        </p>
+      </div>
+    </div>
+    <div class="containerPrimary">
+      <div class="container2">
+        <h2>Equipos de Trabajo</h2>
+        <table id="equipoTrabajo">
+          <tr>
+            <th id="NE">Nombre Equipo</th>
+            <th id="NumE">N° Equipo</th>
+          </tr>
+          <tr>
+            <td>Equipo 1</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Equipo 2</td>
+            <td>2</td>
+          </tr>
+          <!-- Puedes agregar más filas según tus necesidades -->
+        </table>
+        <h2>Tareas</h2>
+        <table id="tareas">
+          <tr>
+            <th id="EQ">Nombre Equipo</th>
+            <th id="TT">Tareas</th>
+          </tr>
+          <tr>
+            <td>Equipo 1</td>
+            <td>Tarea A</td>
+          </tr>
+          <tr>
+            <td>Equipo 2</td>
+            <td>Tarea B</td>
+          </tr>
+          <!-- Puedes agregar más filas según tus necesidades -->
+        </table>
+      </div>
+      <div class="container4">
+        <h2>Tus avances</h2>
+        <table id="avances">
+          <tr>
+            <th id="TE">Tareas</th>
+            <th id="EA">Estado</th>
+          </tr>
+          <tr>
+            <td>Tarea A</td>
+            <td>Terminada</td>
+          </tr>
+          <tr>
+            <td>Tarea B</td>
+            <td>En Progreso</td>
+          </tr>
+          <tr>
+            <td>Tarea C</td>
+            <td>Sin Iniciar</td>
+          </tr>
+          <!-- Puedes agregar más filas según tus necesidades -->
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
