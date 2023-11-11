@@ -1,65 +1,73 @@
+/* Estilos generales */
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+}
 html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+#top-menu {
+  background-color: #C2C6CC;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
 
-  #top-menu {
-    background-color: #C2C6CC;
-    width: 100%;
-    height: 60px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-  }
-  
-  #top-menu ul {
-    list-style: none;
-    display: flex;
-    justify-content: center; /* Centra los elementos de navegación horizontalmente */
-    align-items: center; /* Centra los elementos de navegación verticalmente */
-  }
-  
-  #top-menu ul li {
-    margin: 0 10px;
-  }
-  
-  #top-menu ul li a {
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: #064469;
-    color: #fff;
-    border-radius: 20px;
-    transition: background-color 0.3s;
-    display: inline-block;
-  }
-  #top-menu ul li a:hover {
-    background-color: #C2C6CC;
-    color: #064469;
-    text-decoration: underline;
-  }
-  
-  #logonav {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    display: flex; /* Alinea el logotipo verticalmente al centro */
-    align-items: center; /* Alinea el logotipo verticalmente al centro */
-    margin-left: 15px;
-  }
-  
-  .material-icons.user-icon {
-    font-size: 40px;
-    color: #fff;
-    border-radius: 10px;
-    margin-right: 50px;
-    display: flex; /* Ajusta el alineado vertical si es necesario */
-    align-items: center; /* Ajusta el alineado vertical si es necesario */
-  }
-  
+#top-menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Centra los elementos de navegación horizontalmente */
+  align-items: center; /* Centra los elementos de navegación verticalmente */
+}
+
+#top-menu ul li {
+  margin: 0 10px;
+}
+
+#top-menu ul li a {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #064469;
+  color: #fff;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+#top-menu ul li a:hover {
+  background-color: #C2C6CC;
+  color: #064469;
+  text-decoration: underline;
+}
+
+#logonav {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: flex; /* Alinea el logotipo verticalmente al centro */
+  align-items: center; /* Alinea el logotipo verticalmente al centro */
+  margin-left: 15px;
+}
+
+.material-icons.user-icon {
+  font-size: 40px;
+  color: #fff;
+  border-radius: 10px;
+  margin-right: 50px;
+  display: flex; /* Ajusta el alineado vertical si es necesario */
+  align-items: center; /* Ajusta el alineado vertical si es necesario */
+}
+
   /* Estilos para el menú hamburguesa */
   #menu-toggle {
     font-size: 24px;
