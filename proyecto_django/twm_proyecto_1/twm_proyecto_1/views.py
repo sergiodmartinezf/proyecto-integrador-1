@@ -26,7 +26,7 @@ def crearcuenta2(request):
         #cursor = connection.cursor()
         #cursor.execute(sql3_, [nombre,correo,contraseña])
 
-        return render(request,'HTML/signIn.html'{nombre,})
+        return render(request,'HTML/signIn.html')
 def iniciarsesion(request):
 
     return render(request, 'HTML/signIn.html')
