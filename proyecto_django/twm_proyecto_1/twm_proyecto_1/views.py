@@ -26,11 +26,12 @@ def crearcuenta2(request):
         #cursor = connection.cursor()
         #cursor.execute(sql3_, [nombre,correo,contraseña])
 
-        return render(request,'HTML/signIn.html')
+        return render(request,'HTML/signIn.html'{nombre,})
 def iniciarsesion(request):
 
     return render(request, 'HTML/signIn.html')
 
 def calendario(request):
+
     return render(request, 'HTML/calendario.html')
 
