@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendario</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/inicioUP.css" />
-    <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    {% load static %}
+    <script src="{% static 'JAVASCRIPT/inicio_app.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/inicioUP.css' %}" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -22,12 +23,10 @@
   <body>
     <div id="top-menu">
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Calendario</a></li>
-        <li><a href="#">Tareas</a></li>
-        <li><a href="#">Configuración</a></li>
+        <li><a href="#">Tutorial</a></li>
+        <li><a href="#">Iniciar Sesion</a></li>
+        <li><a href="{%url 'crearcuenta/'%}">Crear Cuenta</a></li>
       </ul>
-      <i class="material-icons user-icon">person</i>
     </div>
     <div class="titulo">
       <h1>¿Tienes tareas pendientes?</h1>
@@ -35,7 +34,8 @@
         Con (nombre), es mas facil organizar tus trabajos o tareas junto con tus
         compañeros.
       </p>
-      <button id="registro">Registrate Gratis</button>
+      <a href="{% url 'crearcuenta/' %}" class="boton-registro">Regístrate Gratis</a>
+
     </div>
     <div id="columImg">
       <div class="columnas">
@@ -52,7 +52,7 @@
         </p>
       </div>
       <div id="imagenCal">
-        <img src="Screenshot_1.png" style="max-width: 100%" />
+        <img src="{% static 'images/Screenshot_1' %}" style="max-width: 100%" />
       </div>
     </div>
 

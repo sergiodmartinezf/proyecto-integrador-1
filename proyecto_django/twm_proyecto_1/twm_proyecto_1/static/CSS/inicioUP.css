@@ -64,3 +64,15 @@ button {
     align-self:center;
 }
 
+.boton-registro {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50; /* Color de fondo verde, puedes ajustar esto según tu diseño */
+    color: white; /* Color del texto blanco */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+}
