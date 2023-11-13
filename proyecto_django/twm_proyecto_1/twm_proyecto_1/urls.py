@@ -10,6 +10,6 @@ urlpatterns = [
     path('crearcuenta2/', views.crearcuenta2, name='crearcuenta2/'),
     path('iniciarsesion/', views.iniciarsesion, name='iniciarsesion/'),
     path('calendario/', views.calendario, name='calendario/'),
-    path('admin/', admin.site.urls),# VIDEO 3: Aqui esta el url de la vistaTest
-    #path('pagina_de_inicio/', views.pagina_de_inicio,'pagina_de_inicio/') # VIDEO 4: Codigo html
+    path('admin/', admin.site.urls),
+    #path('iniciosesion2/', views.iniciosesion2, name='iniciosesion2/'), # SERGIO
 ]

@@ -40,3 +40,22 @@ def calendario(request):
 
     return render(request, 'HTML/calendario.html')
 
+# SERGIO
+#def iniciosesion2(request):
+    if request.method == 'POST':
+        correo = request.POST.get('correo')
+        contraseña = request.POST.get('contraseña')
+        print(correo)
+        print(contraseña)
+
+        sql = 'SELECT aplicacion_1_usuariO (correo, contra) VALUES (%s, %s, %s)'
+        cursor = connection.cursor()
+        cursor.execute(sql, [correo, contraseña])
+
+        #connection.commit()
+
+        return HttpResponse("Usuario creado exitosamente") 
+
+    return HttpResponse("Método no permitido")
+
+

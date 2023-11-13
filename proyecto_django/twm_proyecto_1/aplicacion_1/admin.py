@@ -5,7 +5,7 @@ from aplicacion_1.models import Usuario, Equipo, Tareas, Miembros, Comunicacione
 # Register your models here.
 
 class UsuarioAdmin(admin.ModelAdmin):
-    list_display=("ID","Nombre","correo","contra")
+    list_display=("ID","Nombre","correo","contra","cont")
 
 class EquipoAdmin(admin.ModelAdmin):
     list_display=("ID","nombre","descripcion")

@@ -7,6 +7,7 @@ class Usuario(models.Model):
     Nombre=models.CharField(max_length=100)
     correo=models.CharField(max_length=50)
     contra=models.CharField(max_length=30)
+    cont=models.IntegerField(default=0)
 
 class Equipo(models.Model):
     ID=models.AutoField(primary_key=True)
