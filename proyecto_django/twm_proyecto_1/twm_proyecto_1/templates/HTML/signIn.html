@@ -7,11 +7,48 @@
     <link rel="stylesheet" type="text/css" href="../CSS/signIn.css" />
   </head>
   <body>
+    <script>
+      $(document).ready(function () {
+        $("#crearCuentaBtn").click(function () {
+
+          var correo = $("#Correo").val();
+          var contraseña = $("#Contraseña").val();
+
+         
+          console.log("Correo:", correo);
+          console.log("Contraseña:", contraseña);
+
+          var formData = {
+        'correo': correo,
+        'contraseña': contraseña,
+        'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
+      };
+
+      console.log(formData);
+
+      $.ajax({
+        type: "POST",
+        url: "/iniciosesion2/",
+        data: {
+                correo,
+                contraseña,
+                'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
+        },
+        success: function (response) {
+          console.log(response);
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+        });
+      });
+    </script>
     <section class="section">
       <div class="container" id="container">
         <!-- Panel para iniciar sesión -->
         <div class="form-container sign-in-container">
-          <form action="#">
+          <form action="#" method="post">
             <h1>Iniciar Sesión</h1>
             <label>
               <input type="email" placeholder="Correo" />
