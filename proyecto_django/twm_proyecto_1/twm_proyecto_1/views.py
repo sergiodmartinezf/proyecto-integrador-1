@@ -33,7 +33,7 @@ def crearcuenta2(request):
 
     return HttpResponse("Método no permitido")
 def iniciarsesion(request):
-
+    # Recibir correo y contraseña y devolver respuesta
     return render(request, 'HTML/signIn.html')
 
 def calendario(request):
