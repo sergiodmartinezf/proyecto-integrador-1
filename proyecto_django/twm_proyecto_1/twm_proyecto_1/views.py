@@ -22,11 +22,16 @@ def crearcuenta2(request):
         print(nombre)
         print(correo)
         print(contraseña)
-        #sql3_='insert nombre,correo,contraseña from usuario where nombre=%s and correo=%s and contraseña=%s'
-        #cursor = connection.cursor()
-        #cursor.execute(sql3_, [nombre,correo,contraseña])
 
-        return render(request,'HTML/signIn.html')
+        sql = 'INSERT INTO aplicacion_1_usuario (nombre, correo, contra) VALUES (%s, %s, %s)'
+        cursor = connection.cursor()
+        cursor.execute(sql, [nombre, correo, contraseña])
+
+        #connection.commit()
+
+        return HttpResponse("Usuario creado exitosamente") 
+
+    return HttpResponse("Método no permitido")
 def iniciarsesion(request):
 
     return render(request, 'HTML/signIn.html')
