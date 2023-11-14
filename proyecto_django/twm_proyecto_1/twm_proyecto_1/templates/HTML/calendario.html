@@ -1,10 +1,11 @@
+{% load static %} <!-- SERGIO -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendario</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}" /> <!-- SERGIO -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -85,7 +86,7 @@
         <h2 id="tittleTerm">Terminados</h2>
       </div>
     </div>
-    <script src="../JAVASCRIPT/FUNCION.JS"></script>
-    <script src="../JAVASCRIPT/navbar.js"></script>
+    <script src="{% static 'JAVASCRIPT/FUNCION.js' %}"></script> <!-- SERGIO -->
+    <script src="{% static 'JAVASCRIPT/navbar.js' %}"></script> <!-- SERGIO -->
   </body>
 </html>
