@@ -36,11 +36,11 @@
                 'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
         },
         success: function (response) {
-          alert(response); // SERGIO
+          alert("FUNCA (si esta en la base de datos)"); // SERGIO
           console.log(response);
         },
         error: function (error) {
-          alert(error); // SERGIO
+          alert("NO FUNCA (no esta en la base de datos)"); // SERGIO
           console.log(error);
         }
       });

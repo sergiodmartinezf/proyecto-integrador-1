@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
-from django.shortcuts import redirect # SERGIO
 #from django.http import HttpResponseRedirect # SERGIO
+#from django.urls import reverse # SERGIO
 
 def Inicio_app(request):
     #return HttpResponse("Hola")
@@ -60,14 +60,14 @@ def iniciosesion2(request):
 
         if usuario == None:
 
-            return HttpResponse("El usuario no fue encontrado")
+            return HttpResponse("El usuario no fue encontrado", status=400)
         
         else:
             # return HttpResponse("Usuario encontrado exitosamente") 
             if usuario[2] == 0:
-                return HttpResponse("El usuario fue encontrado y es nuevo")
+                return HttpResponse("El usuario fue encontrado y es nuevo", status=200)
             else:
-                return HttpResponse("El usuario fue encontrado y no es nuevo")
+                return HttpResponse("El usuario fue encontrado y no es nuevo", status=200)
         
 
     return HttpResponse("Método no permitido")
