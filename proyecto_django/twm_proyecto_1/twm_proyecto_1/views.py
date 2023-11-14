@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
+from django.shortcuts import redirect # SERGIO
+#from django.http import HttpResponseRedirect # SERGIO
 
 def Inicio_app(request):
     #return HttpResponse("Hola")
@@ -37,6 +39,10 @@ def calendario(request):
     return render(request, 'HTML/calendario.html')
 
 # SERGIO
+def equipo(request):
+    return render(request, 'HTML/equipo.html')
+
+# SERGIO
 def iniciosesion2(request):
     if request.method == 'POST':
         correo = request.POST.get('correo')
@@ -45,19 +51,23 @@ def iniciosesion2(request):
         print(contra)
 
         # Comprueba si el usuario que inicia sesión está en la base de datos.
-        sql = 'SELECT correo, contra FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
+        sql = 'SELECT correo, contra, cont FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
         cursor = connection.cursor()
         cursor.execute(sql, [correo, contra])
 
         usuario=cursor.fetchone()
-        print(usuario)
+        print(usuario) 
 
         if usuario == None:
 
             return HttpResponse("El usuario no fue encontrado")
         
         else:
-            return HttpResponse("Usuario encontrado exitosamente") 
+            # return HttpResponse("Usuario encontrado exitosamente") 
+            if usuario[2] == 0:
+                return HttpResponse("El usuario fue encontrado y es nuevo")
+            else:
+                return HttpResponse("El usuario fue encontrado y no es nuevo")
         
 
     return HttpResponse("Método no permitido")

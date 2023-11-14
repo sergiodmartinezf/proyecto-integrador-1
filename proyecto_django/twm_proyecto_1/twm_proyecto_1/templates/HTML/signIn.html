@@ -36,12 +36,11 @@
                 'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
         },
         success: function (response) {
-          alert("SUCCESSSSSSSSSSS"); // SERGIO
           alert(response); // SERGIO
           console.log(response);
         },
         error: function (error) {
-          alert("ERRRORRRRRRRRRRRR"); // SERGIO
+          alert(error); // SERGIO
           console.log(error);
         }
       });
