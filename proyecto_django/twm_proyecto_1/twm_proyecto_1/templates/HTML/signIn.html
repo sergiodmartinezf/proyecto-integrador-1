@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- SERGIO -->
     {% load static %} <!-- SERGIO -->
-    <link rel="stylesheet" type="text/css" href="../CSS/signIn.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/signIn.css' %}" />
     <title>Iniciar Sesión</title>
   </head>
   <body>
@@ -38,6 +38,13 @@
         success: function (response) {
           alert("FUNCA (si esta en la base de datos)"); // SERGIO
           console.log(response);
+
+          // SERGIO
+          if (response.cond == 0) {
+            window.location.href = "/equipo/";
+          } else {
+            window.location.href = "/calendario/";
+          };
         },
         error: function (error) {
           alert("NO FUNCA (no esta en la base de datos)"); // SERGIO

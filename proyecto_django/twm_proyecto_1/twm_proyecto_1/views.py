@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
-#from django.http import HttpResponseRedirect # SERGIO
-#from django.urls import reverse # SERGIO
+from django.http import JsonResponse # SERGIO
 
 def Inicio_app(request):
     #return HttpResponse("Hola")
@@ -63,11 +62,18 @@ def iniciosesion2(request):
             return HttpResponse("El usuario no fue encontrado", status=400)
         
         else:
-            # return HttpResponse("Usuario encontrado exitosamente") 
+            # Usuario encontrado exitosamente
             if usuario[2] == 0:
-                return HttpResponse("El usuario fue encontrado y es nuevo", status=200)
+                # El usuario fue encontrado y es nuevo (se realiza cambio en cont porque dejarpa de ser nuevo)
+
+                #sql = 'UPDATE aplicacion_1_usuario SET cont=cont+1 WHERE correo=%s AND contra=%s;'
+                #cursor = connection.cursor()
+                #cursor.execute(sql, [correo, contra])
+
+                return JsonResponse({'cond': 0})
             else:
-                return HttpResponse("El usuario fue encontrado y no es nuevo", status=200)
+                # El usuario fue encontrado y no es nuevo
+                return JsonResponse({'cond': 1})
         
 
     return HttpResponse("Método no permitido")
