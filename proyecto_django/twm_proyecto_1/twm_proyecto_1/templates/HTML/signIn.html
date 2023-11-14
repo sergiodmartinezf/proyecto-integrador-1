@@ -3,41 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iniciar Sesión</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- SERGIO -->
+    {% load static %} <!-- SERGIO -->
     <link rel="stylesheet" type="text/css" href="../CSS/signIn.css" />
+    <title>Iniciar Sesión</title>
   </head>
   <body>
     <script>
       $(document).ready(function () {
-        $("#crearCuentaBtn").click(function () {
+        $("#iniciarSesionBtn").click(function () {
 
-          var correo = $("#Correo").val();
-          var contraseña = $("#Contraseña").val();
-
+          var correo = $("#Correo").val(); // SERGIO
+          var contra = $("#Contra").val(); // SERGIO
          
           console.log("Correo:", correo);
-          console.log("Contraseña:", contraseña);
+          console.log("Contraseña:", contra);
 
-          var formData = {
-        'correo': correo,
-        'contraseña': contraseña,
-        'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
-      };
+          //var formData = {
+        //'correo': correo,
+        //'contraseña': contraseña,
+        //'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
+      //};
 
-      console.log(formData);
+      //console.log(formData);
 
       $.ajax({
         type: "POST",
         url: "/iniciosesion2/",
         data: {
                 correo,
-                contraseña,
+                contra,
                 'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
         },
         success: function (response) {
+          alert("SUCCESSSSSSSSSSS"); // SERGIO
+          alert(response); // SERGIO
           console.log(response);
         },
         error: function (error) {
+          alert("ERRRORRRRRRRRRRRR"); // SERGIO
           console.log(error);
         }
       });
@@ -48,16 +52,17 @@
       <div class="container" id="container">
         <!-- Panel para iniciar sesión -->
         <div class="form-container sign-in-container">
-          <form action="#" method="post">
+          <form action="#" method="post" id="signinForm"> <!-- SERGIO (añadi id) -->
+            {%csrf_token %} <!-- SERGIO -->
             <h1>Iniciar Sesión</h1>
             <label>
-              <input type="email" placeholder="Correo" />
+              <input type="email" placeholder="Correo" id="Correo"/>
             </label>
             <label>
-              <input type="password" placeholder="Contraseña" />
+              <input type="password" placeholder="Contra" id="Contra"/> <!-- SERGIO -->
             </label>
             <a href="#">¿Olvidaste tu contraseña?</a>
-            <button>Iniciar Sesión</button>
+            <button id="iniciarSesionBtn">Iniciar Sesión</button>
           </form>
         </div>
         <!-- Panel para crear cuenta -->

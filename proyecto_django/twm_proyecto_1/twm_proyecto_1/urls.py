@@ -11,5 +11,5 @@ urlpatterns = [
     path('iniciarsesion/', views.iniciarsesion, name='iniciarsesion/'),
     path('calendario/', views.calendario, name='calendario/'),
     path('admin/', admin.site.urls),
-    #path('iniciosesion2/', views.iniciosesion2, name='iniciosesion2/'), # SERGIO
+    path('iniciosesion2/', views.iniciosesion2, name='iniciosesion2/'), # SERGIO
 ]

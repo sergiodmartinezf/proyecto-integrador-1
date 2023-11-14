@@ -1,11 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
-# VIDEO 4: Para vistaFechaActual
-import datetime
 
-# VIDEO 3: Esto se llama función vista. vistaTest es 
-# la primera vista aqui y es para testear.
 def Inicio_app(request):
     #return HttpResponse("Hola")
     return render(request, 'HTML/inicio2.html')
@@ -41,20 +37,28 @@ def calendario(request):
     return render(request, 'HTML/calendario.html')
 
 # SERGIO
-#def iniciosesion2(request):
+def iniciosesion2(request):
     if request.method == 'POST':
         correo = request.POST.get('correo')
-        contraseña = request.POST.get('contraseña')
+        contra = request.POST.get('contra')
         print(correo)
-        print(contraseña)
+        print(contra)
 
-        sql = 'SELECT aplicacion_1_usuariO (correo, contra) VALUES (%s, %s, %s)'
+        # Comprueba si el usuario que inicia sesión está en la base de datos.
+        sql = 'SELECT correo, contra FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
         cursor = connection.cursor()
-        cursor.execute(sql, [correo, contraseña])
+        cursor.execute(sql, [correo, contra])
 
-        #connection.commit()
+        usuario=cursor.fetchone()
+        print(usuario)
 
-        return HttpResponse("Usuario creado exitosamente") 
+        if usuario == None:
+
+            return HttpResponse("El usuario no fue encontrado")
+        
+        else:
+            return HttpResponse("Usuario encontrado exitosamente") 
+        
 
     return HttpResponse("Método no permitido")
 
