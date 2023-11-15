@@ -79,3 +79,51 @@ def iniciosesion2(request):
     return HttpResponse("Método no permitido")
 
 
+# SERGIO
+def crearequipo(request):
+    if request.method == 'POST':
+        nombreEquipo = request.POST.get('nombreEquipo')
+        cantidadIntegrantes = request.POST.get('cantidadIntegrantes')
+        print(nombreEquipo,nombreEquipo,"TESSSSSST")
+        #colorEquipo = request.POST.get('colorEquipo')
+        print(nombreEquipo)
+        print(cantidadIntegrantes)
+        #print(colorEquipo)
+
+        sql = 'INSERT INTO aplicacion_1_equipo (nombre, cantIntegrantes, descripcion) VALUES (%s, %s, %s)'
+        cursor = connection.cursor()
+        cursor.execute(sql, [nombreEquipo, cantidadIntegrantes, ""])
+
+        #connection.commit()
+
+        return HttpResponse("Equipo creado exitosamente") 
+
+    return HttpResponse("Método no permitido")
+
+# SERGIO
+def unirmeaequipo(request):
+    if request.method == 'POST':
+        nombreEquipo = request.POST.get('nombreEquipo')
+        identificador = request.POST.get('identificador')
+        print(nombreEquipo)
+        print(identificador)
+
+        # Comprueba si el usuario que inicia sesión está en la base de datos.
+        sql = 'SELECT * FROM aplicacion_1_equipo WHERE nombre=%s AND ID=%s'
+        cursor = connection.cursor()
+        cursor.execute(sql, [nombreEquipo, identificador])
+
+        usuario=cursor.fetchone()
+        print(usuario) 
+
+        if usuario == None:
+
+            return HttpResponse("El equipo no fue encontrado", status=400)
+        
+        else:
+            return HttpResponse("El equipo fue encontrado exitosamente")
+        
+
+    return HttpResponse("Método no permitido")
+
+

@@ -56,6 +56,27 @@ function crearEquipo() {
             const cantidadIntegrantes = document.getElementById('cantidadIntegrantes').value;
             const colorEquipo = document.getElementById('colorEquipo').value;
             alert(`Nombre del equipo: ${nombreEquipo}\nCantidad de integrantes: ${cantidadIntegrantes}\nColor: ${colorEquipo}`);
+            
+            // INICIO AJAX
+            $.ajax({
+                type: "POST",
+                url: "/crearequipo/",
+                data: {
+                        nombreEquipo,
+                        cantidadIntegrantes,
+                        'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
+                },
+                success: function (response) {
+                  alert("FUNCA"); // SERGIO
+                  console.log(response);
+                },
+                error: function (error) {
+                  alert("NO FUNCA"); // SERGIO
+                  console.log(error);
+                }
+              });
+            // FIN AJAX
+            
         }
     });
 }
@@ -71,6 +92,25 @@ function unirmeAEquipo() {
             const nombreEquipo = document.getElementById('nombreEquipo').value;
             const identificador = document.getElementById('identificador').value;
             alert(`Nombre del equipo: ${nombreEquipo}\nIdentificador único: ${identificador}`);
+            // INICIO AJAX
+            $.ajax({
+                type: "POST",
+                url: "/unirmeaequipo/",
+                data: {
+                        nombreEquipo,
+                        identificador,
+                        'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
+                },
+                success: function (response) {
+                  alert("FUNCA"); // SERGIO
+                  console.log(response);
+                },
+                error: function (error) {
+                  alert("NO FUNCA"); // SERGIO
+                  console.log(error);
+                }
+              });
+            // FIN AJAX
         }
     });
 }
