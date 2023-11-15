@@ -39,12 +39,13 @@
           alert("FUNCA (si esta en la base de datos)"); // SERGIO
           console.log(response);
 
-          // SERGIO
           if (response.cond == 0) {
-            window.location.href = "/equipo/";
+                    // Redirige a la nueva URL si cond es 0
+              window.location.href = "/equipo/";
           } else {
-            window.location.href = "/calendario/";
-          };
+              // Haz algo más si cond no es 0
+              alert("NO FUNCA (cond no es 0)");
+          }
         },
         error: function (error) {
           alert("NO FUNCA (no esta en la base de datos)"); // SERGIO

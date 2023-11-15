@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.db import connection
 from django.http import JsonResponse # SERGIO
+
 
 def Inicio_app(request):
     #return HttpResponse("Hola")
@@ -49,15 +50,8 @@ def iniciosesion2(request):
         print(correo)
         print(contra)
 
-        sql2 = 'SELECT t.Nombre AS nombre_tarea,t.descripcion AS descripcion_tarea,t.fecha_entr AS fecha_entrada_tarea,e.nombre AS nombre_equipo FROM Tareas t JOIN Equipo e ON t.ID_equipo_id = e.ID where correo=%s AND contra=%s ;'
-        cursor = connection.cursor()
-        cursor.execute(sql2, [correo, contra])
-
-        tareas=cursor.fetchone()
-        print(tareas) 
-
         # Comprueba si el usuario que inicia sesión está en la base de datos.
-        sql = 'SELECT correo, contra, cont FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
+        sql = 'SELECT ID, correo, contra, cont FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
         cursor = connection.cursor()
         cursor.execute(sql, [correo, contra])
 
@@ -84,9 +78,22 @@ def iniciosesion2(request):
                 #return JsonResponse({'cond': 0})
                 response = JsonResponse({'cond': 0})
                 response.set_cookie('usuario_id', str(usuario[0]))
+                
                 return response
             else:
                 # El usuario fue encontrado y no es nuevo
+                sql2="""SELECT e.id AS equipo_id, e.nombre AS nombre_equipo, e.descripcion AS descripcion_equipo, e.cantIntegrantes,
+                        u.id AS usuario_id, u.nombre AS nombre_usuario, u.correo,
+                        m.id AS miembro_id
+                        FROM equipo e
+                        JOIN miembro m ON e.id = m.id_equipo_id
+                        JOIN usuario u ON m.id_usuario_id = u.id
+                        WHERE u.nombre =%s AND u.contra = %s;
+                        """
+                cursor = connection.cursor()
+                cursor.execute(sql2, [correo, contra])
+                miequipo=cursor.fetchone()
+                print(miequipo) 
                 return JsonResponse({'cond': 1})
         
 
