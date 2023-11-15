@@ -103,10 +103,12 @@ function unirmeAEquipo() {
                 },
                 success: function (response) {
                   alert("FUNCA"); // SERGIO
+                  alert(response); // SERGIO
                   console.log(response);
                 },
                 error: function (error) {
                   alert("NO FUNCA"); // SERGIO
+                  alert(error); // SERGIO
                   console.log(error);
                 }
               });
