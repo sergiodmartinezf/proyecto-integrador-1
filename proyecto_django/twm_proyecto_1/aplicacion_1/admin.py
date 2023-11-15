@@ -8,7 +8,7 @@ class UsuarioAdmin(admin.ModelAdmin):
     list_display=("ID","Nombre","correo","contra","cont")
 
 class EquipoAdmin(admin.ModelAdmin):
-    list_display=("ID","nombre","descripcion")
+    list_display=("ID","nombre","descripcion","cantIntegrantes")
 
 class TareasAdmin(admin.ModelAdmin):
     list_display=("ID","Nombre","descripcion","fecha_ini","fecha_fin","ID_equipo")
