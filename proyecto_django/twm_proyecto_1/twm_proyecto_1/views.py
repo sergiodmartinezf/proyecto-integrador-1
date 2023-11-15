@@ -49,8 +49,15 @@ def iniciosesion2(request):
         print(correo)
         print(contra)
 
+        sql2 = 'SELECT t.Nombre AS nombre_tarea,t.descripcion AS descripcion_tarea,t.fecha_entr AS fecha_entrada_tarea,e.nombre AS nombre_equipo FROM Tareas t JOIN Equipo e ON t.ID_equipo_id = e.ID where correo=%s AND contra=%s ;'
+        cursor = connection.cursor()
+        cursor.execute(sql2, [correo, contra])
+
+        tareas=cursor.fetchone()
+        print(tareas) 
+
         # Comprueba si el usuario que inicia sesión está en la base de datos.
-        sql = 'SELECT correo, contra, cont FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
+        sql2 = 'SELECT correo, contra, cont FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
         cursor = connection.cursor()
         cursor.execute(sql, [correo, contra])
 
