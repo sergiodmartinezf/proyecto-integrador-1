@@ -112,6 +112,7 @@ button {
     width: 40%;
     height: max-content;
     float: left; /* Permite que la imagen esté junto a las columnas de texto */
+    border-radius: 50px;
 }
 
 /* Contenedor para las columnas de texto y la imagen */

@@ -1,19 +1,25 @@
+/* Estilos generales */
 body, html {
-    width: 1500px;
-    height: 2039px;
-  }
-  html
-  {
-    
-    overflow-x: hidden;
-  }
-  
+  width: 1480px;
+  height: 100%;
+  background-color: #9CCDDB;
+}
+
+html {
+  overflow-x: hidden;
+}
 html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+.container
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: none;
+}
 #top-menu {
   background-color: #C2C6CC;
   width: 100%;
@@ -78,15 +84,25 @@ html, body {
   margin-right: 10px;
 }
 
+.material-icons.user-icon {
+  font-size: 40px;
+  color: #fff;
+  border-radius: 10px;
+  margin-right: 50px;
+  display: flex; /* Ajusta el alineado vertical si es necesario */
+  align-items: center; /* Ajusta el alineado vertical si es necesario */
+}
+
 /* Estilos CSS para el menú lateral */
 #menu-lateral {
-  position: fixed;
+  border-top-left-radius: 20px;
+  position: absolute;
   top: 0;
-  margin-top: 77px;
+  margin-top: 60px;
   right: -250px; 
   width: 250px;
   height: 100%;
-  background-color: #333;
+  background-color: #D9D9D9;
   color: #fff;
   transition: right 0.3s;
   z-index: 1; 
@@ -95,7 +111,7 @@ html, body {
 #usuario-info {
   padding: 10px;
   text-align: center;
-  background-color: #222;
+  background-color: #c6c4c4;
 }
 
 ul {
@@ -124,106 +140,146 @@ a {
 .material-icons.user-icon {
   cursor: pointer;
 }
-.container1 {
-    margin-top: 10px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .container2 {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-    margin-inline: 20px;
-  }
 
-  #tittleAndBotons {
-    border-bottom: 1px solid #000;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-color: #D9D9D9;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
 
-  #tittleASIG,#tittlePend,#tittleTerm,#tittleProgre
+#terminados-contenedor
 {
-  margin: 0px;
+background-color: #fff;
+min-height: 500px;
+max-height: 500px;
+border: 1px solid #0000007e;
+border-radius: 20px;
+overflow-y: auto;
+width: 100%;
+}
+/*Tabla Terminados*/
+#terminados-table th:first-child {
+  border-top-left-radius: 9px;
+}
+
+#terminados-table th:last-child {
+  border-top-right-radius: 9px;
+  
+}
+#terminados-table th {
   background-color: #D9D9D9;
-  border-bottom: 2px solid #000 ;
+  width: 32%;
+  
 }
 
-#asignacion,#pendProgre-contrainer{
-  margin-top: 20px;
-  border: 2px solid #072D44;
-  background-color: #9CCDDB;
-  display: flex;
-  flex-direction: column;
-  width: 1000px;
-  height: 100px;
+#terminados-table td{
+  align-items: center;
+  border-bottom: 1px solid #0000007e;
   text-align: center;
-  border-radius: 20px;
+  
+}
+#terminados-contenedor::-webkit-scrollbar {
+  width: 0em;
+  /* Ancho de la barra de desplazamiento */
 }
 
-#pendProgre-contrainer {
-  flex-direction: row;
-  min-height: 100px;
+#terminados-contenedor::-webkit-scrollbar-thumb {
+  border-top-right-radius: 20px;
+  background-color: #fff;
+  /* Color del pulgar de la barra de desplazamiento */
 }
 
-#pendientes-container,#progreso-container
+#progreso-contenedor
+{
+background-color: #fff;
+border: 1px solid #0000007e;
+border-radius: 20px;
+min-height: 500px;
+max-height: 500px;
+overflow: auto;
+width: 100%;
+}
+
+/*Tabla Progreso*/
+
+#progreso-table th:first-child {
+  border-top-left-radius: 18px;
+}
+
+#progreso-table th:last-child {
+  border-top-right-radius: 18px;
+  
+}
+#progreso-table th {
+  background-color: #D9D9D9;
+  width: 32%;
+  
+}
+
+#progreso-table td{
+  align-items: center;
+  border-bottom: 1px solid #0000007e;
+  text-align: center;
+  
+}
+
+#progreso-contenedor::-webkit-scrollbar {
+  width: 0em;
+  /* Ancho de la barra de desplazamiento */
+}
+
+#progreso-contenedor::-webkit-scrollbar-thumb {
+  border-top-right-radius: 20px;
+  background-color: #fff;
+  /* Color del pulgar de la barra de desplazamiento */
+}
+#tittleAndDiv3
 {
   width: 100%;
 }
 
-#pendientes-container
-{
-  border-right: 2px solid #000;
+/* Establecer posición fija para los th en las tablas */
+#asignar-table th,
+#terminados-table th,
+#pendientes-table th,
+#progreso-table th {
+  position: sticky;
+  top: 0;
+  background-color: #D9D9D9;
+  z-index: 2; /* Asegura que los th estén por encima de los td */
+}
+/* Establecer estilos para todas las tablas y sus celdas */
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-#inputAndButton 
-{
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrar verticalmente */
-  justify-content: center; /* Centrar horizontalmente */
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #0000007e;
   text-align: center;
-  height: 100%;
-  box-sizing: content-box;
-
 }
 
-#terminados-container
+/* Establecer posición fija para los th en las tablas */
+th {
+  position: sticky;
+  top: 0;
+  background-color: #D9D9D9;
+  z-index: 2; /* Asegura que los th estén por encima de los td */
+}
+
+/* Establecer overflow en las celdas td */
+td {
+  overflow: auto;
+}
+
+/* Estilos para la barra de desplazamiento en celdas td */
+td::-webkit-scrollbar {
+  width: 0em;
+}
+
+td::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
+
+#Terminados,#Progreso
 {
-  margin-inline: 20px;
-  border: 2px solid #072D44;
-  border-radius: 20px;
-  background-color: #9CCDDB;
-  display: flex;
-  flex-direction: column;
   width: 50%;
-  height: 100px;
-  text-align: center;
+  padding: 20px;
 }
-
-#tittleTerm,#tittleASIG
-{
-  border-top-left-radius:20px;
-  border-top-right-radius: 20px ;
-} 
-
-#tittleProgre
-{
-border-top-right-radius: 20px;
-}
-
-#tittlePend
-{
-border-top-left-radius: 20px;
-} 
-
