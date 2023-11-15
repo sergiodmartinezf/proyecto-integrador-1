@@ -13,7 +13,7 @@ class Equipo(models.Model):
     ID=models.AutoField(primary_key=True)
     nombre=models.CharField(max_length=50)
     descripcion=models.CharField(max_length=200, default="")
-    cantIntegrantes=models.IntegerField(default=0)
+    cantIntegrantes=models.IntegerField(default=1)
 
 class Tareas(models.Model):
     ID=models.AutoField(primary_key=True)
