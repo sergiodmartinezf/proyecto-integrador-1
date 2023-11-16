@@ -67,19 +67,17 @@ def iniciosesion2(request):
             print("paso request")
             print(usuario[3])
             if usuario[3] == 0:
-                # El usuario fue encontrado y es nuevo (se realiza cambio en cont porque dejarpa de ser nuevo)
-
-                #sql = 'UPDATE aplicacion_1_usuario SET cont=cont+1 WHERE correo=%s AND contra=%s;'
-                #cursor = connection.cursor()
-                #cursor.execute(sql, [correo, contra])
+                # El usuario fue encontrado y es nuevo (se realiza cambio en cont porque dejará de ser nuevo)
 
                 print("response cond 0")
 
-                #return JsonResponse({'cond': 0})
-                response = JsonResponse({'cond': 0})
-                response.set_cookie('usuario_id', str(usuario[0]))
+                usuario_id = usuario[0] # NO COOKIE
+
+                response = JsonResponse({'cond': 0, 'usuario_id': usuario_id})
+                
                 
                 return response
+                
             else:
                 # El usuario fue encontrado y no es nuevo
                 sql2="""SELECT e.id AS equipo_id, e.nombre AS nombre_equipo, e.descripcion AS descripcion_equipo, e.cantIntegrantes,
