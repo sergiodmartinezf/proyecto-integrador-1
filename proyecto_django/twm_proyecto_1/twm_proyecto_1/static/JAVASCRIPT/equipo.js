@@ -69,9 +69,10 @@ function crearEquipo() {
               success: function (response) {
                 alert("FUNCA"); // SERGIO
                 console.log(response);
+                window.location.href = "/calendario/"; // REDIRECCION A CALENDARIO
               },
               error: function (error) {
-                alert("NO FUNCA"); // SERGIO
+                alert("NO FUNCA"); // SERGIO 
                 console.log(error);
               }
             });
@@ -105,6 +106,7 @@ function unirmeAEquipo() {
                 alert("FUNCA"); // SERGIO
                 alert(response); // SERGIO
                 console.log(response);
+                window.location.href = "/calendario/"; // REDIRECCION A CALENDARIO
               },
               error: function (error) {
                 alert("NO FUNCA"); // SERGIO
@@ -117,6 +119,7 @@ function unirmeAEquipo() {
   });
 }
 
-function preguntarMasTarde() {
-  alert("Has seleccionado 'Preguntar más tarde'.");
+function yaTengoEquipo() {
+  alert("Has seleccionado 'Ya tengo equipo'.");
+  window.location.href = "/calendario/";
 }

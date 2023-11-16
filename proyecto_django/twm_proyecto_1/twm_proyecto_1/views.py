@@ -21,7 +21,7 @@ def crearcuenta2(request):
         print(correo)
         print(contraseña)
 
-        sql = 'INSERT INTO aplicacion_1_usuario (nombre, correo, contra) VALUES (%s, %s, %s)'
+        sql = 'INSERT INTO aplicacion_1_usuario (nombre, correo, contra, cont) VALUES (%s, %s, %s, 0)' # HAY QUE DAR CONT (0 POR DEFECTO)
         cursor = connection.cursor()
         cursor.execute(sql, [nombre, correo, contraseña])
 
@@ -65,36 +65,13 @@ def iniciosesion2(request):
         else:
             # Usuario encontrado exitosamente
             print("paso request")
-            print(usuario[3])
-            if usuario[3] == 0:
-                # El usuario fue encontrado y es nuevo (se realiza cambio en cont porque dejarpa de ser nuevo)
+            print(usuario[0])
 
-                #sql = 'UPDATE aplicacion_1_usuario SET cont=cont+1 WHERE correo=%s AND contra=%s;'
-                #cursor = connection.cursor()
-                #cursor.execute(sql, [correo, contra])
+            usuario_id=usuario[0] # NO COOKIE
 
-                print("response cond 0")
-
-                #return JsonResponse({'cond': 0})
-                response = JsonResponse({'cond': 0})
-                response.set_cookie('usuario_id', str(usuario[0]))
+            response = JsonResponse({'usuario_id': usuario_id})
                 
-                return response
-            else:
-                # El usuario fue encontrado y no es nuevo
-                sql2="""SELECT e.id AS equipo_id, e.nombre AS nombre_equipo, e.descripcion AS descripcion_equipo, e.cantIntegrantes,
-                        u.id AS usuario_id, u.nombre AS nombre_usuario, u.correo,
-                        m.id AS miembro_id
-                        FROM equipo e
-                        JOIN miembro m ON e.id = m.id_equipo_id
-                        JOIN usuario u ON m.id_usuario_id = u.id
-                        WHERE u.nombre =%s AND u.contra = %s;
-                        """
-                cursor = connection.cursor()
-                cursor.execute(sql2, [correo, contra])
-                miequipo=cursor.fetchone()
-                print(miequipo) 
-                return JsonResponse({'cond': 1})
+            return response
         
 
     return HttpResponse("Método no permitido")
@@ -123,7 +100,6 @@ def crearequipo(request):
 
 # SERGIO
 def unirmeaequipo(request):
-    usuario_id = request.COOKIES.get('usuario_id')
     if request.method == 'POST':
         nombreEquipo = request.POST.get('nombreEquipo')
         identificador = request.POST.get('identificador')
@@ -166,6 +142,8 @@ def unirmeaequipo(request):
                 return HttpResponse("El equipo está lleno", status=400)
                 
             else:
+                usuario_id = request.GET.get('usuario_id') # NO COOKIE
+
                 # Busca si el usuario ya es miembro del equipo
                 sql = 'SELECT * FROM aplicacion_1_miembros WHERE aplicacion_1_miembros.ID_equipo_id = %s AND aplicacion_1_miembros.ID_usuario_id = %s'
                 cursor = connection.cursor()

@@ -39,13 +39,7 @@
           alert("FUNCA (si esta en la base de datos)"); // SERGIO
           console.log(response);
 
-          if (response.cond == 0) {
-                    // Redirige a la nueva URL si cond es 0
-              window.location.href = "/equipo/";
-          } else {
-              // Haz algo más si cond no es 0
-              alert("NO FUNCA (cond no es 0)");
-          }
+          window.location.href = "/equipo/";
         },
         error: function (error) {
           alert("NO FUNCA (no esta en la base de datos)"); // SERGIO
@@ -60,7 +54,7 @@
         <!-- Panel para iniciar sesión -->
         <div class="form-container sign-in-container">
           <form action="#" method="post" id="signinForm"> <!-- SERGIO (añadi id) -->
-            {%csrf_token %} <!-- SERGIO -->
+            {%csrf_token %} <!-- SERGIO  -->
             <h1>Iniciar Sesión</h1>
             <label>
               <input type="email" placeholder="Correo" id="Correo"/>
