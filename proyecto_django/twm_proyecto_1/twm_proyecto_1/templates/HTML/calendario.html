@@ -18,38 +18,222 @@
 
     <!-- SweetAlert2 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </head>
+  
 
-  <body>
-    <div id="top-menu">
-      <i class="material-icons" id="menu-toggle">menu</i>
-    <img src="../img/logo2.png" id="logonav" />
-      <ul>
-        <li><a href="../HTML/inicio1.html">Inicio</a></li>
-        <li><a href="../HTML/calendario.html">Calendario</a></li>
-        <li><a href="../HTML/tarea_completa.html">Tareas</a></li>
-        <li><a href="#">Configuración</a></li>
-      </ul>
-      <i class="material-icons user-icon" id="user-icon">person</i>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendario</title>
+  <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <!-- SweetAlert2 CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+  />
+
+  <!-- SweetAlert2 JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <div id="top-menu">
+    <i class="material-icons" id="menu-toggle">menu</i>
+    <a href="../HTML/inicio1.html"><img src="../img/logo2.png" id="logonav" /></a>
+    <ul>
+      <li><a href="../HTML/calendario.html">Calendario</a></li>
+      <li><a href="../HTML/tarea_completa.html">Tareas</a></li>
+    </ul>
+    <i class="material-icons user-icon" id="user-icon">person</i>
+  </div>
+
+  <div id="menu-lateral" class="menu-lateral">   
+    <div id="iconNom">
+    <i class="material-icons user-icon" id="username">person</i>
+    <div id="NomCor">
+    <a id="NomUser"> Pepe</a>
+    <a id="email">pepe@gmail.tuvieja</a>
+  </div>
+  </div> 
+  
+    <div id="tittlesMenu">
+    <h4>Equipos</h4>
+    <div class="Equipos">
+      <table id="equipos-table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Miembros</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Equipo A</td>
+            <td>5</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Equipo B</td>
+            <td>3</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Equipo C</td>
+            <td>7</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Equipo D</td>
+            <td>4</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Equipo E</td>
+            <td>6</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Equipo F</td>
+            <td>2</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Equipo G</td>
+            <td>8</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Equipo H</td>
+            <td>5</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Equipo I</td>
+            <td>3</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Equipo J</td>
+            <td>6</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Equipo K</td>
+            <td>4</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Equipo L</td>
+            <td>7</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Equipo M</td>
+            <td>5</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>Equipo N</td>
+            <td>3</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Equipo O</td>
+            <td>6</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Equipo P</td>
+            <td>2</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>Equipo Q</td>
+            <td>8</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>Equipo R</td>
+            <td>5</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>Equipo S</td>
+            <td>3</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Equipo T</td>
+            <td>6</td>
+            <td>x</td>
+          </tr>
+        </tbody>
+        
+      </table>
     </div>
-    <div id="menu-lateral" class="menu-lateral">
-      <div id="usuario-info">
-        <h3>Nombre de Usuario</h3>
-        <p>Equipo:</p>
+    </div>
+    <div id="buttonClose">
+    <ul>
+      <li><a href="#">Cerrar Sesión</a></li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="contenedorBoss">
+    <div class="container3">
+      <div id="tittleAndDiv3">
+        <h4>Asignar</h4>
+        <div id="asignar-contenedor">
+          <table id="asignar-table">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th>Equipo</th>
+                <th>Fecha Entrega</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Agrega filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
       </div>
-      <ul>
-        <li><a href="#">Opción 1</a></li>
-        <li><a href="#">Opción 2</a></li>
-        <li><a href="#">Opción 3</a></li>
-      </ul>
-    </div>
-    <div class="container1">
-      <div class="container2">
-        <div id="calendar-container">
+
+      <div id="tittleAndDiv3">
+        <h4>Calendario</h4>
+        <div id="calendario-contenedor">
           <div id="tittleAndBotons">
-            <button id="prev-month">Anterior</button>
+            <button id="prev-month"><</button>
             <h2 id="month-year"></h2>
-            <button id="next-month">Siguiente</button>
+            <button id="next-month">></button>
           </div>
           <div id="calendario">
             <div id="dias-semana">
@@ -64,29 +248,75 @@
             <div id="calendar"></div>
           </div>
         </div>
-        <div id="asignacion">
-          <h2 id="tittleASIG">Asignar Tareas</h2>
-        </div>
-        <div id="pendProgre-contrainer">
-          <div id="pendientes-container">
-            <h2 id="tittlePend">Pendientes</h2>
-            <div id="inputAndButton">
-              <button id="initPend">Iniciar</button>
-            </div>
-          </div>
-          <div id="progreso-container">
-            <h2 id="tittleProgre">En Progreso</h2>
-            <div id="inputAndButton">
-              <button id="initProgre">Terminar</button>
-            </div>
-          </div>
+      </div>
+
+      <div id="tittleAndDiv3">
+        <h4>Terminados</h4>
+        <div id="terminados-contenedor">
+          <table id="terminados-table">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th>Equipo</th>
+                <th>Fecha Finalizado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Agrega filas según sea necesario -->
+            </tbody>
+          </table>
         </div>
       </div>
-      <div id="terminados-container">
-        <h2 id="tittleTerm">Terminados</h2>
+
+    </div>
+
+    <div class="pendProgreContainer">
+      <div id="tittleAndDiv">
+        <h4>Pendientes</h4>
+        <div id="pendientes-contenedor">
+          <table id="pendientes-table">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th>Equipo</th>
+                <th>Fecha Entrega</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Agrega filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="tittleAndDiv">
+        <h4>En Progreso</h4>
+        <div id="progreso-contenedor">
+          <table id="progreso-table">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th>Equipo</th>
+                <th>Fecha Entrega</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Agrega filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-    <script src="{% static 'JAVASCRIPT/FUNCION.js' %}"></script> <!-- SERGIO -->
+  </div>
+
+  </div>
+  </div>
+
+  <script src="{% static 'JAVASCRIPT/FUNCION.js' %}"></script> <!-- SERGIO -->
     <script src="{% static 'JAVASCRIPT/navbar.js' %}"></script> <!-- SERGIO -->
-  </body>
+</body>
+
 </html>

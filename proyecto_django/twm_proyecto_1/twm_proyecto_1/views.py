@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.db import connection
 from django.http import JsonResponse # SERGIO
-
+from django.contrib.sessions.models import Session
+from django.contrib.auth.models import User
 
 def Inicio_app(request):
     #return HttpResponse("Hola")
@@ -57,7 +58,9 @@ def iniciosesion2(request):
 
         usuario=cursor.fetchone()
         print(usuario) 
-
+        usuario_id=usuario[0]
+        request.session['usuario_id'] = usuario_id
+        print(usuario_id)
         if usuario == None:
 
             return HttpResponse("El usuario no fue encontrado", status=400)
@@ -65,14 +68,12 @@ def iniciosesion2(request):
         else:
             # Usuario encontrado exitosamente
             print("paso request")
-<<<<<<< HEAD
+
             print(usuario[3])
             if usuario[3] == 0:
                 # El usuario fue encontrado y es nuevo (se realiza cambio en cont porque dejará de ser nuevo)
 
                 print("response cond 0")
-
-                usuario_id = usuario[0] # NO COOKIE
 
                 response = JsonResponse({'cond': 0, 'usuario_id': usuario_id})
                 
@@ -93,17 +94,7 @@ def iniciosesion2(request):
                 cursor.execute(sql2, [correo, contra])
                 miequipo=cursor.fetchone()
                 print(miequipo) 
-                return JsonResponse({'cond': 1})
-=======
-            print(usuario[0])
-
-            usuario_id=usuario[0] # NO COOKIE
-
-            response = JsonResponse({'usuario_id': usuario_id})
-                
-            return response
->>>>>>> 6c89d2ebbf83738b332fbfea19fb0b05df5fd4f1
-        
+                return JsonResponse({'cond': 1})  
 
     return HttpResponse("Método no permitido")
 
@@ -136,7 +127,7 @@ def unirmeaequipo(request):
         identificador = request.POST.get('identificador')
         print(nombreEquipo)
         print(identificador)
-
+        usuario_id = request.session.get('usuario_id')
         # Comprueba si el equipo que inicia sesión está en la base de datos.
         sql = 'SELECT * FROM aplicacion_1_equipo WHERE nombre=%s AND ID=%s'
         cursor = connection.cursor()
@@ -173,8 +164,8 @@ def unirmeaequipo(request):
                 return HttpResponse("El equipo está lleno", status=400)
                 
             else:
-                usuario_id = request.GET.get('usuario_id') # NO COOKIE
-
+                
+                usuario_id = request.session.get('usuario_id')
                 # Busca si el usuario ya es miembro del equipo
                 sql = 'SELECT * FROM aplicacion_1_miembros WHERE aplicacion_1_miembros.ID_equipo_id = %s AND aplicacion_1_miembros.ID_usuario_id = %s'
                 cursor = connection.cursor()

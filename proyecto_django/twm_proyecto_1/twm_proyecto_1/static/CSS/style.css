@@ -1,7 +1,8 @@
 /* Estilos generales */
 body, html {
-  width: 100%;
+  width: 1430px;
   height: 100%;
+  background-color: #9CCDDB;
 }
 
 html {
@@ -13,9 +14,24 @@ html, body {
   box-sizing: border-box;
 }
 
+.contenedorBoss
+{
+  width: 100%;
+  margin: 35px;  
+  margin-top: 0;
+  padding-bottom: 35px;
+}
+
+h4
+{
+  font-weight: 100;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
 #top-menu {
   background-color: #C2C6CC;
-  width: 100%;
+  width: 1470px;
   height: 60px;
   z-index: 1000;
   display: flex;
@@ -77,126 +93,109 @@ html, body {
   margin-right: 10px;
 }
 
-/* Estilos para el contenedor principal */
-.container1 {
-  margin-top: 10px;
+
+/*contenedor principal calendario*/
+
+#calendario-contenedor
+{
+  width: 472px;
+  height: 500px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 1px solid #0000007e;
+}
+
+/* Estilos para el encabezado y botones */
+#tittleAndBotons
+{
   width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
-}
-
-/* Estilos para la segunda sección del contenedor */
-.container2 {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: auto;
-  margin-inline: 20px;
-}
-/* Estilos para el encabezado y botones */
-#tittleAndBotons {
-  border-bottom: 1px solid #000;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  background-color: #D9D9D9;
-  width: 100%;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-#prev-month, #next-month, #month-year {
-  border-radius: 20px;
+  background-color: #D9D9D9;
+  border-top-left-radius: 19px;
+  border-top-right-radius:19px ;
+  border-bottom: 1px solid #0000005f;
+  
 }
 
 #prev-month, #next-month {
   background: #064469;
   color: #fff;
   font-size: 18px;
+  width:40px ;
+  height: 40px;
+  border-radius: 20px;
 }
 
 #prev-month {
-  margin-left: 50px;
+  margin-left: 35px;
 }
 
 #next-month {
-  margin-right: 50px;
+  margin-right: 35px;
 }
 
 #month-year {
-  font-size: 25px;
-}
-
-/* Estilos para el contenedor del calendario */
-#calendar-container {
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-radius: 20px;
-  border: 2px solid #000;
-  background: #9CCDDB;
-  height: 640px;
+  font-size: 24px;
 }
 
 /* Estilos para el calendario y días de la semana */
-#calendario {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  width: 90%;
-  height: 630px;
-}
-
 #dias-semana {
-  border: 2px solid #000;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  background-color: #D9D9D9;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  background-color: #ffff;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
+  width: 100%;
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 15px;
 }
 
 #D {
-  padding-right: 30px;
+  padding-right: 20px;
 }
 
 #L {
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
-/* Estilos para el calendario y los días */
 #calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 1%;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border: 2px solid #000;
-  border-top: none;
-  background: #D9D9D9;
-  padding: 1%;
-  height: 420px;
+  margin: 10px;
 }
 
+#calendario 
+{
+  margin: 16px ;
+  width: 430px;
+  height: 400px;
+  background-color: #C2C6CC;
+  border: 1px solid #0000005f;
+  border-radius: 20px;
+}
 .day {
   position: relative;
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #FFFEFE;
-  border: 1px solid #000000;
+  border: 1px solid #0000007e;
   justify-content: center;
   align-items: center;
-  height: 65px; /* Cambiar a 20vh */
+  height: 45px; /* Cambiar a 20vh */
+  width: 45px;
   font-size: 20px;
 }
 
@@ -216,76 +215,14 @@ h3 {
   margin-top: 5px;
 }
 
-/* Estilos para las secciones de Asignación, Pendientes, Progreso y Terminados */
-#tittleASIG, #tittlePend, #tittleTerm, #tittleProgre {
-  margin: 0px;
-  background-color: #D9D9D9;
-  border-bottom: 2px solid #000;
-}
-
-#asignacion, #pendProgre-contrainer {
-  margin-top: 20px;
-  border: 2px solid #072D44;
-  background-color: #9CCDDB;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100px;
-  text-align: center;
-  border-radius: 20px;
-}
-#asignacion
-{
-  min-height: 15vh;
-}
-
-#pendProgre-contrainer {
-  flex-direction: row;
-  min-height: 100px;
-}
-
-#pendientes-container, #progreso-container {
-  width: 50%;
-}
-
-#pendientes-container {
-  border-right: 2px solid #000;
-}
-
-#inputAndButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  box-sizing: content-box;
-}
-
-#terminados-container {
-  margin-left: 10px;
+.material-icons.user-icon {
+  font-size: 40px;
+  color: #fff;
+  background-color: #064469;
+  border-radius: 10px;
   margin-right: 50px;
-  border: 2px solid #072D44;
-  border-radius: 20px;
-  background-color: #9CCDDB;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 100px;
-  text-align: center;
-}
-
-#tittleTerm, #tittleASIG {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-#tittleProgre {
-  border-top-right-radius: 20px;
-}
-
-#tittlePend {
-  border-top-left-radius: 20px;
+  display: flex; /* Ajusta el alineado vertical si es necesario */
+  align-items: center; /* Ajusta el alineado vertical si es necesario */
 }
 
 /* Estilos CSS para el menú lateral */
@@ -294,33 +231,71 @@ h3 {
   position: absolute;
   top: 0;
   margin-top: 60px;
-  right: -250px; 
-  width: 250px;
-  height: 100%;
+  right: -600px; 
+  width: 550px;
+  height: 950px;
   background-color: #D9D9D9;
-  color: #fff;
+  color: #000000;
   transition: right 0.3s;
-  z-index: 1; 
-}
-
-#usuario-info {
+  z-index: 10000; 
   padding: 10px;
-  text-align: center;
-  background-color: #c6c4c4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-ul {
+#email
+{
+  color: #0000007e;
+}
+#NomUser
+{
+color: #000000;
+
+}
+#username
+{
+  font-size: 100px;
+  background-color: #0000;
+}
+#NomCor
+{
+  display: flex;
+  flex-direction: column ;
+}
+
+#buttonClose ul {
   list-style: none;
-  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra los elementos de navegación horizontalmente */
+  align-items: center; /* Centra los elementos de navegación verticalmente */
 }
 
-li {
-  padding: 10px;
+#buttonClose ul li {
+  margin: 0 10px;
 }
 
-a {
-  color: #fff;
+#buttonClose ul li a {
   text-decoration: none;
+  padding: 10px 20px;
+  background-color: #064469;
+  color: #fff;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+#buttonClose ul li a:hover {
+  background-color: #C2C6CC;
+  color: #064469;
+  text-decoration: underline;
+}
+
+#iconNom
+{
+  width: 50%;
+  display: flex;
+  align-items: center;
+
 }
 
 .menu-lateral.show {
@@ -331,93 +306,274 @@ a {
   top: 0;
   right:0 !important; 
 }
-
+#username
+{
+  margin-right: 0;
+}
 .material-icons.user-icon {
   cursor: pointer;
 }
-/* Estilos para pantallas más pequeñas (max-width: 768px) */
-@media (max-width: 768px) {
-  html,body
-  {
-    overflow-x: hidden;
-  }
-  .container1 {
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-  }
 
-  .container2 {
-    width: 90%;
-    height: auto;
-    margin-inline: 0;
-  }
-
-  #pendProgre-contrainer {
-    flex-direction: column;
-    min-height: 30vh;
-  }
-  #terminados-container {
-    margin-top: 20px;
-    margin-left: 0;
-    width: 90%; /* Ocupa todo el ancho disponible en la vista estrecha */
-    margin-right: 0; /* Elimina el margen derecho en pantallas estrechas */
-    min-height: 15vh;
-  }
-
-  #pendientes-container,
-  #progreso-container {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 20px;
-    height: 50%;
-  }
-
-  #pendientes-container {
-    border-top-right-radius:20px; 
-    margin-top: 0;
-    border: none;
-  }
-
-  #tittleASIG,
-  #tittlePend,
-  #tittleTerm,
-  #tittleProgre {
-    font-size: 20px;
-  }
-
-  #tittleProgre {
-    border-radius: 0;
-    border-top: 2px solid #000;
-  }
-  
-  #top-menu ul {
-    display: none;
-  }
-
-  #menu-toggle {
-    display: block;
-  }
-
-  #top-menu ul.show {
-    margin-top: 0;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    padding: 0;
-    right: 0;
-    left: 0;
-    background-color: #064469;
-    width: 101%;
-    justify-content: center; /* Centra los elementos de navegación en el menú hamburguesa horizontalmente */
-    align-items: center; /* Centra los elementos de navegación en el menú hamburguesa verticalmente */
-  }
-
-  #top-menu ul.show li {
-    text-align: center;
-    margin: 5px 0;
-  }
-
+#equipos-table th:first-child {
+  border-top-left-radius: 9px;
 }
- 
+
+#equipos-table th:last-child {
+  border-top-right-radius: 9px;
+  
+}
+#equipos-table th {
+  background-color: #D9D9D9;
+  width: 30%;
+  
+}
+
+#equipos-table td{
+  align-items: center;
+  border-bottom: 1px solid #0000007e;
+  text-align: center;
+  
+}
+.Equipos
+{
+background-color: #fff;
+width: 500px;
+min-height: 300px;
+max-height: 300px;
+border: 1px solid #0000007e;
+border-radius: 20px;
+margin:none;
+overflow-y: auto;
+}
+#tittlemenu
+{
+  width: 100%;
+}
+.Equipos::-webkit-scrollbar {
+  width: 0em;
+  /* Ancho de la barra de desplazamiento */
+}
+
+.Equipos::-webkit-scrollbar-thumb {
+  border-top-right-radius: 20px;
+  background-color: #fff;
+  /* Color del pulgar de la barra de desplazamiento */
+}
+/*Tabla Asignar*/
+#asignar-table th:first-child {
+  border-top-left-radius: 9px;
+}
+
+#asignar-table th:last-child {
+  border-top-right-radius: 9px;
+  
+}
+#asignar-table th {
+  background-color: #D9D9D9;
+  width: 30%;
+  
+}
+
+#asignar-table td{
+  align-items: center;
+  border-bottom: 1px solid #0000007e;
+  text-align: center;
+  
+}
+#asignar-contenedor,#terminados-contenedor
+{
+background-color: #fff;
+min-height: 500px;
+max-height: 500px;
+border: 1px solid #0000007e;
+border-radius: 20px;
+margin:none;
+overflow-y: auto;
+}
+#asignar-contenedor::-webkit-scrollbar {
+  width: 0em;
+  /* Ancho de la barra de desplazamiento */
+}
+
+#asignar-contenedor::-webkit-scrollbar-thumb {
+  border-top-right-radius: 20px;
+  background-color: #fff;
+  /* Color del pulgar de la barra de desplazamiento */
+}
+/*Tabla Terminados*/
+#terminados-table th:first-child {
+  border-top-left-radius: 9px;
+}
+
+#terminados-table th:last-child {
+  border-top-right-radius: 9px;
+  
+}
+#terminados-table th {
+  background-color: #D9D9D9;
+  width: 32%;
+  
+}
+
+#terminados-table td{
+  align-items: center;
+  border-bottom: 1px solid #0000007e;
+  text-align: center;
+  
+}
+#terminados-contenedor::-webkit-scrollbar {
+  width: 0em;
+  /* Ancho de la barra de desplazamiento */
+}
+
+#terminados-contenedor::-webkit-scrollbar-thumb {
+  border-top-right-radius: 20px;
+  background-color: #fff;
+  /* Color del pulgar de la barra de desplazamiento */
+}
+/*Tabla Pendientes*/
+#pendientes-table th:first-child {
+  border-top-left-radius: 18px;
+}
+
+#pendientes-table th:last-child {
+  border-top-right-radius: 18px;
+  
+}
+#pendientes-table th {
+  background-color: #D9D9D9;
+}
+
+#pendientes-table td{
+  align-items: center;
+  border-bottom: 1px solid #0000007e;
+  text-align: center;
+}
+#pendientes-table,#progreso-table
+{
+  width: 100%;
+}
+
+#pendientes-contenedor,#progreso-contenedor
+{
+background-color: #fff;
+border: 1px solid #0000007e;
+border-radius: 20px;
+min-height: 300px;
+max-height: 300px;
+overflow: auto;
+}
+
+
+#pendientes-contenedor::-webkit-scrollbar {
+  width: 0em;
+  /* Ancho de la barra de desplazamiento */
+}
+
+#pendientes-contenedor::-webkit-scrollbar-thumb {
+  border-top-right-radius: 20px;
+  background-color: #fff;
+  /* Color del pulgar de la barra de desplazamiento */
+}
+/*Tabla Progreso*/
+
+#progreso-table th:first-child {
+  border-top-left-radius: 18px;
+}
+
+#progreso-table th:last-child {
+  border-top-right-radius: 18px;
+  
+}
+#progreso-table th {
+  background-color: #D9D9D9;
+  width: 32%;
+  
+}
+
+#progreso-table td{
+  align-items: center;
+  border-bottom: 1px solid #0000007e;
+  text-align: center;
+  
+}
+
+#progreso-contenedor::-webkit-scrollbar {
+  width: 0em;
+  /* Ancho de la barra de desplazamiento */
+}
+
+#progreso-contenedor::-webkit-scrollbar-thumb {
+  border-top-right-radius: 20px;
+  background-color: #fff;
+  /* Color del pulgar de la barra de desplazamiento */
+}
+.container3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Espacio entre los elementos */
+  flex: 1;
+  height: 50%;
+}
+.pendProgreContainer {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Espacio entre los elementos */
+  width: 100%;
+}
+#tittleAndDiv
+{
+  width: 50%;
+}
+#tittleAndDiv3
+{
+  width: 100%;
+}
+
+/* Establecer posición fija para los th en las tablas */
+#asignar-table th,
+#terminados-table th,
+#pendientes-table th,
+#progreso-table th {
+  position: sticky;
+  top: 0;
+  background-color: #D9D9D9;
+  z-index: 2; /* Asegura que los th estén por encima de los td */
+}
+/* Establecer estilos para todas las tablas y sus celdas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #0000007e;
+  text-align: center;
+}
+
+/* Establecer posición fija para los th en las tablas */
+th {
+  position: sticky;
+  top: 0;
+  background-color: #D9D9D9;
+  z-index: 2; /* Asegura que los th estén por encima de los td */
+}
+
+/* Establecer overflow en las celdas td */
+td {
+  overflow: auto;
+}
+
+/* Estilos para la barra de desplazamiento en celdas td */
+td::-webkit-scrollbar {
+  width: 0em;
+}
+
+td::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}

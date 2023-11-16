@@ -3,49 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- SERGIO -->
-    {% load static %} <!-- SERGIO -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'CSS/signIn.css' %}" />
     <title>Iniciar Sesión</title>
   </head>
   <body>
     <script>
       $(document).ready(function () {
-        $("#iniciarSesionBtn").click(function () {
+        $("#signinForm").submit(function (event) {
+          event.preventDefault(); // Evitar la acción predeterminada del formulario
 
-          var correo = $("#Correo").val(); // SERGIO
-          var contra = $("#Contra").val(); // SERGIO
-         
+          var correo = $("#Correo").val();
+          var contra = $("#Contra").val();
+
           console.log("Correo:", correo);
           console.log("Contraseña:", contra);
 
-          //var formData = {
-        //'correo': correo,
-        //'contraseña': contraseña,
-        //'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
-      //};
+          $.ajax({
+            type: "POST",
+            url: "/iniciosesion2/",
+            data: {
+              correo,
+              contra,
+              'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
+            },
+            success: function (response) {
+              console.log(response);
 
-      //console.log(formData);
-
-      $.ajax({
-        type: "POST",
-        url: "/iniciosesion2/",
-        data: {
-                correo,
-                contra,
-                'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
-        },
-        success: function (response) {
-          alert("FUNCA (si esta en la base de datos)"); // SERGIO
-          console.log(response);
-
-          window.location.href = "/equipo/";
-        },
-        error: function (error) {
-          alert("NO FUNCA (no esta en la base de datos)"); // SERGIO
-          console.log(error);
-        }
-      });
+              var cond = parseInt(response.cond); // Convertir a número
+              console.log(cond);
+              if (cond === 0) {
+                alert("Usuario nuevo, redirigiendo...");
+                window.location.href = "/equipo/";
+              } else if (cond === 1) {
+                alert("Usuario no es nuevo");
+              }
+            },
+            error: function (error) {
+              alert("Error en la solicitud AJAX");
+              console.log(error);
+            }
+          });
         });
       });
     </script>
@@ -53,17 +52,17 @@
       <div class="container" id="container">
         <!-- Panel para iniciar sesión -->
         <div class="form-container sign-in-container">
-          <form action="#" method="post" id="signinForm"> <!-- SERGIO (añadi id) -->
-            {%csrf_token %} <!-- SERGIO  -->
+          <form action="#" method="post" id="signinForm">
+            {% csrf_token %}
             <h1>Iniciar Sesión</h1>
             <label>
               <input type="email" placeholder="Correo" id="Correo"/>
             </label>
             <label>
-              <input type="password" placeholder="Contra" id="Contra"/> <!-- SERGIO -->
+              <input type="password" placeholder="Contra" id="Contra"/>
             </label>
             <a href="#">¿Olvidaste tu contraseña?</a>
-            <button id="iniciarSesionBtn">Iniciar Sesión</button>
+            <button type="submit">Iniciar Sesión</button>
           </form>
         </div>
         <!-- Panel para crear cuenta -->
