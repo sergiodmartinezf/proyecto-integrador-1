@@ -42,16 +42,26 @@ addTaskButton.addEventListener("click", () => {
     title: 'Lista de Tareas',
     html: '<div id="task-list"></div>' +
           '<input id="task" class="swal2-input" placeholder="Ingrese Nombre de la tarea">' +
-          '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">'+
-          '<input id="desc" class="swal2-input" placeholder="Descripción">',
+          '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">' +
+          '<input id="desc" class="swal2-input" placeholder="Descripción">' +
+          '<table id="task-table" class="table">' +
+          '   <thead>' +
+          '       <tr>' +
+          '           <th>Tarea</th>' +
+          '           <th>Equipo</th>' +
+          '       </tr>' +
+          '   </thead>' +
+          '   <tbody id="table-body"></tbody>' +
+          '</table>',
     showCancelButton: true,
     confirmButtonText: 'Asignar Nueva Tarea',
     cancelButtonText: 'Cancelar',
     onBeforeOpen: () => {
-      const taskList = Swal.getPopup().querySelector('#task-list');
-      const taskInput = Swal.getPopup().querySelector('#task');
-      const teamInput = Swal.getPopup().querySelector('#team');
-      const description = Swal.getPopup().querySelector('#desc');
+        const taskList = Swal.getPopup().querySelector('#task-list');
+        const taskInput = Swal.getPopup().querySelector('#task');
+        const teamInput = Swal.getPopup().querySelector('#team');
+        const description = Swal.getPopup().querySelector('#desc');
+        const tableBody = Swal.getPopup().querySelector('#table-body');
       // Actualizar la lista de tareas en tiempo real
       function updateTaskList() {
         taskList.innerHTML = '';
@@ -63,29 +73,49 @@ addTaskButton.addEventListener("click", () => {
         });
       }
 
+// Dentro de la función updateTaskList...
+function updateTaskList() {
+    taskList.innerHTML = '';
+    tableBody.innerHTML = '';
+    tasks.forEach((task) => {
+        const taskDiv = document.createElement("div");
+        taskDiv.className = "task-box";
+        taskDiv.textContent = task;
+        taskList.appendChild(taskDiv);
+
+        // Split para obtener el nombre de la tarea y el equipo
+        const [tarea, equipo] = task.split(', ');
+        const row = document.createElement('tr');
+        const cell1 = document.createElement('td');
+        const cell2 = document.createElement('td');
+        cell1.textContent = tarea.substring(7);  // Elimina "Tarea: "
+        cell2.textContent = equipo.substring(7); // Elimina "Equipo: "
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        tableBody.appendChild(row);
+    });
+}
       // Al hacer clic en "Asignar Nueva Tarea"
       Swal.getConfirmButton().addEventListener('click', () => {
         const task = taskInput.value;
         const team = teamInput.value;
 
         if (task) {
-          tasks.push(`Tarea: ${task}, Equipo: ${team}`);
-          updateTaskList();
-          taskInput.value = '';
-          teamInput.value = '';
+            tasks.push(`Tarea: ${task}, Equipo: ${team}`);
+            updateTaskList();
+            taskInput.value = '';
+            teamInput.value = '';
         }
-      });
-      //al añadirse nueva tarea debe tener un boton que diga leer descripcion
-    },
-    allowOutsideClick: false, 
-    persistent: true
-  });
+    });
+},
+allowOutsideClick: false, 
+persistent: true
 });
 
 dayDiv.appendChild(addTaskButton);
 calendarDiv.appendChild(dayDiv);
 }
-
+)
   // Estilo para cuadros vacíos sin bordes ni fondo
   const emptyDayElements = document.querySelectorAll(".empty-day");
   emptyDayElements.forEach((element) => {
