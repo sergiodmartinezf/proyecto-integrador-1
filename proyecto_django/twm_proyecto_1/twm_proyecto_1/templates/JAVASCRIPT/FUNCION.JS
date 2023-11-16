@@ -41,7 +41,7 @@ addTaskButton.addEventListener("click", () => {
   Swal.fire({
     title: 'Lista de Tareas',
     html: '<div id="task-list"></div>' +
-          '<input id="task" class="swal2-input" placeholder="Ingrese una tarea">' +
+          '<input id="task" class="swal2-input" placeholder="Ingrese Nombre de la tarea">' +
           '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">'+
           '<input id="desc" class="swal2-input" placeholder="Descripción">',
     showCancelButton: true,

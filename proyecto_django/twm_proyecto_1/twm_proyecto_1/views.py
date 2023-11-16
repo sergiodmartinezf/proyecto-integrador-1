@@ -57,7 +57,7 @@ def iniciosesion2(request):
         print(tareas) 
 
         # Comprueba si el usuario que inicia sesión está en la base de datos.
-        sql = 'SELECT correo, contra, cont FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
+        sql = 'SELECT ID, correo, contra, cont FROM aplicacion_1_usuario WHERE correo=%s AND contra=%s'
         cursor = connection.cursor()
         cursor.execute(sql, [correo, contra])
 
@@ -75,9 +75,9 @@ def iniciosesion2(request):
             if usuario[3] == 0:
                 # El usuario fue encontrado y es nuevo (se realiza cambio en cont porque dejarpa de ser nuevo)
 
-                #sql = 'UPDATE aplicacion_1_usuario SET cont=cont+1 WHERE correo=%s AND contra=%s;'
-                #cursor = connection.cursor()
-                #cursor.execute(sql, [correo, contra])
+                sql_act_contador = 'UPDATE aplicacion_1_usuario SET cont=cont+1 WHERE correo=%s AND contra=%s;'
+                with connection.cursor() as cursor:
+                    cursor.execute(sql_act_contador, [correo, contra])
 
                 print("response cond 0")
 
