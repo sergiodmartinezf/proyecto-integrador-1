@@ -184,6 +184,31 @@ def unirmeaequipo(request):
     return HttpResponse("Método no permitido")
 
 # SERGIO
+def calendario(request):
+    usuario_id = request.session.get('usuario_id')
+        # Comprueba si el equipo que inicia sesión está en la base de datos.
+    sql = 'SELECT T.Nombre, T.descripcion, T.fecha_ini, T.fecha_fin FROM aplicacion_1_Tareas T JOIN aplicacion_1_Miembros M ON T.ID_equipo_id = M.ID_equipo_id WHERE M.ID_usuario_id =%s'
+    cursor = connection.cursor()
+    cursor.execute(sql, [usuario_id])
+
+    tareas=cursor.fetchone()
+    print(tareas) 
+
+    sql2="""SELECT e.id AS equipo_id, e.nombre AS nombre_equipo, e.descripcion AS descripcion_equipo, e.cantIntegrantes,
+                        u.id AS usuario_id, u.nombre AS nombre_usuario, u.correo,
+                        m.id AS miembro_id
+                        FROM aplicacion_1_equipo e
+                        JOIN aplicacion_1_miembros m ON e.id = m.id_equipo_id
+                        JOIN aplicacion_1_usuario u ON m.id_usuario_id = u.id
+                        WHERE u.id=%s;
+                        """
+    cursor = connection.cursor()
+    cursor.execute(sql2, [usuario_id])
+    miequipo=cursor.fetchone()
+    print(miequipo)
+    return render(request, 'HTML/calendario.html')
+
+# SERGIO
 def crearTarea(request):
     if request.method == 'POST':
         tarea = request.POST.get('tarea')
@@ -213,14 +238,4 @@ def crearTarea(request):
 
     return HttpResponse("Método no permitido")
 
-# SERGIO
-def calendario(request):
-    # usuario_id = request.session.get('usuario_id')
-        # Comprueba si el equipo que inicia sesión está en la base de datos.
-   # sql = 'SELECT T.Nombre, T.descripcion, T.fecha_ini, T.fecha_fin FROM aplicacion_1_Tareas T JOIN aplicacion_1_Miembros M ON T.ID_equipo_id = M.ID_equipo_id WHERE M.ID_usuario_id =%s'
-   # cursor = connection.cursor()
-    #cursor.execute(sql, [usuario_id])
 
-   # tareas=cursor.fetchone()
-   # print(tareas) 
-    return render(request, 'HTML/calendario.html')
