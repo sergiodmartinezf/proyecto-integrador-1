@@ -1,16 +1,14 @@
-{%load static%}
+{% load static %} 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendario</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}" />
+  <title>Calendario</title><link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <!-- SweetAlert2 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
-  <!-- SweetAlert2 JavaScript -->
+  <!-- SweetAlert2 JavaScript  -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -25,45 +23,44 @@
     <i class="material-icons user-icon" id="user-icon">person</i>
   </div>
 
-  <div class="Tareas" id="Tareas">
-    <table id="Tareas-table">
-      <h2>Tareas</h2>
-      <thead>
-        <tr>
-          <th>Tarea</th>
-          <th>Equipo</th>
-          <th>Entrega</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Persona 1</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Persona 2</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Persona 3</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Persona 1</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Persona 2</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Persona 3</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="Tareas" id="Tareas"><table id="Tareas-table">
+    <h2>Tareas</h2>
+    <thead>
+      <tr>
+        <th>Tarea</th>
+        <th>Equipo</th>
+        <th>Entrega</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Persona 1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Persona 2</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Persona 3</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Persona 1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Persona 2</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Persona 3</td>
+      </tr>
+    </tbody>
+  </table>
   </div>
 
   <div class="Integrantes" id="Integrantes">
@@ -89,64 +86,62 @@
           <td>Persona 3</td>
         </tr>
       </tbody>
-
+      
     </table>
-  </div>
-  <div class="desc" id="desc">
-    <h2>Descripción Tarea</h2>
-    <p id="descLabel">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, nihil illum. Eligendi aperiam
-      ipsam, saepe eos facere est illum iure voluptates sit exercitationem quaerat facilis! Neque ut exercitationem
-      dolorum omnis!</p>
-  </div>
-  <div id="menu-lateral" class="menu-lateral">
-    <div id="iconNom">
-      <i class="material-icons user-icon" id="username">person</i>
-      <div id="NomCor">
-        <a id="NomUser"> Pepe</a>
-        <a id="email">pepe@gmail.tuvieja</a>
-      </div>
+    </div> 
+    <div class="desc" id="desc">
+      <h2>Descripción Tarea</h2>
+      <p id="descLabel">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, nihil illum. Eligendi aperiam ipsam, saepe eos facere est illum iure voluptates sit exercitationem quaerat facilis! Neque ut exercitationem dolorum omnis!</p>
     </div>
-
+  <div id="menu-lateral" class="menu-lateral">   
+    <div id="iconNom">
+    <i class="material-icons user-icon" id="username">person</i>
+    <div id="NomCor">
+    <a id="NomUser"> Pepe</a>
+    <a id="email">pepe@gmail.tuvieja</a>
+  </div>
+  </div> 
+  
     <div id="tittlesMenu">
-      <h4>Equipos</h4>
-      <div class="Equipos">
-        <table id="equipos-table">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Nombre</th>
-              <th>Miembros</th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Equipo A</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Equipo B</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Equipo C</td>
-              <td>7</td>
-            </tr>
-          </tbody>
-
-        </table>
-      </div>
+    <h4>Equipos</h4>
+    <div class="Equipos">
+      <table id="equipos-table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Miembros</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Equipo A</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Equipo B</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Equipo C</td>
+            <td>7</td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
     </div>
     <div id="buttonClose">
-      <ul>
-        <li><a href="#">Cerrar Sesión</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a href="#">Cerrar Sesión</a></li>
+    </ul>
+  </div>
   </div>
 
   <div class="contenedorBoss">
@@ -165,20 +160,20 @@
             </thead>
             <tbody>
               <tr>
-                <td>Tarea 1</td>
-                <td>Equipo 1</td>
-                <td>12/11/2023</td>
-              </tr>
-              <tr>
-                <td>Tarea 1</td>
-                <td>Equipo 1</td>
-                <td>12/11/2023</td>
-              </tr>
-              <tr>
-                <td>Tarea 1</td>
-                <td>Equipo 1</td>
-                <td>12/11/2023</td>
-              </tr>
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
+            </tr>
+            <tr>
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
+            </tr>
+            <tr>
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
+            </tr>
             </tbody>
           </table>
         </div>
@@ -280,7 +275,9 @@
   </div>
   </div>
 
-  <script src="{% static 'JAVASCRIPT/FUNCION.js' %}"></script>
+  <script src="{% static 'JAVASCRIPT/FUNCION.JS' %}"></script>
+  <!-- <script src="../JAVASCRIPT/FUNCION.js"></script> -->
+  <!-- <script src="../JAVASCRIPT/funcionesBotones.js"></script> -->
 </body>
 
 </html>
