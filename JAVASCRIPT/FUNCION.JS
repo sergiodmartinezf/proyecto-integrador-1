@@ -38,12 +38,12 @@ function generateCalendar(year, month) {
     addTaskButton.textContent = "";
 
     dayDiv.addEventListener("click", () => {
+      const contenidoTarea=document.getElementById('Tareas').innerHTML;
       Swal.fire({
         title: 'Lista de Tareas',
-        html: '<div id="task-list"></div>' +
-              '<input id="task" class="swal2-input" placeholder="Ingrese una tarea">' +
+        html:'<input id="task" class="swal2-input" placeholder="Ingrese una tarea">' +
               '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">' +
-              '<input id="desc" class="swal2-input" placeholder="Descripción">',
+              '<input id="desc" class="swal2-input" placeholder="Descripción">'+contenidoTarea,
         showCancelButton: true,
         confirmButtonText: 'Asignar Nueva Tarea',
         cancelButtonText: 'Cancelar',
@@ -156,13 +156,21 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 
-// Ocultar el div al cargar la página y llamado a botones cada vez que se carga la pagina
+//llamado a botones cada vez que se carga la pagina
 document.addEventListener('DOMContentLoaded', function () {
-  var miDiv = document.querySelector('.Integrantes');
-  miDiv.style.display = "none";
+  // Ocultar el div Integrantes
+  var IntegrantesDiv = document.querySelector('.Integrantes');
+  IntegrantesDiv.style.display = "none";
+  // Ocultar el div Descripcion
+  var DescDiv = document.querySelector('.desc');
+  DescDiv.style.display = "none";
+  // Ocultar el div Tareas 
+  var DescDiv = document.querySelector('.Tareas');
+  DescDiv.style.display = "none";
   agregarBotonesAAsignar();
   agregarBotonesAEquipos();
   agregarBotonesAPendientes();
   agregarBotonesAProgreso();
   agregarBotonesAIntegrantes();
+  agregarBotonesATareas();
 });

@@ -74,17 +74,33 @@ function agregarBotonesFila(fila) {
 
 // Función para agregar botones a la fila de la tabla "asignar-table"
 function agregarBotonesFilaAsignar(fila) {
-    // Agregar celdas para los botones a la fila
-    var celdaMasOpciones = fila.insertCell(3);
-  
-    // Crear y agregar el botón con tres puntos suspensivos
-    var botonMasOpciones = document.createElement("button");
-    botonMasOpciones.innerHTML = '<i class="material-icons">more_vert</i>';
-    botonMasOpciones.className = "more-options-button";
-  
-    // Agregar los botones a las celdas correspondientes
-    celdaMasOpciones.appendChild(botonMasOpciones);
-  }
+  // Agregar celdas para los botones a la fila
+  var celdaMasOpciones = fila.insertCell(3);
+
+  // Crear y agregar el botón con tres puntos suspensivos
+  var botonMasOpciones = document.createElement("button");
+  botonMasOpciones.innerHTML = '<i class="material-icons">more_vert</i>';
+  botonMasOpciones.className = "more-options-button";
+
+  // Agregar evento click al botón
+  botonMasOpciones.addEventListener("click", () => {
+    const contenidoIntegrantes = document.getElementById('Integrantes').innerHTML;
+    const contenidoDesc=document.getElementById('desc').innerHTML;
+
+    // Muestra SweetAlert con el contenido del div
+    Swal.fire({
+      title: 'Integrantes',
+      html: contenidoIntegrantes+contenidoDesc,
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    });
+  });
+
+  // Agregar los botones a las celdas correspondientes
+  celdaMasOpciones.appendChild(botonMasOpciones);
+}
+
   
   // Función para agregar botones a todas las filas de la tabla "asignar-table"
   function agregarBotonesAAsignar() {
@@ -173,7 +189,7 @@ function agregarBotonesFilaIntegrantes(fila) {
 // Función para agregar botones a todas las filas de la tabla "integrantes-table"
 function agregarBotonesAIntegrantes() {
     // Obtén todas las filas de la tabla
-    var filasTabla = document.getElementById("integrantes-table").getElementsByTagName('tbody')[0].rows;
+    var filasTabla = document.getElementById("Integrantes-table").getElementsByTagName('tbody')[0].rows;
 
     // Itera sobre cada fila y llama a la función para agregar botones
     for (var i = 0; i < filasTabla.length; i++) {
@@ -183,5 +199,35 @@ function agregarBotonesAIntegrantes() {
         agregarBotonesFilaIntegrantes(fila);
     }
 }
+// Función para agregar botones a la fila de la tabla "tareas-table"
+function agregarBotonesFilaTareas(fila, selectedDay, selectedMonth, selectedYear) {
+  // Agregar celdas para los botones a la fila
+  const fechaEntrega = selectedDay + '/' + selectedMonth + '/' + selectedYear;
+  var celdaFechaEntregaTareas = fila.insertCell(2);
+  var celdaMasOpciones = fila.insertCell(3);
 
-  
+  // Agregar la fecha de entrega a la celda correspondiente
+  celdaFechaEntregaTareas.innerHTML = fechaEntrega;
+
+  // Crear y agregar el botón con tres puntos suspensivos
+  var botonMasOpciones = document.createElement("button");
+  botonMasOpciones.innerHTML = 'Iniciar';
+  botonMasOpciones.className = "Iniciar-button";
+
+  // Agregar los botones a las celdas correspondientes
+  celdaMasOpciones.appendChild(botonMasOpciones);
+}
+
+// Función para agregar botones a todas las filas de la tabla "tareas-table"
+function agregarBotonesATareas() {
+  // Obtén todas las filas de la tabla
+  var filasTabla = document.getElementById("Tareas-table").getElementsByTagName('tbody')[0].rows;
+
+  // Itera sobre cada fila y llama a la función para agregar botones
+  for (var i = 0; i < filasTabla.length; i++) {
+    var fila = filasTabla[i];
+
+    // Llama a la función para agregar botones con la información de la fila
+    agregarBotonesFilaTareas(fila,);
+  }
+}
