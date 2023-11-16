@@ -225,3 +225,7 @@ def crearTarea(request):
             return HttpResponse("Tarea creada exitosamente") 
 
     return HttpResponse("Método no permitido")
+
+# SERGIO
+def tablaEnCreacionTareas(request):
+    return render(request, 'HTML/tablaEnCreacionTareas.html')

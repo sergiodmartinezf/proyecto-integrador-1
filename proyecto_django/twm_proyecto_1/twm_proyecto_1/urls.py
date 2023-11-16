@@ -16,4 +16,5 @@ urlpatterns = [
     path('crearequipo/', views.crearequipo, name='crearequipo/'), # SERGIO
     path('unirmeaequipo/', views.unirmeaequipo, name='unirmeaequipo/'), # SERGIO
     path('crearTarea/', views.crearTarea, name='crearTarea/'), # SERGIO
+    path('tablaEnCreacionTareas/', views.tablaEnCreacionTareas, name='tablaEnCreacionTareas/'), # SERGIO
 ]
