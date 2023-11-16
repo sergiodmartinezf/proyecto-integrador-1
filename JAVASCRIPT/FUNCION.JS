@@ -117,253 +117,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (tarea.trim() !== "" && equipo.trim() !== "" && fechaEntrega.trim() !== "") {
     // Obtener la referencia del tbody de la tabla
-    var tbody = document.getElementById("asignar-table").getElementsByTagName('tbody')[0];
+    var tbodyAsignar = document.getElementById("asignar-table").getElementsByTagName('tbody')[0];
+    var tbodyPendientes=document.getElementById("pendientes-table").getElementsByTagName('tbody')[0];
 
     // Crear una nueva fila
-    var fila = tbody.insertRow();
+    var filaAsignar = tbodyAsignar.insertRow();
+    // Crear una nueva fila
+    var filaPendientes = tbodyPendientes.insertRow();
 
     // Agregar celdas a la fila
-    var celdaTarea = fila.insertCell(0);
-    var celdaEquipo = fila.insertCell(1);
-    var celdaFechaEntrega = fila.insertCell(2);
+    var celdaTareaAsignar = filaAsignar.insertCell(0);
+    var celdaEquipoAsignar = filaAsignar.insertCell(1);
+    var celdaFechaEntregaAsignar = filaAsignar.insertCell(2);
+    var celdaTareaPendientes = filaPendientes.insertCell(0);
+    var celdaEquipoPendientes = filaPendientes.insertCell(1);
+    var celdaFechaEntregaPendientes = filaPendientes.insertCell(2);
 
-    // Agregar los nuevos datos a las celdas
-    celdaTarea.innerHTML = tarea;
-    celdaEquipo.innerHTML = equipo;
-    celdaFechaEntrega.innerHTML = fechaEntrega;
+    // Agregar los nuevos datos a las celdas Asignar
+    celdaTareaAsignar.innerHTML = tarea;
+    celdaEquipoAsignar.innerHTML = equipo;
+    celdaFechaEntregaAsignar.innerHTML = fechaEntrega;
+
+    // Agregar los nuevos datos a las celdas Pendientes
+    celdaTareaPendientes.innerHTML = tarea;
+    celdaEquipoPendientes.innerHTML = equipo;
+    celdaFechaEntregaPendientes.innerHTML = fechaEntrega;
 
     // Mostrar un mensaje de confirmación con SweetAlert
     Swal.fire('Campo agregado correctamente', '', 'success');
+
+    // Después de agregar la tarea, agregar los botones a la nueva fila
+    agregarBotonesFilaAsignar(filaAsignar);
+    agregarBotonesFilaPendientes(filaPendientes);
   } else {
     // Mostrar un mensaje de alerta si algún campo está vacío
     Swal.fire('Ingrese datos válidos en todos los campos', '', 'error');
   }
 }
 
-function agregarBotones(fila) {
-  // Agregar celdas para los botones a la fila
-  var celdaMasOpciones = fila.insertCell(3);
-  var celdaActualizar = fila.insertCell(4);
-  var celdaEliminar = fila.insertCell(5);
 
-  // Crear y agregar el botón con tres puntos suspensivos
-  var botonMasOpciones = document.createElement("button");
-  botonMasOpciones.innerHTML = '<i class="material-icons">more_vert</i>';
-  botonMasOpciones.className = "more-options-button";
-
-  // Crear y agregar el botón de actualizar con un icono de actualización
-  var botonActualizar = document.createElement("button");
-  botonActualizar.innerHTML = '<i class="material-icons">update</i>';
-  botonActualizar.className = "update-button";
-  botonActualizar.addEventListener("click", () => {
-    // Agregar aquí la lógica para actualizar los datos
-    // Puedes abrir otro cuadro de diálogo con SweetAlert para la actualización
-    Swal.fire(
-      'Datos actualizados correctamente.',
-      '',
-      'success'
-    );
-  });
-
-  // Crear y agregar el botón de eliminar
-  var botonEliminar = document.createElement("button");
-  botonEliminar.innerHTML = 'X';
-  botonEliminar.className = "delete-button";
-  botonEliminar.addEventListener("click", () => {
-    Swal.fire({
-      title: '¿Desea Eliminar el equipo?',
-      showCancelButton: true,
-      confirmButtonText: 'Aceptar',
-      cancelButtonText: 'Cancelar',
-      onBeforeOpen: () => {
-        // Puedes agregar lógica adicional aquí si es necesario
-      },
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Agregar aquí la lógica para confirmar la eliminación del equipo
-        fila.remove(); // Elimina la fila de la tabla
-        Swal.fire(
-          'El equipo ha sido eliminado correctamente.',
-          '',
-          'success'
-        );
-      }
-    });
-  });
-
-  // Agregar los botones a las celdas correspondientes
-  celdaMasOpciones.appendChild(botonMasOpciones);
-  celdaActualizar.appendChild(botonActualizar);
-  celdaEliminar.appendChild(botonEliminar);
-}
-
-
-function agregarBotonesTablas(fila) {
-  // Agregar celdas para los botones a la fila
-  var celdaMasOpciones = fila.insertCell(3);
-
-  // Crear y agregar el botón con tres puntos suspensivos
-  var botonMasOpciones = document.createElement("button");
-  botonMasOpciones.innerHTML = '<i class="material-icons">more_vert</i>';
-  botonMasOpciones.className = "more-options-button";
-
-  botonMasOpciones.addEventListener("click", () => {
-    // Obtener la tabla de equipos
-    var IntegrantesTable = document.getElementById("Integrantes-table");
-
-    Swal.fire({
-      title: 'Asignar Tarea',
-      html: IntegrantesTable.outerHTML, // Insertar el HTML de la tabla de equipos en el contenido del cuadro de diálogo
-      showCancelButton: true,
-      confirmButtonText: 'Aceptar',
-      cancelButtonText: 'Cancelar',
-      onBeforeOpen: () => {
-        // Puedes agregar lógica adicional aquí si es necesario
-      },
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      customClass: {
-        popup: 'mi-popup-clase', // Agregar tu clase personalizada aquí
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Agregar aquí la lógica para confirmar la asignación de tarea
-        Swal.fire(
-          'La tarea ha sido asignada correctamente.',
-          '',
-          'success'
-        );
-      }
-    });
-  });
-
-  // Agregar los botones a las celdas correspondientes
-  celdaMasOpciones.appendChild(botonMasOpciones);
-}
-
-
-function agregarBotonesTablaIntegrantes(fila) {
-  // Agregar celdas para los botones a la fila
-  var celdaMasOpciones = fila.insertCell(2);
-
-  // Crear y agregar el botón con tres puntos suspensivos
-  var botonMasOpciones = document.createElement("button");
-  botonMasOpciones.innerHTML = 'Asignar';
-  botonMasOpciones.className = "Asignar-button";
-
-  botonMasOpciones.addEventListener("click", () => {
-    // Obtener la tabla de equipos
-    var IntegrantesTable = document.getElementById("Integrantes-table");
-
-    Swal.fire({
-      title: 'Asignar Tarea',
-      showCancelButton: true,
-      confirmButtonText: 'Aceptar',
-      cancelButtonText: 'Cancelar',
-      onBeforeOpen: () => {
-        // Puedes agregar lógica adicional aquí si es necesario
-      },
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      customClass: {
-        popup: 'mi-popup-clase', // Agregar tu clase personalizada aquí
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Agregar aquí la lógica para confirmar la asignación de tarea
-        Swal.fire(
-          'La tarea ha sido asignada correctamente.',
-          '',
-          'success'
-        );
-      }
-    });
-  });
-
-  // Agregar los botones a las celdas correspondientes
-  celdaMasOpciones.appendChild(botonMasOpciones);
-}
-
-
-// Espera a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function () {
-  // Llama a la función para agregar botones a la tabla "terminados"
-  agregarBotonesAEquipos();
-  agregarBotonesATablas();
-  agregarBotonAIntegrantes();
-  agregarBotonAsignar(); 
-  
-});
-// Función para agregar botones a la tabla "Equipos"
-function agregarBotonesAEquipos() {
-  agregarBotonesPorTabla("equipos-table");
-}
-
-// Función para agregar botones a la tabla "Asignar"
-function agregarBotonesAAsignar() {
-  agregarBotonesPorTabla("asignar-table");
-}
-
-// Función para agregar botones a la tabla "Terminados"
-function agregarBotonesATerminados() {
-  agregarBotonesPorTabla("terminados-table");
-}
-
-// Función para agregar botones a la tabla "Pendientes"
-function agregarBotonesAPendientes() {
-  agregarBotonesPorTabla("pendientes-table");
-}
-
-// Función para agregar botones a la tabla "Progreso"
-function agregarBotonesAProgreso() {
-  agregarBotonesPorTabla("progreso-table");
-}
-
-// Función para agregar botones a la tabla "Integrantes"
-function agregarBotonesAIntegrantes(){
-  agregarBotonTablaIntegrantes("Integrantes-table");
-}
-
-// Función genérica para agregar botones a una tabla específica
-function agregarBotonesPorTabla(tableId) {
-  // Obtén todas las filas de la tabla
-  var filasTabla = document.getElementById(tableId).getElementsByTagName('tbody')[0].rows;
-
-  // Itera sobre cada fila y llama a la función para agregar botones
-  for (var i = 0; i < filasTabla.length; i++) {
-    var fila = filasTabla[i];
-
-    // Llama a la función para agregar botones con la información de la fila
-    agregarBotonesTablas(fila);
-  }
-}
-
-function agregarBotonTablaIntegrantes(tableId) {
-  // Obtén todas las filas de la tabla
-  var filasTabla = document.getElementById(tableId).getElementsByTagName('tbody')[0].rows;
-
-  // Itera sobre cada fila y llama a la función para agregar botones
-  for (var i = 0; i < filasTabla.length; i++) {
-    var fila = filasTabla[i];
-
-    // Llama a la función para agregar botones con la información de la fila
-    agregarBotonesTablaIntegrantes(fila);
-  }
-}
-
-// Llamadas a las funciones específicas para cada tabla
-agregarBotonesAEquipos();
-agregarBotonesAAsignar();
-agregarBotonesATerminados();
-agregarBotonesAPendientes();
-agregarBotonesAProgreso();
-agregarBotonesAIntegrantes();
-
-
-// Ocultar el div al cargar la página
+// Ocultar el div al cargar la página y llamado a botones cada vez que se carga la pagina
 document.addEventListener('DOMContentLoaded', function () {
   var miDiv = document.querySelector('.Integrantes');
   miDiv.style.display = "none";
+  agregarBotonesAAsignar();
+  agregarBotonesAEquipos();
+  agregarBotonesAPendientes();
+  agregarBotonesAProgreso();
+  agregarBotonesAIntegrantes();
 });

@@ -277,7 +277,12 @@ h3 {
   /* Otros estilos personalizados aquí */
 }
 
-
+.integrantesClass
+{
+  width: 90%;
+  height: 600px;
+top: 0;
+}
 
 #email
 {
