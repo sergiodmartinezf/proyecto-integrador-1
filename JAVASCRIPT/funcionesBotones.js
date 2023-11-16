@@ -1,3 +1,4 @@
+
 // Función para agregar botones a la fila de la tabla "equipos-table"
 function agregarBotonesFila(fila) {
     // Agregar celdas para los botones a la fila
@@ -228,6 +229,6 @@ function agregarBotonesATareas() {
     var fila = filasTabla[i];
 
     // Llama a la función para agregar botones con la información de la fila
-    agregarBotonesFilaTareas(fila,);
+    agregarBotonesFilaTareas(fila,selectedDay,selectedMonth,selectedYear);
   }
 }

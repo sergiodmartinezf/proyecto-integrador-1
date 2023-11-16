@@ -119,11 +119,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Obtener la referencia del tbody de la tabla
     var tbodyAsignar = document.getElementById("asignar-table").getElementsByTagName('tbody')[0];
     var tbodyPendientes=document.getElementById("pendientes-table").getElementsByTagName('tbody')[0];
+    var tbodyTareas=document.getElementById("Tareas-table").getElementsByTagName('tbody')[0];
 
     // Crear una nueva fila
     var filaAsignar = tbodyAsignar.insertRow();
     // Crear una nueva fila
     var filaPendientes = tbodyPendientes.insertRow();
+    // Crear una nueva fila
+    var filaTareas = tbodyTareas.insertRow();
+    
 
     // Agregar celdas a la fila
     var celdaTareaAsignar = filaAsignar.insertCell(0);
@@ -132,6 +136,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var celdaTareaPendientes = filaPendientes.insertCell(0);
     var celdaEquipoPendientes = filaPendientes.insertCell(1);
     var celdaFechaEntregaPendientes = filaPendientes.insertCell(2);
+    var celdaTareaTareas = filaTareas.insertCell(0);
+    var celdaEquipoTareas = filaTareas.insertCell(1);
+    var celdaFechaEntregaTareas = filaTareas.insertCell(2);
 
     // Agregar los nuevos datos a las celdas Asignar
     celdaTareaAsignar.innerHTML = tarea;
@@ -143,12 +150,18 @@ document.addEventListener('DOMContentLoaded', function () {
     celdaEquipoPendientes.innerHTML = equipo;
     celdaFechaEntregaPendientes.innerHTML = fechaEntrega;
 
+    // Agregar los nuevos datos a las celdas Pendientes
+    celdaTareaTareas.innerHTML = tarea;
+    celdaEquipoTareas.innerHTML = equipo;
+    celdaFechaEntregaTareas.innerHTML = fechaEntrega;
+
     // Mostrar un mensaje de confirmación con SweetAlert
     Swal.fire('Campo agregado correctamente', '', 'success');
 
     // Después de agregar la tarea, agregar los botones a la nueva fila
     agregarBotonesFilaAsignar(filaAsignar);
     agregarBotonesFilaPendientes(filaPendientes);
+    agregarBotonesATareas(filaTareas);
   } else {
     // Mostrar un mensaje de alerta si algún campo está vacío
     Swal.fire('Ingrese datos válidos en todos los campos', '', 'error');
@@ -165,8 +178,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var DescDiv = document.querySelector('.desc');
   DescDiv.style.display = "none";
   // Ocultar el div Tareas 
-  var DescDiv = document.querySelector('.Tareas');
-  DescDiv.style.display = "none";
+  var TareasDiv = document.querySelector('.Tareas');
+  TareasDiv.style.display = "none";
   agregarBotonesAAsignar();
   agregarBotonesAEquipos();
   agregarBotonesAPendientes();
@@ -174,3 +187,5 @@ document.addEventListener('DOMContentLoaded', function () {
   agregarBotonesAIntegrantes();
   agregarBotonesATareas();
 });
+
+
