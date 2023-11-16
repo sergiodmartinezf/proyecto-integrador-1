@@ -22,6 +22,13 @@ html, body {
   padding-bottom: 35px;
 }
 
+h4
+{
+  font-weight: 100;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
 #top-menu {
   background-color: #C2C6CC;
   width: 1470px;
@@ -211,6 +218,7 @@ h3 {
 .material-icons.user-icon {
   font-size: 40px;
   color: #fff;
+  background-color: #064469;
   border-radius: 10px;
   margin-right: 50px;
   display: flex; /* Ajusta el alineado vertical si es necesario */
@@ -223,33 +231,71 @@ h3 {
   position: absolute;
   top: 0;
   margin-top: 60px;
-  right: -250px; 
-  width: 250px;
-  height: 100%;
+  right: -600px; 
+  width: 550px;
+  height: 950px;
   background-color: #D9D9D9;
-  color: #fff;
+  color: #000000;
   transition: right 0.3s;
-  z-index: 1; 
-}
-
-#usuario-info {
+  z-index: 10000; 
   padding: 10px;
-  text-align: center;
-  background-color: #c6c4c4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-ul {
+#email
+{
+  color: #0000007e;
+}
+#NomUser
+{
+color: #000000;
+
+}
+#username
+{
+  font-size: 100px;
+  background-color: #0000;
+}
+#NomCor
+{
+  display: flex;
+  flex-direction: column ;
+}
+
+#buttonClose ul {
   list-style: none;
-  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra los elementos de navegación horizontalmente */
+  align-items: center; /* Centra los elementos de navegación verticalmente */
 }
 
-li {
-  padding: 10px;
+#buttonClose ul li {
+  margin: 0 10px;
 }
 
-a {
-  color: #fff;
+#buttonClose ul li a {
   text-decoration: none;
+  padding: 10px 20px;
+  background-color: #064469;
+  color: #fff;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+#buttonClose ul li a:hover {
+  background-color: #C2C6CC;
+  color: #064469;
+  text-decoration: underline;
+}
+
+#iconNom
+{
+  width: 50%;
+  display: flex;
+  align-items: center;
+
 }
 
 .menu-lateral.show {
@@ -260,11 +306,59 @@ a {
   top: 0;
   right:0 !important; 
 }
-
+#username
+{
+  margin-right: 0;
+}
 .material-icons.user-icon {
   cursor: pointer;
 }
 
+#equipos-table th:first-child {
+  border-top-left-radius: 9px;
+}
+
+#equipos-table th:last-child {
+  border-top-right-radius: 9px;
+  
+}
+#equipos-table th {
+  background-color: #D9D9D9;
+  width: 30%;
+  
+}
+
+#equipos-table td{
+  align-items: center;
+  border-bottom: 1px solid #0000007e;
+  text-align: center;
+  
+}
+.Equipos
+{
+background-color: #fff;
+width: 500px;
+min-height: 300px;
+max-height: 300px;
+border: 1px solid #0000007e;
+border-radius: 20px;
+margin:none;
+overflow-y: auto;
+}
+#tittlemenu
+{
+  width: 100%;
+}
+.Equipos::-webkit-scrollbar {
+  width: 0em;
+  /* Ancho de la barra de desplazamiento */
+}
+
+.Equipos::-webkit-scrollbar-thumb {
+  border-top-right-radius: 20px;
+  background-color: #fff;
+  /* Color del pulgar de la barra de desplazamiento */
+}
 /*Tabla Asignar*/
 #asignar-table th:first-child {
   border-top-left-radius: 9px;
