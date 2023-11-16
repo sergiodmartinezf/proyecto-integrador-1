@@ -4,6 +4,7 @@ from django.db import connection
 from django.http import JsonResponse # SERGIO
 from django.contrib.sessions.models import Session
 from django.contrib.auth.models import User
+from datetime import date
 
 def Inicio_app(request):
     #return HttpResponse("Hola")
@@ -162,7 +163,7 @@ def unirmeaequipo(request):
             else:
                 
                 usuario_id = request.session.get('usuario_id')
-                # Busca si el usuario ya es miembro del equipo
+                # Busca si el usuario ya es miembro del equipo 
                 sql = 'SELECT * FROM aplicacion_1_miembros WHERE aplicacion_1_miembros.ID_equipo_id = %s AND aplicacion_1_miembros.ID_usuario_id = %s'
                 cursor = connection.cursor()
                 cursor.execute(sql, [identificador, usuario_id])
@@ -194,3 +195,33 @@ def calendario(request):
     tareas=cursor.fetchone()
     print(tareas) 
     return render(request, 'HTML/calendario.html')
+
+# SERGIO
+def crearTarea(request):
+    if request.method == 'POST':
+        tarea = request.POST.get('tarea')
+        equipo = request.POST.get('equipo')
+        fechaEntrega = request.POST.get('fechaEntrega')
+        desc = request.POST.get('desc')
+
+        sql = 'SELECT * FROM aplicacion_1_equipo WHERE nombre=%s'
+        cursor = connection.cursor()
+        cursor.execute(sql, [equipo])
+
+        equipoBuscar=cursor.fetchone()
+
+        if equipoBuscar == None:
+
+            return HttpResponse("El equipo no fue encontrado", status=400)
+        
+        else:
+
+            equipoID=equipoBuscar[0]
+
+            sql = 'INSERT INTO aplicacion_1_tareas (nombre, descripcion, fecha_ini, fecha_fin, ID_equipo_id, estado, fecha_entrega) VALUES (%s, %s, %s, %s, %s, %s, %s)'
+            cursor = connection.cursor()
+            cursor.execute(sql, [tarea, desc, date.today(), fechaEntrega, equipoID, 'Incompleta', fechaEntrega])
+
+            return HttpResponse("Tarea creada exitosamente") 
+
+    return HttpResponse("Método no permitido")

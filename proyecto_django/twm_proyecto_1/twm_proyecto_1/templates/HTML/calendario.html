@@ -1,47 +1,20 @@
 {% load static %} <!-- SERGIO -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendario</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}" /> <!-- SERGIO -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- SweetAlert2 CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-    />
-
-    <!-- SweetAlert2 JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendario</title>
-  <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
-  <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet"
-  />
+  <title>Calendario</title><link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <!-- SweetAlert2 CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-  />
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
   <!-- SweetAlert2 JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- SERGIO -->>
 </head>
 
 <body>
+  {% csrf_token %} <!-- SERGIO -->
   <div id="top-menu">
     <i class="material-icons" id="menu-toggle">menu</i>
     <a href="../HTML/inicio1.html"><img src="../img/logo2.png" id="logonav" /></a>
@@ -51,6 +24,33 @@
     </ul>
     <i class="material-icons user-icon" id="user-icon">person</i>
   </div>
+
+  <div class="Integrantes">
+    <table id="Integrantes-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Persona 1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Persona 2</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Persona 3</td>
+        </tr>
+      </tbody>
+      
+    </table>
+  </div>  
 
   <div id="menu-lateral" class="menu-lateral">   
     <div id="iconNom">
@@ -71,6 +71,8 @@
             <th>Nombre</th>
             <th>Miembros</th>
             <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -78,121 +80,16 @@
             <td>1</td>
             <td>Equipo A</td>
             <td>5</td>
-            <td>x</td>
           </tr>
           <tr>
             <td>2</td>
             <td>Equipo B</td>
             <td>3</td>
-            <td>x</td>
           </tr>
           <tr>
             <td>3</td>
             <td>Equipo C</td>
             <td>7</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Equipo D</td>
-            <td>4</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Equipo E</td>
-            <td>6</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Equipo F</td>
-            <td>2</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>Equipo G</td>
-            <td>8</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>Equipo H</td>
-            <td>5</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>Equipo I</td>
-            <td>3</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>Equipo J</td>
-            <td>6</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>11</td>
-            <td>Equipo K</td>
-            <td>4</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>Equipo L</td>
-            <td>7</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>13</td>
-            <td>Equipo M</td>
-            <td>5</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>14</td>
-            <td>Equipo N</td>
-            <td>3</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>15</td>
-            <td>Equipo O</td>
-            <td>6</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>Equipo P</td>
-            <td>2</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>17</td>
-            <td>Equipo Q</td>
-            <td>8</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>Equipo R</td>
-            <td>5</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>19</td>
-            <td>Equipo S</td>
-            <td>3</td>
-            <td>x</td>
-          </tr>
-          <tr>
-            <td>20</td>
-            <td>Equipo T</td>
-            <td>6</td>
-            <td>x</td>
           </tr>
         </tbody>
         
@@ -216,12 +113,26 @@
               <tr>
                 <th>Tarea</th>
                 <th>Equipo</th>
-                <th>Fecha Entrega</th>
+                <th>Entrega</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <!-- Agrega filas según sea necesario -->
+              <tr>
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
+            </tr>
+            <tr>
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
+            </tr>
+            <tr>
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
+            </tr>
             </tbody>
           </table>
         </div>
@@ -258,12 +169,14 @@
               <tr>
                 <th>Tarea</th>
                 <th>Equipo</th>
-                <th>Fecha Finalizado</th>
+                <th>Finalizado</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <!-- Agrega filas según sea necesario -->
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
             </tbody>
           </table>
         </div>
@@ -280,11 +193,14 @@
               <tr>
                 <th>Tarea</th>
                 <th>Equipo</th>
-                <th>Fecha Entrega</th>
+                <th>Entrega</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
               <!-- Agrega filas según sea necesario -->
             </tbody>
           </table>
@@ -299,11 +215,14 @@
               <tr>
                 <th>Tarea</th>
                 <th>Equipo</th>
-                <th>Fecha Entrega</th>
+                <th>Entrega</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
+              <td>Tarea 1</td>
+              <td>Equipo 1</td>
+              <td>12/11/2023</td>
               <!-- Agrega filas según sea necesario -->
             </tbody>
           </table>
@@ -316,7 +235,6 @@
   </div>
 
   <script src="{% static 'JAVASCRIPT/FUNCION.js' %}"></script> <!-- SERGIO -->
-    <script src="{% static 'JAVASCRIPT/navbar.js' %}"></script> <!-- SERGIO -->
 </body>
 
 </html>

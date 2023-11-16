@@ -23,7 +23,7 @@ class Tareas(models.Model):
     fecha_ini=models.DateField()
     fecha_fin=models.DateField()
     fecha_entrega=models.DateField(default='2023-12-31')
-    estado=models.CharField(max_length=50, default="Incompleta")
+    estado=models.CharField(max_length=50, default="Pendientes")
     ID_equipo=models.ForeignKey(Equipo, to_field='ID', on_delete=models.CASCADE)
 
 class Miembros(models.Model):
