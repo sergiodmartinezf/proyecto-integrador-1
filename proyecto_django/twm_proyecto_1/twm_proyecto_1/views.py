@@ -21,7 +21,7 @@ def crearcuenta2(request):
         print(correo)
         print(contraseña)
 
-        sql = 'INSERT INTO aplicacion_1_usuario (nombre, correo, contra) VALUES (%s, %s, %s)'
+        sql = 'INSERT INTO aplicacion_1_usuario (nombre, correo, contra, cont) VALUES (%s, %s, %s, 0)' # HAY QUE DAR CONT (0 POR DEFECTO)
         cursor = connection.cursor()
         cursor.execute(sql, [nombre, correo, contraseña])
 
@@ -65,6 +65,7 @@ def iniciosesion2(request):
         else:
             # Usuario encontrado exitosamente
             print("paso request")
+<<<<<<< HEAD
             print(usuario[3])
             if usuario[3] == 0:
                 # El usuario fue encontrado y es nuevo (se realiza cambio en cont porque dejará de ser nuevo)
@@ -93,6 +94,15 @@ def iniciosesion2(request):
                 miequipo=cursor.fetchone()
                 print(miequipo) 
                 return JsonResponse({'cond': 1})
+=======
+            print(usuario[0])
+
+            usuario_id=usuario[0] # NO COOKIE
+
+            response = JsonResponse({'usuario_id': usuario_id})
+                
+            return response
+>>>>>>> 6c89d2ebbf83738b332fbfea19fb0b05df5fd4f1
         
 
     return HttpResponse("Método no permitido")
@@ -121,7 +131,6 @@ def crearequipo(request):
 
 # SERGIO
 def unirmeaequipo(request):
-    usuario_id = request.COOKIES.get('usuario_id')
     if request.method == 'POST':
         nombreEquipo = request.POST.get('nombreEquipo')
         identificador = request.POST.get('identificador')
@@ -164,6 +173,8 @@ def unirmeaequipo(request):
                 return HttpResponse("El equipo está lleno", status=400)
                 
             else:
+                usuario_id = request.GET.get('usuario_id') # NO COOKIE
+
                 # Busca si el usuario ya es miembro del equipo
                 sql = 'SELECT * FROM aplicacion_1_miembros WHERE aplicacion_1_miembros.ID_equipo_id = %s AND aplicacion_1_miembros.ID_usuario_id = %s'
                 cursor = connection.cursor()
