@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });function agregarDato(selectedDay, selectedMonth, selectedYear) {
   const fechaEntrega = selectedDay + '/' + selectedMonth + '/' + selectedYear;
 
-  // Verificar si los campos no están vacíos
+  // Verificar si los campos no están vacíos 
   const tarea = document.getElementById("task").value;
   const equipo = document.getElementById("team").value;
   const desc = document.getElementById("desc").value;
