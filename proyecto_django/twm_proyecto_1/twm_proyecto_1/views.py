@@ -69,9 +69,9 @@ def iniciosesion2(request):
             if usuario[3] == 0:
                 # El usuario fue encontrado y es nuevo (se realiza cambio en cont porque dejarpa de ser nuevo)
 
-                sql_act_contador = 'UPDATE aplicacion_1_usuario SET cont=cont+1 WHERE correo=%s AND contra=%s;'
-                with connection.cursor() as cursor:
-                    cursor.execute(sql_act_contador, [correo, contra])
+                #sql = 'UPDATE aplicacion_1_usuario SET cont=cont+1 WHERE correo=%s AND contra=%s;'
+                #cursor = connection.cursor()
+                #cursor.execute(sql, [correo, contra])
 
                 print("response cond 0")
 
