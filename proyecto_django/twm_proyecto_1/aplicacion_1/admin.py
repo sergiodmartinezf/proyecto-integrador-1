@@ -11,7 +11,7 @@ class EquipoAdmin(admin.ModelAdmin):
     list_display=("ID","nombre","descripcion","cantIntegrantes")
 
 class TareasAdmin(admin.ModelAdmin):
-    list_display=("ID","Nombre","descripcion","fecha_ini","fecha_fin","ID_equipo")
+    list_display=("ID","Nombre","descripcion","fecha_ini","fecha_fin","fecha_entrega","ID_equipo")
 
 class MiembrosAdmin(admin.ModelAdmin):
     list_display=("ID","ID_equipo","ID_usuario")

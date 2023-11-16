@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 
@@ -21,6 +22,8 @@ class Tareas(models.Model):
     descripcion=models.CharField(max_length=200)
     fecha_ini=models.DateField()
     fecha_fin=models.DateField()
+    fecha_entrega=models.DateField(default='2023-12-31')
+    estado=models.CharField(max_length=50, default="Incompleta")
     ID_equipo=models.ForeignKey(Equipo, to_field='ID', on_delete=models.CASCADE)
 
 class Miembros(models.Model):
