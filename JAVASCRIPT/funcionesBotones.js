@@ -204,12 +204,7 @@ function agregarBotonesAIntegrantes() {
 function agregarBotonesFilaTareas(fila, selectedDay, selectedMonth, selectedYear) {
   // Agregar celdas para los botones a la fila
   const fechaEntrega = selectedDay + '/' + selectedMonth + '/' + selectedYear;
-  var celdaFechaEntregaTareas = fila.insertCell(2);
   var celdaMasOpciones = fila.insertCell(3);
-
-  // Agregar la fecha de entrega a la celda correspondiente
-  celdaFechaEntregaTareas.innerHTML = fechaEntrega;
-
   // Crear y agregar el botón con tres puntos suspensivos
   var botonMasOpciones = document.createElement("button");
   botonMasOpciones.innerHTML = 'Iniciar';
@@ -220,7 +215,7 @@ function agregarBotonesFilaTareas(fila, selectedDay, selectedMonth, selectedYear
 }
 
 // Función para agregar botones a todas las filas de la tabla "tareas-table"
-function agregarBotonesATareas() {
+function agregarBotonesATareas(selectedDay,selectedMonth,selectedYear) {
   // Obtén todas las filas de la tabla
   var filasTabla = document.getElementById("Tareas-table").getElementsByTagName('tbody')[0].rows;
 
