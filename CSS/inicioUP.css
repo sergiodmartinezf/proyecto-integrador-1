@@ -165,7 +165,6 @@ ul li a {
 }
 
 ul li a:hover {
-  text-decoration: none;
   background-color:#9CCDDB;
   color: #064469;
   text-decoration: underline;

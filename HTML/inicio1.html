@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
     <link rel="stylesheet" type="text/css" href="../CSS/inicio-logIn.css" />
+    
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -29,17 +30,48 @@
       <i class="material-icons user-icon" id="user-icon">person</i>
     </div>
 
-    <div id="menu-lateral" class="menu-lateral">
-      <div id="usuario-info">
-        <h3>Nombre de Usuario</h3>
-        <p>Equipo:</p>
-      </div>
+    <div id="menu-lateral" class="menu-lateral">   
+      <div id="iconNom">
+      <i class="material-icons user-icon" id="username" style="background-color: transparent;">person</i>
+      <div id="NomCor">
+      <a id="NomUser"> Pepe</a>
+      <a id="email">pepe@gmail.tuvieja</a>
+    </div>
+    </div> 
+    
+      <div id="tittlesMenu">
+    <div id="tittleplus">
+      <h4>Equipos</h4>
       <ul>
-        <li><a href="#">Opción 1</a></li>
-        <li><a href="#">Opción 2</a></li>
-        <li><a href="#">Opción 3</a></li>
+        <li><a href="../HTML/equipo.html"></a></li>
       </ul>
     </div>
+      <div class="Equipos">
+        <table id="equipos-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Miembros</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          
+          </tbody>
+          
+        </table>
+      </div>
+      </div>
+      <div id="buttonClose">
+      <ul>
+        <li><a href="#">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+    </div>
+  
 
     <div class="container1">
       <div id="tittleAndText">
@@ -111,5 +143,6 @@
         </table>
       </div>
     </div>
+    <script src="../JAVASCRIPT/navbar.js"></script>
   </body>
 </html>
