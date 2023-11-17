@@ -187,11 +187,18 @@ def unirmeaequipo(request):
 def calendario(request):
     usuario_id = request.session.get('usuario_id')
         # Comprueba si el equipo que inicia sesión está en la base de datos.
-    sql = 'SELECT T.Nombre, T.descripcion, T.fecha_ini, T.fecha_fin FROM aplicacion_1_Tareas T JOIN aplicacion_1_Miembros M ON T.ID_equipo_id = M.ID_equipo_id WHERE M.ID_usuario_id =%s'
+    sql ="""
+    SELECT t.ID, t.Nombre AS NombreTarea, t.descripcion AS DescripcionTarea, t.fecha_ini, t.fecha_fin, t.fecha_entrega, t.estado
+    FROM aplicacion_1_Usuario u
+    JOIN aplicacion_1_Miembros m ON u.ID = m.ID_usuario_id
+    JOIN aplicacion_1_Equipo e ON m.ID_equipo_id = e.ID
+    JOIN aplicacion_1_Tareas t ON e.ID = t.ID_equipo_id
+    WHERE u.id = %s;
+    """
     cursor = connection.cursor()
     cursor.execute(sql, [usuario_id])
 
-    tareas=cursor.fetchone()
+    tareas=cursor.fetchall()
     print(tareas) 
 
     sql2="""SELECT e.id AS equipo_id, e.nombre AS nombre_equipo, e.descripcion AS descripcion_equipo, e.cantIntegrantes,
@@ -208,6 +215,39 @@ def calendario(request):
     print(miequipo)
     return render(request, 'HTML/calendario.html')
 
+def calendario2(request):
+    if request.method=='POST':
+        usuario_id = request.session.get('usuario_id')
+        Fecha=request.POST.get('fechaEntrega')
+        print(Fecha)
+            # Comprueba si el equipo que inicia sesión está en la base de datos.
+        sql ="""
+        SELECT t.ID, t.Nombre AS NombreTarea, t.descripcion AS DescripcionTarea, t.fecha_ini, t.fecha_fin, t.fecha_entrega, t.estado
+        FROM aplicacion_1_Usuario u
+        JOIN aplicacion_1_Miembros m ON u.ID = m.ID_usuario_id
+        JOIN aplicacion_1_Equipo e ON m.ID_equipo_id = e.ID
+        JOIN aplicacion_1_Tareas t ON e.ID = t.ID_equipo_id
+        WHERE u.id = %s and t.fecha_entrega=%s;
+        """
+        cursor = connection.cursor()
+        cursor.execute(sql, [usuario_id,Fecha])
+
+        tareasF=cursor.fetchall()
+        print(tareasF) 
+
+        sql2="""SELECT e.id AS equipo_id, e.nombre AS nombre_equipo, e.descripcion AS descripcion_equipo, e.cantIntegrantes,
+                            u.id AS usuario_id, u.nombre AS nombre_usuario, u.correo,
+                            m.id AS miembro_id
+                            FROM aplicacion_1_equipo e
+                            JOIN aplicacion_1_miembros m ON e.id = m.id_equipo_id
+                            JOIN aplicacion_1_usuario u ON m.id_usuario_id = u.id
+                            WHERE u.id=%s;
+                            """
+        cursor = connection.cursor()
+        cursor.execute(sql2, [usuario_id])
+        miequipo=cursor.fetchone()
+        print(miequipo)
+    return render(request, 'HTML/calendario.html')
 # SERGIO
 def crearTarea(request):
     if request.method == 'POST':

@@ -136,6 +136,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  $.ajax({
+    type: "POST",
+    url: "/calendario2/",
+    data: {
+            fechaEntrega,
+            'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
+    },
+    success: function (response) {
+      alert(response); // SERGIO
+      console.log(response);
+    },
+    error: function (error) {
+      alert(error); // SERGIO 
+      console.log(error);
+    }
+  });
+
   if (tarea.trim() !== "" && equipo.trim() !== "" && fechaEntrega.trim() !== "") {
     // Obtener la referencia del tbody de la tabla
     var tbodyAsignar = document.getElementById("asignar-table").getElementsByTagName('tbody')[0];
