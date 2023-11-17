@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
     menuLateral.classList.toggle('show');
   });
 });function agregarDato(selectedDay, selectedMonth, selectedYear) {
-  const fechaEntrega = selectedDay + '/' + selectedMonth + '/' + selectedYear;
+  const fechaEntrega = selectedYear+'-' + selectedMonth + '-' +selectedDay  ;
 
   const tarea = document.getElementById("task").value;
   const equipo = document.getElementById("team").value;

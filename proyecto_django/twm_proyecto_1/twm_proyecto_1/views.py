@@ -5,6 +5,7 @@ from django.http import JsonResponse # SERGIO
 from django.contrib.sessions.models import Session
 from django.contrib.auth.models import User
 from datetime import date
+from datetime import datetime
 
 def Inicio_app(request):
     #return HttpResponse("Hola")
@@ -253,7 +254,7 @@ def crearTarea(request):
     if request.method == 'POST':
         tarea = request.POST.get('tarea')
         equipo = request.POST.get('equipo')
-        fechaEntrega = request.POST.get('fechaEntrega')
+        fechaEntrega = datetime.strptime(request.POST.get('fechaEntrega'), '%Y-%m-%d').date()
         desc = request.POST.get('descrip')
         print(desc)
         sql = 'SELECT * FROM aplicacion_1_equipo WHERE nombre=%s'
