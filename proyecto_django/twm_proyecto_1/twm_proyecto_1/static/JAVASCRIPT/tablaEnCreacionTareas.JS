@@ -38,6 +38,31 @@ function generateCalendar(year, month) {
     addTaskButton.textContent = "";
 
     dayDiv.addEventListener("click", () => {
+
+      // AJAX CALENDARIO 2
+      const selectedDay = dayDiv.dataset.day;
+      const selectedMonth = dayDiv.dataset.month;
+      const selectedYear = dayDiv.dataset.year;
+      const fechaEntrega = selectedYear+'-' + selectedMonth + '-' +selectedDay  ;
+
+      $.ajax({
+        type: "POST",
+        url: "/calendario2/",
+        data: {
+          fechaEntrega,
+          'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
+        },
+        success: function (response) {
+          //alert(response); // Muestra la respuesta en una alerta, puedes cambiar esto según tus necesidades
+          console.log(response);
+        },
+        error: function (error) {
+          //alert(error); // Muestra el error en una alerta, puedes cambiar esto según tus necesidades
+          console.log(error);
+        }
+      });
+
+      // RESTO DEL CODIGO
       const contenidoTarea=document.getElementById('Tareas').innerHTML;
       Swal.fire({
         title: 'Lista de Tareas',

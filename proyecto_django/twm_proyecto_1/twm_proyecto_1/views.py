@@ -219,7 +219,7 @@ def calendario(request):
 def calendario2(request):
     if request.method=='POST':
         usuario_id = request.session.get('usuario_id')
-        Fecha=request.POST.get('fechaEntrega')
+        Fecha=datetime.strptime(request.POST.get('fechaEntrega'), '%Y-%m-%d').date()
         print(Fecha)
             # Comprueba si el equipo que inicia sesión está en la base de datos.
         sql ="""
