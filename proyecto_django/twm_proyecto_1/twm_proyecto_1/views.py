@@ -215,7 +215,7 @@ def crearTarea(request):
         equipo = request.POST.get('equipo')
         fechaEntrega = request.POST.get('fechaEntrega')
         desc = request.POST.get('descrip')
-
+        print(desc)
         sql = 'SELECT * FROM aplicacion_1_equipo WHERE nombre=%s'
         cursor = connection.cursor()
         cursor.execute(sql, [equipo])

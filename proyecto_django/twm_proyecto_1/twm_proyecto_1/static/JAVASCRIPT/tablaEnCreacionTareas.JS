@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const tarea = document.getElementById("task").value;
   const equipo = document.getElementById("team").value;
-  const desc = document.getElementById("descrip").value;
-  console.log(desc)
+  const descrip = document.getElementById("descrip").value;
+  console.log(descrip)
   // INICIO AJAX
   $.ajax({
     type: "POST",
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tarea,
             equipo,
             fechaEntrega,
-            desc,
+            descrip,
             'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
     },
     success: function (response) {
