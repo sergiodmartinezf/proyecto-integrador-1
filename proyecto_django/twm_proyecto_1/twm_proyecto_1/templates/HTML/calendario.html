@@ -17,6 +17,7 @@
 
 <body>
   {%csrf_token %}
+  {{tareasF}}
   <div id="top-menu">
     <i class="material-icons" id="menu-toggle">menu</i>
     <a href="../HTML/inicio1.html"><img src="../img/logo2.png" id="logonav" /></a>
@@ -27,32 +28,7 @@
     <i class="material-icons user-icon" id="user-icon">person</i>
   </div>
 
-  <div class="Tareas" id="Tareas">
-    <table id="Tareas-table">
-      <h2>Tareas</h2>
-      <thead>
-        <tr>
-          <th>Tarea</th>
-          <th>Equipo</th>
-          <th>Entrega</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>holi</td>
-          <td>dsada</td>
-        </tr>
-        {% for tarea in tareasF %}
-        <tr>
-          <td>{{ tarea.NombreTarea }}</td>
-          <td>{{ tarea.fecha_entrega }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+  
 
   <div class="Integrantes" id="Integrantes">
     <table id="Integrantes-table">
@@ -90,8 +66,8 @@
     <div id="iconNom">
       <i class="material-icons user-icon" id="username">person</i>
       <div id="NomCor">
-        <a id="NomUser"> Pepe</a>
-        <a id="email">pepe@gmail.tuvieja</a>
+        <a id="NomUser">{{ usuario.1}}</a>
+        <a id="email">{{ usuario.2}}</a>
       </div>
     </div>
 
@@ -100,34 +76,32 @@
       <div class="Equipos">
         <table id="equipos-table">
           <thead>
-            <tr>
-              <th>Id</th>
-              <th>Nombre</th>
-              <th>Miembros</th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
+              <tr>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Miembros</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+            
+              </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Equipo A</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Equipo B</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Equipo C</td>
-              <td>7</td>
-            </tr>
+              {% if miequipo %}
+                {%for equipo in miequipo %}
+                  <tr>
+                      <td>{{ equipo.0 }}</td>
+                      <td>{{ equipo.1 }}</td>
+                      <td>{{ equipo.3 }}</td>
+                  </tr>
+                {%endfor%}
+              {% else %}
+                  <tr>
+                      <td colspan="3">No hay equipos disponibles</td>
+                  </tr>
+              {% endif %}
           </tbody>
-
-        </table>
+      </table>
       </div>
     </div>
     <div id="buttonClose">
@@ -152,21 +126,19 @@
               </tr>
             </thead>
             <tbody>
+              {% if tareas %}
+              {%for tarea in tareas %}
               <tr>
-                <td>Tarea 1</td>
-                <td>Equipo 1</td>
-                <td>12/11/2023</td>
+                <td>{{ tarea.1 }}</td>
+                <td>{{ tarea.5 }}</td>
+                <td>{{ tarea.7 }}</td>
               </tr>
+              {%endfor%}
+              {% else %}
               <tr>
-                <td>Tarea 1</td>
-                <td>Equipo 1</td>
-                <td>12/11/2023</td>
+                <td colspan="3">No hay tareas disponibles</td>
               </tr>
-              <tr>
-                <td>Tarea 1</td>
-                <td>Equipo 1</td>
-                <td>12/11/2023</td>
-              </tr>
+              {% endif %}
             </tbody>
           </table>
         </div>
@@ -177,9 +149,9 @@
         <div id="calendario-contenedor">
           <div id="tittleAndBotons">
             <button id="prev-month">
-              << /button>
-                <h2 id="month-year"></h2>
-                <button id="next-month">></button>
+            </button>
+            <h2 id="month-year"></h2>
+            <button id="next-month"></button>
           </div>
           <div id="calendario">
             <div id="dias-semana">

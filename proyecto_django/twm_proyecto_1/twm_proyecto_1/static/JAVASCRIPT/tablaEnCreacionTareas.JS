@@ -55,6 +55,14 @@ function generateCalendar(year, month) {
         success: function (response) {
           //alert(response); // Muestra la respuesta en una alerta, puedes cambiar esto según tus necesidades
           console.log(response);
+          let listaTareasAlert="";
+          for (let i = 0; i < response.tareasF.length; i++) {
+            listaTareasAlert = listaTareasAlert + String(response.tareasF[i]) + "\n"; 
+          }
+          //response.tareasF.forEach(function (tarea) {
+          //  listaTareasAlert=tarea;
+          //});
+          alert(listaTareasAlert);
         },
         error: function (error) {
           //alert(error); // Muestra el error en una alerta, puedes cambiar esto según tus necesidades
@@ -63,12 +71,12 @@ function generateCalendar(year, month) {
       });
 
       // RESTO DEL CODIGO
-      const contenidoTarea=document.getElementById('Tareas').innerHTML;
+      //const contenidoTarea=document.getElementById('Tareas').innerHTML;
       Swal.fire({
         title: 'Lista de Tareas',
         html:'<input id="task" class="swal2-input" placeholder="Ingrese una tarea">' +
               '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">' +
-              '<input id="descrip" class="swal2-input" placeholder="Descripción">'+contenidoTarea,
+              '<input id="descrip" class="swal2-input" placeholder="Descripción">',//contenidoTarea,
         showCancelButton: true,
         confirmButtonText: 'Asignar Nueva Tarea',
         cancelButtonText: 'Cancelar',
