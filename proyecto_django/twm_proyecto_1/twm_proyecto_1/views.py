@@ -248,7 +248,7 @@ def calendario2(request):
         cursor.execute(sql2, [usuario_id])
         miequipo=cursor.fetchone()
         print(miequipo)
-    return render(request, 'HTML/calendario.html')
+    return render(request, 'HTML/calendario.html',{'tareasF': tareasF})
 # SERGIO
 def crearTarea(request):
     if request.method == 'POST':
