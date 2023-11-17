@@ -273,7 +273,7 @@ def crearTarea(request):
 
             sql = 'INSERT INTO aplicacion_1_tareas (nombre, descripcion, fecha_ini, fecha_fin, ID_equipo_id, estado, fecha_entrega) VALUES (%s, %s, %s, %s, %s, %s, %s)'
             cursor = connection.cursor()
-            cursor.execute(sql, [tarea, desc, date.today(), fechaEntrega, equipoID, 'Pendientes', fechaEntrega])
+            cursor.execute(sql, [tarea, desc, '', '', equipoID, 'Sin asignar', fechaEntrega])
 
             return HttpResponse("Tarea creada exitosamente") 
 
