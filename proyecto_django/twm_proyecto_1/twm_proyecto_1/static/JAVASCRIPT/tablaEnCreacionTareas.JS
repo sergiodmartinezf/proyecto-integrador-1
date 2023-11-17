@@ -43,7 +43,7 @@ function generateCalendar(year, month) {
         title: 'Lista de Tareas',
         html:'<input id="task" class="swal2-input" placeholder="Ingrese una tarea">' +
               '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">' +
-              '<input id="desc" class="swal2-input" placeholder="Descripción">'+contenidoTarea,
+              '<input id="descrip" class="swal2-input" placeholder="Descripción">'+contenidoTarea,
         showCancelButton: true,
         confirmButtonText: 'Asignar Nueva Tarea',
         cancelButtonText: 'Cancelar',
@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const tarea = document.getElementById("task").value;
   const equipo = document.getElementById("team").value;
-  const desc = document.getElementById("desc").value;
-
+  const desc = document.getElementById("descrip").value;
+  console.log(desc)
   // INICIO AJAX
   $.ajax({
     type: "POST",

@@ -214,7 +214,7 @@ def crearTarea(request):
         tarea = request.POST.get('tarea')
         equipo = request.POST.get('equipo')
         fechaEntrega = request.POST.get('fechaEntrega')
-        desc = request.POST.get('desc')
+        desc = request.POST.get('descrip')
 
         sql = 'SELECT * FROM aplicacion_1_equipo WHERE nombre=%s'
         cursor = connection.cursor()
