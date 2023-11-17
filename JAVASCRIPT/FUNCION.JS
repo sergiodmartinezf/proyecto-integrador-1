@@ -188,4 +188,67 @@ document.addEventListener('DOMContentLoaded', function () {
   agregarBotonesATareas();
 });
 
+function obtenerFechaActual() {
+  var fechaActual = new Date();
+
+  // Obtener día, mes y año
+  var dia = fechaActual.getDate();
+  var mes = fechaActual.getMonth() + 1; // Sumar 1 porque los meses van de 0 a 11
+  var año = fechaActual.getFullYear();
+
+  // Formatear la fecha como "dd/mm/yyyy"
+  var fechaFormateada = dia + '/' + mes + '/' + año;
+
+  return fechaFormateada;
+}
+
+
+// Función para insertar filas en la tabla "progreso"
+function insertarFilasAProgreso(tarea, equipo, fechaEntrega) {
+  // Obtener la referencia del tbody de la tabla
+  var tbodyProgreso = document.getElementById("progreso-table").getElementsByTagName('tbody')[0];
+
+  // Crear una nueva fila
+  var filaProgreso = tbodyProgreso.insertRow();
+
+  // Agregar celdas a la fila
+  var celdaTareaProgreso = filaProgreso.insertCell(0);
+  var celdaEquipoProgreso = filaProgreso.insertCell(1);
+  var celdaFechaEntregaProgreso = filaProgreso.insertCell(2);
+
+  // Agregar los nuevos datos a las celdas
+  celdaTareaProgreso.innerHTML = tarea;
+  celdaEquipoProgreso.innerHTML = equipo;
+  celdaFechaEntregaProgreso.innerHTML = fechaEntrega;
+
+  // Agregar botones a la fila de "progreso"
+  agregarBotonesFilaProgreso(filaProgreso);
+}
+
+
+// Función para insertar filas en la tabla "Terminados"
+function insertarFilasATerminado(tarea, equipo) {
+  // Obtener la referencia del tbody de la tabla
+  var tbodyTerminado = document.getElementById("terminados-table").getElementsByTagName('tbody')[0];
+
+  // Crear una nueva fila
+  var filaTerminado = tbodyTerminado.insertRow();
+
+  // Agregar celdas a la fila
+  var celdaTareaTerminado = filaTerminado.insertCell(0);
+  var celdaEquipoTerminado= filaTerminado.insertCell(1);
+  var celdaFechaFinalizadoTerminado = filaTerminado.insertCell(2);
+
+  // Agregar los nuevos datos a las celdas
+  celdaTareaTerminado.innerHTML = tarea;
+  celdaEquipoTerminado.innerHTML = equipo;
+  celdaFechaFinalizadoTerminado.innerHTML = obtenerFechaActual();
+
+  // Agregar botones a la fila de "progreso"
+ // agregarBotonesFilaTer(filaProgreso);
+}
+
+
+
+
 

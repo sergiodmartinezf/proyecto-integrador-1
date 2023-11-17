@@ -118,17 +118,39 @@ function agregarBotonesFilaAsignar(fila) {
   }
 
   // Función para agregar botones a la fila de la tabla "pendientes-table"
+// Función para agregar botones a la fila de la tabla "pendientes-table"
 function agregarBotonesFilaPendientes(fila) {
-    // Agregar celdas para los botones a la fila
-    var celdaMasOpciones = fila.insertCell(3);
+  // Agregar celdas para los botones a la fila
+  var celdaMasOpciones = fila.insertCell(3);
 
-    // Crear y agregar el botón con tres puntos suspensivos
-    var botonMasOpciones = document.createElement("button");
-    botonMasOpciones.innerHTML = 'Iniciar';
-    botonMasOpciones.className = "iniciar-button";
+  // Crear y agregar el botón con tres puntos suspensivos
+  var botonMasOpciones = document.createElement("button");
+  botonMasOpciones.innerHTML = 'Iniciar';
+  botonMasOpciones.className = "iniciar-button";
 
-    // Agregar los botones a las celdas correspondientes
-    celdaMasOpciones.appendChild(botonMasOpciones);
+  // Agregar evento click al botón
+  botonMasOpciones.addEventListener("click", () => {
+      // Puedes agregar aquí cualquier lógica adicional antes de mostrar el mensaje
+      Swal.fire({
+          title: 'Tu tarea ha sido movida a En Progreso',
+          icon: 'success',
+          showCancelButton: false,
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: '#3085d6',
+      });
+
+      // Obtener datos de la tarea
+        const tarea = fila.cells[0].innerText;
+        const equipo = fila.cells[1].innerText;
+        const fechaEntrega = fila.cells[2].innerText;
+        
+        fila.remove();
+        insertarFilasAProgreso(tarea, equipo, fechaEntrega);
+
+  });
+
+  // Agregar los botones a las celdas correspondientes
+  celdaMasOpciones.appendChild(botonMasOpciones);
 }
 
 // Función para agregar botones a todas las filas de la tabla "pendientes-table"
@@ -154,10 +176,31 @@ function agregarBotonesFilaProgreso(fila) {
     var botonMasOpciones = document.createElement("button");
     botonMasOpciones.innerHTML = 'Finalizar';
     botonMasOpciones.className = "finalizar-button";
+    
+  // Agregar evento click al botón
+  botonMasOpciones.addEventListener("click", () => {
+    // Puedes agregar aquí cualquier lógica adicional antes de mostrar el mensaje
+    Swal.fire({
+        title: 'Has Terminado Tu tarea',
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#3085d6',
+    });
 
-    // Agregar los botones a las celdas correspondientes
-    celdaMasOpciones.appendChild(botonMasOpciones);
-}
+    // Obtener datos de la tarea
+      const tarea = fila.cells[0].innerText;
+      const equipo = fila.cells[1].innerText;
+      
+      fila.remove();
+      insertarFilasATerminado(tarea, equipo);
+      
+
+});
+
+  // Agregar los botones a las celdas correspondientes
+  celdaMasOpciones.appendChild(botonMasOpciones);
+  }
 
 // Función para agregar botones a todas las filas de la tabla "progreso-table"
 function agregarBotonesAProgreso() {
