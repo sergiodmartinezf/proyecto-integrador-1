@@ -39,7 +39,16 @@ function generateCalendar(year, month) {
 
     dayDiv.addEventListener("click", () => {
       const contenidoTarea=document.getElementById('Tareas').innerHTML;
-      Swal.fire({
+      preConfirm: () => {
+          // Recupera los valores de los atributos de datos del día
+          const selectedDay = dayDiv.dataset.day;
+          const selectedMonth = dayDiv.dataset.month;
+          const selectedYear = dayDiv.dataset.year;
+          // Muestra SweetAlert con los datos recuperados
+          // Pasa la información a la función agregarDato
+          agregarDato(selectedDay, selectedMonth, selectedYear);
+        }
+        Swal.fire({
         title: 'Lista de Tareas',
         html:'<input id="task" class="swal2-input" placeholder="Ingrese una tarea">' +
               '<input id="team" class="swal2-input" placeholder="Equipo al que pertenece">' +
@@ -47,15 +56,7 @@ function generateCalendar(year, month) {
         showCancelButton: true,
         confirmButtonText: 'Asignar Nueva Tarea',
         cancelButtonText: 'Cancelar',
-        preConfirm: () => {
-          // Recupera los valores de los atributos de datos del día
-          const selectedDay = dayDiv.dataset.day;
-          const selectedMonth = dayDiv.dataset.month;
-          const selectedYear = dayDiv.dataset.year;
-
-          // Pasa la información a la función agregarDato
-          agregarDato(selectedDay, selectedMonth, selectedYear);
-        }
+        
       });
     });
 

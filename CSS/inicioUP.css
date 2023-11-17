@@ -143,3 +143,33 @@ button {
     align-self:center;
 }
 
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li {
+  margin: 0 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #064469;
+  color: #fff;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+ul li a:hover {
+  text-decoration: none;
+  background-color:#9CCDDB;
+  color: #064469;
+  text-decoration: underline;
+}
+
+
+
