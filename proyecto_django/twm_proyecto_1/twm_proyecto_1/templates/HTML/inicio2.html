@@ -26,16 +26,13 @@
   <body>
     <div id="top-menu">
       <i class="material-icons" id="menu-toggle">menu</i>
-    <img src="../img/logo2.png" id="logonav" />
+    <img src="{% static 'CSS/images/logo2.png' %}" id="logonav" />
       <ul>
         <li><a href="#">Tutorial</a></li>
         <li><a href="{%url 'iniciarsesion/'%}">Iniciar Sesion</a></li>
         <li><a href="{%url 'crearcuenta/'%}">Crear Cuenta</a></li>
       </ul>
 
-        <li><a href="../HTML/signIn.html">Iniciar Sesión</a></li>
-        <li><a href="../HTML/signUp.html">Registrate</a></li>
-      </ul>
       <i class="material-icons user-icon" id="user-icon">person</i>
     </div>
     <div class="titulo">

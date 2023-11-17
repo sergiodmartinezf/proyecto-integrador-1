@@ -70,10 +70,15 @@
           <h1>Iniciar Sesión</h1>
           
           <p>Inicia sesión aquí si ya tienes una cuenta.</p>
-          <a class="ghost mt-5" id="signIn" href="/iniciarsesion/">Iniciar Sesión</a>
+          <button class="ghost" id="signIn">Iniciar Sesión</button>
           
         </div>
       </div>
+      <script>
+        document.getElementById("signIn").addEventListener("click", function() {
+        window.location.href = "{% url 'iniciarsesion/' %}";
+    });
+      </script>
     </section>
   </body>
 </html>

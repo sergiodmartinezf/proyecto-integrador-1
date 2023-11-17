@@ -47,6 +47,7 @@
           });
         });
       });
+
     </script>
     <section class="section">
       <div class="container" id="container">
@@ -72,6 +73,11 @@
           <button class="ghost" id="signUp">Crear Cuenta</button>
         </div>
       </div>
+      <script>
+        document.getElementById("signUp").addEventListener("click", function() {
+        window.location.href = "{% url 'crearcuenta/' %}";
+    });
+      </script>
     </section>
   </body>
 </html>
