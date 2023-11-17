@@ -108,7 +108,9 @@ document.addEventListener('DOMContentLoaded', function () {
   userIcon.addEventListener('click', () => {
     menuLateral.classList.toggle('show');
   });
-});function agregarDato(selectedDay, selectedMonth, selectedYear) {
+
+});
+function agregarDato(selectedDay, selectedMonth, selectedYear) {
   const fechaEntrega = selectedDay + '/' + selectedMonth + '/' + selectedYear;
   const tarea = document.getElementById("task").value;
   const equipo = document.getElementById("team").value;
@@ -180,6 +182,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Después de agregar la tarea, agregar los botones a la nueva fila
     agregarBotonesFilaAsignar(filaAsignar);
     agregarBotonesFilaPendientes(filaPendientes);
+
+    
+    // Llama a la función para agregar el botón "Iniciar" a la fila de la tabla "tareas-table"
+    agregarBotonesFilaTareas(filaTareas, selectedDay, selectedMonth, selectedYear);
   } else {
     // Mostrar un mensaje de alerta si algún campo está vacío
     Swal.fire('Ingrese datos válidos en todos los campos', '', 'error');
@@ -262,7 +268,7 @@ function insertarFilasATerminado(tarea, equipo) {
   celdaFechaFinalizadoTerminado.innerHTML = obtenerFechaActual();
 
   // Agregar botones a la fila de "progreso"
- // agregarBotonesFilaTer(filaProgreso);
+  agregarBotonesFilaTerminados(filaProgreso);
 }
 
 
@@ -520,10 +526,22 @@ var celdaMasOpciones = fila.insertCell(3);
 var botonMasOpciones = document.createElement("button");
 botonMasOpciones.innerHTML = 'Iniciar';
 botonMasOpciones.className = "Iniciar-button";
+// Función para agregar botones a la fila de la tabla "tareas-table"
+function agregarBotonesFilaTareas(fila, selectedDay, selectedMonth, selectedYear) {
+  // Agregar celdas para los botones a la fila
+  const fechaEntrega = selectedDay + '/' + selectedMonth + '/' + selectedYear;
+  var celdaMasOpciones = fila.insertCell(3);
 
-// Agregar los botones a las celdas correspondientes
-celdaMasOpciones.appendChild(botonMasOpciones);
+  // Crear y agregar el botón con tres puntos suspensivos
+  var botonMasOpciones = document.createElement("button");
+  botonMasOpciones.innerHTML = 'Iniciar';
+  botonMasOpciones.className = "Iniciar-button";
+  
 }
+  // Agregar los botones a las celdas correspondientes
+  celdaMasOpciones.appendChild(botonMasOpciones);
+}
+
 
 // Función para agregar botones a todas las filas de la tabla "tareas-table"
 function agregarBotonesATareas(selectedDay,selectedMonth,selectedYear) {
