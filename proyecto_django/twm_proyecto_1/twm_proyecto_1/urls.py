@@ -6,6 +6,8 @@ from . import views
 
 urlpatterns = [
     path('', views.Inicio_app, name='pagina_de_inicio'),
+    path('inicio1/', views.inicio1, name='inicio1/'),
+    path('tarea_c/', views.tarea_c, name='tarea_c/'),
     path('crearcuenta/', views.crearcuenta, name='crearcuenta/'),
     path('crearcuenta2/', views.crearcuenta2, name='crearcuenta2/'),
     path('iniciarsesion/', views.iniciarsesion, name='iniciarsesion/'),

@@ -1,0 +1,118 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- SweetAlert2 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/tareas2.css' %}" />
+</head>
+<body>
+  <div id="top-menu">
+    <i class="material-icons" id="menu-toggle">menu</i>
+    <a href="{%url 'inicio1/' %}"><img src="{% static 'CSS/images/logo2.png' %}" id="logonav" /></a></li>
+    <ul>
+      <li><a href="{%url 'calendario/'%}">Calendario</a></li>
+      <li><a href="{%url 'tarea_c/'%}">Tareas</a></li>
+    </ul>
+    <i class="material-icons user-icon" id="user-icon">person</i>
+  </div>
+
+  <div id="menu-lateral" class="menu-lateral">   
+    <div id="iconNom">
+    <i class="material-icons user-icon" id="username">person</i>
+    <div id="NomCor">
+    <a id="NomUser"> Pepe</a>
+    <a id="email">pepe@gmail.com</a>
+  </div>
+  </div> 
+  
+    <div id="tittlesMenu">
+  <div id="tittleplus">
+    <h4>Equipos</h4>
+    <ul>
+      <li><a href="{%url 'equipo/'%}"></a></li>
+    </ul>
+  </div>
+    <div class="Equipos">
+      <table id="equipos-table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Miembros</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+        
+      </table>
+    </div>
+    </div>
+    <div id="buttonClose">
+    <ul>
+      <li><a href="#">Cerrar Sesión</a></li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="container">
+    <div id="Terminados">
+    <h4>Terminados</h4>
+      <div id="terminados-contenedor">
+      
+      <table id="terminados-table">
+          <thead>
+              <tr>
+                  <th>Tarea</th>
+                  <th>Equipo</th>
+                  <th>Fecha Finalizado</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+           
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="Progreso">
+    <h4>En Progreso</h4>
+      <div id="progreso-contenedor">
+      
+      <table id="progreso-table">
+          <thead>
+              <tr>
+                  <th>Tarea</th>
+                  <th>Equipo</th>
+                  <th>Fecha Entrega</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  <script src="{% static 'JAVASCRIPT/navbar.js' %}"></script>
+  <script src="{% static 'JAVASCRIPT/inicio.js' %}"></script>
+</body>
+</html>

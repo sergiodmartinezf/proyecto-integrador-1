@@ -17,13 +17,13 @@
 
 <body>
   {%csrf_token %}
-  {{tareasF}}
+  
   <div id="top-menu">
     <i class="material-icons" id="menu-toggle">menu</i>
-    <a href="../HTML/inicio1.html"><img src="../img/logo2.png" id="logonav" /></a>
+    <a href="{%url 'inicio1/'%}"><img src="{% static 'css/images/logo2.png' %}" id="logonav" /></a>
     <ul>
-      <li><a href="../HTML/calendario.html">Calendario</a></li>
-      <li><a href="../HTML/tarea_completa.html">Tareas</a></li>
+      <li><a href="{%url 'calendario/'%}">Calendario</a></li>
+      <li><a href="{%url 'tarea_c/'%}">Tareas</a></li>
     </ul>
     <i class="material-icons user-icon" id="user-icon">person</i>
   </div>

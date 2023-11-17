@@ -1,19 +1,19 @@
-{% load static %} 
+{%load static%}
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Pregunta sobre equipo</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="{% static 'JAVASCRIPT/equipo.js' %}"></script> <!-- SERGIO -->
+    <script src="{% static 'JAVASCRIPT/equipo.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{%static 'CSS/equipo.css' %}" />
 </head>
 <body>
+    <div class="contenedor">
     <h1>¿Necesitas un equipo?</h1>
     <p>Por favor, selecciona una opción:</p>
-    {%csrf_token %}
     <button onclick="crearEquipo()">Crear equipo</button>
     <button onclick="unirmeAEquipo()">Unirme a un equipo</button>
-    <button onclick="yaTengoEquipo()">Ya tengo equipo</button>
-
+    <button onclick="yaTengoEquipo()">Ya Tengo equipo</button>
+    </div>
 </body>
 </html>

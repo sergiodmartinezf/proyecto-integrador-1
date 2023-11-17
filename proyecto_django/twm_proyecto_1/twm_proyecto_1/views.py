@@ -11,6 +11,11 @@ def Inicio_app(request):
     #return HttpResponse("Hola")
     return render(request, 'HTML/inicio2.html')
 
+def inicio1(request):
+    return render(request, 'HTML/inicio1.html')
+
+def tarea_c(request):
+    return render(request, 'HTML/tarea_completa.html')
 def crearcuenta(request):
     
     return render(request,'HTML/signUp.html')

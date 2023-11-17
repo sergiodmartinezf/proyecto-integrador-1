@@ -1,0 +1,55 @@
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-image: url('../../static/CSS/images/logo2.png'); /* Reemplaza 'ruta/de/tu/imagen.jpg' con la ruta correcta de tu imagen */
+    background-position: center; /* Ajusta la posición de la imagen de fondo */
+}
+
+.contenedor {
+    border-radius: 15px;
+    width: 600px;
+    height: 400px;
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: none;
+}
+
+button {
+    margin-bottom: 15px; /* Added margin between buttons */
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #fff;
+    color: #008ECF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #008ECF;
+    color: #fff;
+}

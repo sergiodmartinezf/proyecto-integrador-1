@@ -1,0 +1,453 @@
+/* Estilos generales */
+body, html {
+    width: 1480px;
+    height: 100%;
+    background-color: #9CCDDB;
+  }
+  
+  html {
+    overflow-x: hidden;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container
+  {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: none;
+  }
+  #top-menu {
+    background-color: #C2C6CC;
+    width: 1470px;
+    height: 60px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  #top-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centra los elementos de navegación horizontalmente */
+    align-items: center; /* Centra los elementos de navegación verticalmente */
+  }
+  
+  #top-menu ul li {
+    margin: 0 10px;
+  }
+  
+  #top-menu ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #064469;
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    display: inline-block;
+  }
+  #top-menu ul li a:hover {
+    background-color: #C2C6CC;
+    color: #064469;
+    text-decoration: underline;
+  }
+  
+  #logonav {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    display: flex; /* Alinea el logotipo verticalmente al centro */
+    align-items: center; /* Alinea el logotipo verticalmente al centro */
+    margin-left: 15px;
+  }
+  
+  .material-icons.user-icon {
+    font-size: 40px;
+    color: #fff;
+    background-color: #064469;
+    border-radius: 10px;
+    margin-right: 50px;
+    display: flex; /* Ajusta el alineado vertical si es necesario */
+    align-items: center; /* Ajusta el alineado vertical si es necesario */
+  }
+  
+  /* Estilos para el menú hamburguesa */
+  #menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .material-icons.user-icon {
+    font-size: 40px;
+    color: #fff;
+    border-radius: 10px;
+    margin-right: 50px;
+    display: flex; /* Ajusta el alineado vertical si es necesario */
+    align-items: center; /* Ajusta el alineado vertical si es necesario */
+  }
+  
+  /* Estilos CSS para el menú lateral */
+  #menu-lateral {
+    border-top-left-radius: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 60px;
+    right: -600px; 
+    width: 550px;
+    height: 950px;
+    background-color: #D9D9D9;
+    color: #000000;
+    transition: right 0.3s;
+    z-index: 10000; 
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  #usuario-info {
+    padding: 10px;
+    text-align: center;
+    background-color: #c6c4c4;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .menu-lateral.show {
+    display: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 77px;
+    top: 0;
+    right:0 !important; 
+  }
+  
+  .material-icons.user-icon {
+    cursor: pointer;
+  }
+  
+  
+  #terminados-contenedor
+  {
+  background-color: #fff;
+  min-height: 500px;
+  max-height: 500px;
+  border: 1px solid #0000007e;
+  border-radius: 20px;
+  overflow-y: auto;
+  width: 100%;
+  }
+  /*Tabla Terminados*/
+  #terminados-table th:first-child {
+    border-top-left-radius: 9px;
+  }
+  
+  #terminados-table th:last-child {
+    border-top-right-radius: 9px;
+    
+  }
+  #terminados-table th {
+    background-color: #D9D9D9;
+    width: 32%;
+    
+  }
+  
+  #terminados-table td{
+    align-items: center;
+    border-bottom: 1px solid #0000007e;
+    text-align: center;
+    
+  }
+  #terminados-contenedor::-webkit-scrollbar {
+    width: 0em;
+    /* Ancho de la barra de desplazamiento */
+  }
+  
+  #terminados-contenedor::-webkit-scrollbar-thumb {
+    border-top-right-radius: 20px;
+    background-color: #fff;
+    /* Color del pulgar de la barra de desplazamiento */
+  }
+  
+  #progreso-contenedor
+  {
+  background-color: #fff;
+  border: 1px solid #0000007e;
+  border-radius: 20px;
+  min-height: 500px;
+  max-height: 500px;
+  overflow: auto;
+  width: 100%;
+  }
+  
+  /*Tabla Progreso*/
+  
+  #progreso-table th:first-child {
+    border-top-left-radius: 18px;
+  }
+  
+  #progreso-table th:last-child {
+    border-top-right-radius: 18px;
+    
+  }
+  #progreso-table th {
+    background-color: #D9D9D9;
+    width: 32%;
+    
+  }
+  
+  #progreso-table td{
+    align-items: center;
+    border-bottom: 1px solid #0000007e;
+    text-align: center;
+    
+  }
+  
+  #progreso-contenedor::-webkit-scrollbar {
+    width: 0em;
+    /* Ancho de la barra de desplazamiento */
+  }
+  
+  #progreso-contenedor::-webkit-scrollbar-thumb {
+    border-top-right-radius: 20px;
+    background-color: #fff;
+    /* Color del pulgar de la barra de desplazamiento */
+  }
+  #tittleAndDiv3
+  {
+    width: 100%;
+  }
+  
+  /* Establecer posición fija para los th en las tablas */
+  #asignar-table th,
+  #terminados-table th,
+  #pendientes-table th,
+  #progreso-table th {
+    position: sticky;
+    top: 0;
+    background-color: #D9D9D9;
+    z-index: 2; /* Asegura que los th estén por encima de los td */
+  }
+  /* Establecer estilos para todas las tablas y sus celdas */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #0000007e;
+    text-align: center;
+  }
+  
+  /* Establecer posición fija para los th en las tablas */
+  th {
+    position: sticky;
+    top: 0;
+    background-color: #D9D9D9;
+    z-index: 2; /* Asegura que los th estén por encima de los td */
+  }
+  
+  /* Establecer overflow en las celdas td */
+  td {
+    overflow: auto;
+  }
+  
+  /* Estilos para la barra de desplazamiento en celdas td */
+  td::-webkit-scrollbar {
+    width: 0em;
+  }
+  
+  td::-webkit-scrollbar-thumb {
+    background-color: #fff;
+  }
+  
+  
+  #Terminados,#Progreso
+  {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  
+  /* Establecer estilos para todas las tablas y sus celdas */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #0000007e;
+    text-align: center;
+  }
+  
+  /* Establecer posición fija para los th en las tablas */
+  th {
+    position: sticky;
+    top: 0;
+    background-color: #D9D9D9;
+    z-index: 2; /* Asegura que los th estén por encima de los td */
+  }
+  
+  /* Establecer overflow en las celdas td */
+  td {
+    overflow: auto;
+  }
+  
+  /* Estilos para la barra de desplazamiento en celdas td */
+  td::-webkit-scrollbar {
+    width: 0em;
+  }
+  
+  td::-webkit-scrollbar-thumb {
+    background-color: #fff;
+  }
+  
+  
+  p {
+    font-size: 35px;
+    color: #000000b9;
+  }
+  
+  #email
+  {
+    color: #0000007e;
+  }
+  #NomUser
+  {
+  color: #000000;
+  
+  }
+  #username
+  {
+    font-size: 100px;
+    background-color: #0000;
+  }
+  #NomCor
+  {
+    display: flex;
+    flex-direction: column ;
+  }
+  
+  #buttonClose ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centra los elementos de navegación horizontalmente */
+    align-items: center; /* Centra los elementos de navegación verticalmente */
+  }
+  
+  #buttonClose ul li {
+    margin: 0 10px;
+  }
+  
+  #buttonClose ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #064469;
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    display: inline-block;
+  }
+  #buttonClose ul li a:hover {
+    background-color: #C2C6CC;
+    color: #064469;
+    text-decoration: underline;
+  }
+  
+  #iconNom
+  {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .menu-lateral.show {
+    display: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 77px;
+    top: 0;
+    right:0 !important; 
+  }
+  #username
+  {
+    margin-right: 0;
+  }
+  .material-icons.user-icon {
+    cursor: pointer;
+  }
+  
+  
+  /*Tabla Equipos*/
+  
+  #equipos-table th:first-child {
+    border-top-left-radius: 9px;
+  }
+  
+  #equipos-table th:last-child {
+    border-top-right-radius: 9px;
+    
+  }
+  #equipos-table th {
+    background-color: #D9D9D9;
+    width: 100%;
+    
+  }
+  
+  #equipos-table td{
+    align-items: center;
+    border-bottom: 1px solid #0000007e;
+    text-align: center;
+    
+  }
+  .Equipos
+  {
+  background-color: #fff;
+  width: 500px;
+  min-height: 300px;
+  max-height: 300px;
+  border: 1px solid #0000007e;
+  border-radius: 20px;
+  margin:none;
+  overflow-y: auto;
+  }
+  #tittlemenu
+  {
+    width: 100%;
+  }
+  .Equipos::-webkit-scrollbar {
+    width: 0em;
+    /* Ancho de la barra de desplazamiento */
+  }
+  
+  .Equipos::-webkit-scrollbar-thumb {
+    border-top-right-radius: 20px;
+    background-color: #fff;
+    /* Color del pulgar de la barra de desplazamiento */
+  }
