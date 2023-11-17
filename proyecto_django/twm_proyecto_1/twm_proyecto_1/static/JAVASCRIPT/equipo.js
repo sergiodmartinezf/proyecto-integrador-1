@@ -67,12 +67,10 @@ function crearEquipo() {
                       'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
               },
               success: function (response) {
-                alert("FUNCA"); // SERGIO
                 console.log(response);
                 window.location.href = "/calendario/"; // REDIRECCION A CALENDARIO
               },
               error: function (error) {
-                alert("NO FUNCA"); // SERGIO 
                 console.log(error);
               }
             });
@@ -103,14 +101,10 @@ function unirmeAEquipo() {
                       'csrfmiddlewaretoken': $('[name="csrfmiddlewaretoken"]').val(),
               },
               success: function (response) {
-                alert("FUNCA"); // SERGIO
-                alert(response); // SERGIO
                 console.log(response);
                 window.location.href = "/calendario/"; // REDIRECCION A CALENDARIO
               },
               error: function (error) {
-                alert("NO FUNCA"); // SERGIO
-                alert(error); // SERGIO
                 console.log(error);
               }
             });
