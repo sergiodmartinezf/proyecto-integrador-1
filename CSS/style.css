@@ -21,6 +21,45 @@ html, body {
   margin-top: 0;
   padding-bottom: 35px;
 }
+#tittleplus {
+  display: flex;
+  align-items: center;
+}
+
+#tittleplus h4 {
+  font-weight: 100;
+  margin-bottom: 8px;
+  font-size: 15px;
+  margin-right: 10px; /* Ajusta la distancia entre el h4 y el símbolo "+" */
+}
+
+#tittleplus ul {
+  list-style: none;
+  margin: 0; /* Elimina el margen predeterminado de la lista */
+  padding: 0;
+}
+
+#tittleplus ul li a {
+  text-decoration: none;
+}
+
+#tittleplus ul li {
+  margin: 0;
+}
+
+#tittleplus ul li a::before {
+  content: '+';
+  display: inline-block;
+  width: 25px; /* Ajusta el tamaño del círculo */
+  height: 25px; /* Ajusta el tamaño del círculo */
+  background-color: #064469; /* Color del círculo */
+  color: #fff;
+  border-radius: 50%; /* Hace que el contenido esté dentro de un círculo */
+  text-align: center;
+  line-height: 25px; /* Centra el contenido verticalmente en el círculo */
+  margin-right: 5px; /* Ajusta la distancia entre el círculo y el texto */
+  font-size: 18px; /* Ajusta el tamaño del símbolo "+" */
+}
 
 h4
 {
