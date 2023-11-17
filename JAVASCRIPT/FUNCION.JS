@@ -516,17 +516,7 @@ function agregarBotonesAIntegrantes() {
       // Llama a la función para agregar botones con la información de la fila
       agregarBotonesFilaIntegrantes(fila);
   }
-}
-// Función para agregar botones a la fila de la tabla "tareas-table"
-function agregarBotonesFilaTareas(fila, selectedDay, selectedMonth, selectedYear) {
-// Agregar celdas para los botones a la fila
-const fechaEntrega = selectedDay + '/' + selectedMonth + '/' + selectedYear;
-var celdaMasOpciones = fila.insertCell(3);
-// Crear y agregar el botón con tres puntos suspensivos
-var botonMasOpciones = document.createElement("button");
-botonMasOpciones.innerHTML = 'Iniciar';
-botonMasOpciones.className = "Iniciar-button";
-// Función para agregar botones a la fila de la tabla "tareas-table"
+}// Función para agregar botones a la fila de la tabla "tareas-table"
 function agregarBotonesFilaTareas(fila, selectedDay, selectedMonth, selectedYear) {
   // Agregar celdas para los botones a la fila
   const fechaEntrega = selectedDay + '/' + selectedMonth + '/' + selectedYear;
@@ -534,14 +524,27 @@ function agregarBotonesFilaTareas(fila, selectedDay, selectedMonth, selectedYear
 
   // Crear y agregar el botón con tres puntos suspensivos
   var botonMasOpciones = document.createElement("button");
-  botonMasOpciones.innerHTML = 'Iniciar';
-  botonMasOpciones.className = "Iniciar-button";
-  
-}
+  botonMasOpciones.innerHTML = '<i class="material-icons">more_vert</i>';
+  botonMasOpciones.className = "more-options-button";
+
+  // Agregar evento click al botón
+  botonMasOpciones.addEventListener("click", () => {
+    // Obtener el contenido del elemento <p> con el ID descLabel
+    const descLabel = document.getElementById('descLabel').innerHTML;
+
+    // Muestra SweetAlert con el contenido del elemento
+    Swal.fire({
+      title: 'Descripción',
+      html: descLabel,
+      showCancelButton: false,
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#3085d6',
+    });
+  });
+
   // Agregar los botones a las celdas correspondientes
   celdaMasOpciones.appendChild(botonMasOpciones);
 }
-
 
 // Función para agregar botones a todas las filas de la tabla "tareas-table"
 function agregarBotonesATareas(selectedDay,selectedMonth,selectedYear) {
